@@ -23,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
+            android:paddingVertical="20dp"
+
             android:background="@drawable/rounded_white"
             android:textColorHint="@color/silver"
             android:hint="이름"
@@ -35,8 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
+            android:paddingVertical="20dp"
             android:background="@drawable/rounded_white"
             android:textColorHint="@color/silver"
             android:hint="전화번호"
@@ -47,8 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
+            android:paddingVertical="20dp"
             android:background="@drawable/rounded_white"
             android:textColorHint="@color/silver"
             android:hint="이메일"
@@ -64,10 +62,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginBottom="10dp"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:paddingTop="20dp"
             android:paddingBottom="15dp"
-            android:text="회원가입"/>
+            android:text="다음"/>
     </LinearLayout>
 
 
