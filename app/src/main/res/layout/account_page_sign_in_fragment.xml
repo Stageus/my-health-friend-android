@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountActivity"
-    android:background="@drawable/main_theme_color">
+    tools:context=".AccountActivity">
     <LinearLayout
         android:id="@+id/editTextLayout"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.8"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,7 +17,6 @@
         <EditText
             android:id="@+id/idEditText"
             android:layout_width="match_parent"
-            app:layout_constraintWidth_percent="0.8"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
             android:paddingTop="10dp"
@@ -32,7 +29,6 @@
             android:layout_marginTop="10dp"
             android:id="@+id/pwEditText"
             android:layout_width="match_parent"
-            app:layout_constraintWidth_percent="0.8"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
             android:paddingTop="10dp"
@@ -45,8 +41,7 @@
 
     <LinearLayout
         android:id="@+id/btnLayout"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.8"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         app:layout_constraintTop_toBottomOf="@id/editTextLayout"
@@ -81,8 +76,6 @@
             android:textSize="15dp"
             android:text="혹시 비밀번호를 잊으셨나요?"
             />
-
-        
     </LinearLayout>
 
 
