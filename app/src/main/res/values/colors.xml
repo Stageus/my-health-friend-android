@@ -9,6 +9,7 @@
     <color name="gray">#FF46494F</color>
     <color name="bright_silver">#FFE9E9E9</color>
     <color name="line_color">#E1E1E1</color>
+    <color name="semi_gray">#EEEEEE</color>
 
 
 </resources>
