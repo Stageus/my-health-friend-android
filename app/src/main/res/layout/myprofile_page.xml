@@ -6,46 +6,32 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingTop="20dp"
+        android:paddingBottom="35dp"
         android:id="@+id/profileLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/signature_color"
         app:layout_constraintTop_toTopOf="parent">
-        <LinearLayout
-            android:layout_marginVertical="10dp"
-            android:id="@+id/profileImageAndName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
 
+        <Button
+            android:id="@+id/symbol"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/circle_white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:orientation="vertical">
-            <ImageButton
-                android:id="@+id/profileImage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:background="@drawable/circle_white"/>
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="갓효석"
-                android:textSize="20dp"
-                android:textColor="@color/white"/>
-        </LinearLayout>
-
+            app:layout_constraintWidth_percent="0.3"/>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/profileImageAndName">
+            app:layout_constraintStart_toEndOf="@id/symbol">
         </LinearLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <LinearLayout
