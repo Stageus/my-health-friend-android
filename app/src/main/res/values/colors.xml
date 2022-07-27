@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="signature_color">#FF8AAAE5</color>
+    <color name="signature_color2">#FF5865F2</color>
+    <color name="signature_bright_color">#FFC5D5f2</color>
+    <color name="silver">#FFB9B9B9</color>
+    <color name="gray">#FF46494F</color>
+    <color name="bright_silver">#FFE9E9E9</color>
+    <color name="line_color">#E1E1E1</color>
+
+
+</resources>
