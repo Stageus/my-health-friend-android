@@ -3,6 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/board_page_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/board_page_list_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/board_page_list_view.xml" value="0.264" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/chatting_list_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/chatting_list_view.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1385" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/drawable-v24/main_theme_color.xml" value="0.1385" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/drawable-v24/rounded_bright_silver.xml" value="0.1385" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/drawable-v24/rounded_gray.xml" value="0.1385" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/drawable-v24/rounded_signature_bright_purple.xml" value="0.1385" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/drawable-v24/rounded_signature_purple.xml" value="0.1385" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1385" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/drawable/rounded_signature_purple2.xml" value="0.1385" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/layout/board_page_layout.xml" value="0.2" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/layout/board_page_list_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/layout/chatting_list_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/layout/chatting_list_view.xml" value="0.264" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1385" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1385" />
+=======
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1885" />
         <entry key="app/src/main/res/drawable/circle_white.xml" value="0.1885" />
         <entry key="app/src/main/res/drawable/gradiant.xml" value="0.1885" />
@@ -40,6 +63,7 @@
         <entry key="app/src/main/res/layout/matching_data_customview.xml" value="0.2828125" />
         <entry key="app/src/main/res/layout/matcing_history_page.xml" value="0.2828125" />
         <entry key="app/src/main/res/layout/myprofile_page.xml" value="0.37015991210937504" />
+>>>>>>> 6fc1e13b02ae4b37fea618aae2155e4d7544e7dd
       </map>
     </option>
   </component>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/hallym_medium"
+            android:text="송도2동 다닐만한 헬스장 추천해주세요!"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:fontFamily="@font/hallym_medium"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:textColor="@color/line_color"
+            android:textSize="20dp"
+            android:text="지인들이랑 다니려는데.."
+            />
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:fontFamily="@font/hallym_medium"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:layout_height="match_parent"
+                android:text="추천수"
+                android:textColor="@color/black"/>
+            <TextView
+                android:fontFamily="@font/hallym_medium"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:text="3"/>
+            <TextView
+                android:fontFamily="@font/hallym_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/black"
+                android:text="댓글"
+                android:textSize="20dp"/>
+            <TextView
+                android:fontFamily="@font/hallym_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/black"
+                android:text="2"
+                android:textSize="20dp"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:fontFamily="@font/hallym_medium"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="1시간 전"
+                android:textColor="@color/line_color"
+                android:textSize="20dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
