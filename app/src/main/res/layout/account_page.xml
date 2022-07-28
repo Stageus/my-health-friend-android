@@ -8,7 +8,7 @@
     android:background="@drawable/main_theme_color">
 
     <FrameLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/fragmentBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintWidth_percent="0.8"
