@@ -155,10 +155,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
 <<<<<<< HEAD
+<<<<<<< HEAD
                 android:src="@mipmap/red_heart"/>
 =======
                 android:src="@mipmap/RedHeart"/>
 >>>>>>> 12c0d338f4d69003c4dd4cdd59a7919965e8e8cd
+=======
+                android:src="@mipmap/red_heart"/>
+>>>>>>> bf0558a3e2b104f1458caa7de6b27198aa8c91aa
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
