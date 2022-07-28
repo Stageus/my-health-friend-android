@@ -11,6 +11,8 @@
     android:paddingBottom="10dp"
     android:layout_marginTop="20dp"
     android:orientation="vertical">
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,14 +58,6 @@
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="5분전"
-        android:textColor="@color/black"
-        android:layout_gravity="right"
-        android:layout_marginRight="20dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,7 +70,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="프로필 이동"
+            android:text="Button1"
             android:textSize="20dp"
             android:textColor="@color/white"
             android:layout_height="wrap_content"
@@ -86,7 +80,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="메세지 보기"
+            android:text="Button2"
             android:textSize="20dp"
             android:textColor="@color/white"
             android:layout_height="wrap_content"
