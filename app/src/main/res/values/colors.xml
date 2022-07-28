@@ -10,6 +10,7 @@
     <color name="bright_silver">#FFE9E9E9</color>
     <color name="line_color">#E1E1E1</color>
     <color name="semi_gray">#EEEEEE</color>
+    <color name="red">#FF0000</color>
 
 
 </resources>
