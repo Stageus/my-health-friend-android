@@ -154,7 +154,7 @@
                 app:layout_constraintStart_toEndOf="@+id/nameImageLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@mipmap/RedHeart"/>
+                android:src="@mipmap/red_heart"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
