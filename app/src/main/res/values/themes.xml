@@ -9,6 +9,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name ="android:buttonStyle">@style/MyButtonStyle</item>
         <item name="android:fontFamily">@font/jalnan</item>
+        <item name="android:editTextColor">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
     <style name="MyButtonStyle">
