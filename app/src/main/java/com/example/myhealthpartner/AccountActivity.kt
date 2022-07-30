@@ -9,7 +9,6 @@ interface ChangeFragment{
 }
 
 class AccountActivity : AppCompatActivity(), ChangeFragment {
-    var fragmentCount = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.account_page)
@@ -37,13 +36,6 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
 
     override fun onBackPressed() {
         super.onBackPressed()
-    }
-
-    fun increaseFragmentCount(){
-        fragmentCount += 1
-    }
-    fun decreaseFragmentCount(){
-        fragmentCount -= 1
     }
 
 
