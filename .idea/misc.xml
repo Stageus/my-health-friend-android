@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/drawable/circle_gray.xml" value="0.1275" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1115" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/drawable/reverse_triangle.xml" value="0.1115" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/drawable/right_line_rect.xml" value="0.1115" />
         <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/account_page.xml" value="0.12335359675785208" />
         <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/account_page_find_pw_fragment.xml" value="0.12335359675785208" />
         <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/account_page_sign_in_fragment.xml" value="0.2" />
@@ -36,6 +39,7 @@
         <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/myprofile_page.xml" value="0.1" />
         <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/navi_header.xml" value="0.13229166666666667" />
         <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/navi_test.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/repair_layout.xml" value="0.2" />
         <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/test_navi.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/test_navigation.xml" value="0.15364583333333334" />
         <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/tst_navi.xml" value="0.2" />
