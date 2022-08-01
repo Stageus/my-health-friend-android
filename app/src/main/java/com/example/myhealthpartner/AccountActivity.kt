@@ -1,7 +1,10 @@
 package com.example.myhealthpartner
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import androidx.fragment.app.FragmentTransaction
 
 interface ChangeFragment{
@@ -27,6 +30,9 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
                 transaction.replace(R.id.fragmentBox, signupFragment1)
                 transaction.addToBackStack(null).commitAllowingStateLoss()
             }
+            2-> {
+                signinSequence()
+            }
             4 -> {
                 val findpwFragment = AccountPage_FindPwFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, findpwFragment).addToBackStack(null).commitAllowingStateLoss()
@@ -43,4 +49,18 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
         val accountPageSigninFragment = AccountPage_SignInFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, accountPageSigninFragment).commit()
     }
+
+    fun signinSequence(){
+        //shared preference 세팅
+        //만약 통과를 했고, 첫번째 접속하는 계정이라면,
+        Log.d("error code:","error detect")
+        val intent = Intent(this,ProfileCreateActivity::class.java)
+        //intent.putExtra("userid", )
+        startActivity(intent)
+        // 만약 통과를 했고, 두번째 접속하는 계정이라면,
+        //val intent = Intent(this,ProfileCreateActivity::class.java)
+        //intent.putExtra("userid", )
+        //startActivity(intent)
+    }
+
 }
