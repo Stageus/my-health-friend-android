@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainpageMatchingFragment).commit()
 
         val mainpageMatchRecieveFragment = MainPage_Match_Recieve_Fragment()
-        val matchRecieveBtn = findViewById<ImageButton>(R.id.recieveMatchBtn)
+        val matchRecieveBtn = findViewById<ImageButton>(R.id.notiBtn)
         matchRecieveBtn.setOnClickListener{
             supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainpageMatchRecieveFragment).commit()
         }
