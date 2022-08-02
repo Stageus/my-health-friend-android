@@ -34,7 +34,7 @@ class MainPage_MatchingFragment : Fragment() {
     fun choiceDialog() {
         val builder = AlertDialog.Builder(ContextThemeWrapper(context, R.style.AlertDialogCustom))
         val selectionItem: ArrayList<String> = arrayListOf()
-        builder.setTitle("Test")
+        builder.setTitle("운동")
         builder.setMultiChoiceItems(R.array.fitnessList, null) { p0, which, isChecked ->
 
             val fitness: Array<String> = resources.getStringArray(R.array.fitnessList)
