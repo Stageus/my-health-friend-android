@@ -23,14 +23,18 @@ class AccountPage_SignInFragment : Fragment() {
 
     fun initEvent(myView: View){
         val changeFragment = context as ChangeFragment
+        val singinBtn = myView.findViewById<Button>(R.id.signInBtn)
         val signupBtn = myView.findViewById<Button>(R.id.signUpBtn)
         val findPwText = myView.findViewById<TextView>(R.id.findPwText)
+
+        singinBtn.setOnClickListener {
+            changeFragment.change(2)
+        }
         signupBtn.setOnClickListener {
             changeFragment.change(1)
         }
         findPwText.setOnClickListener{
             changeFragment.change(4)
-
         }
     }
 }
