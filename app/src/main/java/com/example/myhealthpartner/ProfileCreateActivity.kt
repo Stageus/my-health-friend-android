@@ -31,21 +31,21 @@ class ProfileCreateActivity : AppCompatActivity() {
         }
         val findAdressBtn = findViewById<Button>(R.id.findAdressBtn)
         findAdressBtn.setOnClickListener{
-            val addressInput = findViewById<EditText>(R.id.addressEditText)
-            val geocoder = Geocoder(this);
-            val str: String = addressInput.getText().toString()
-            var list = geocoder.getFromLocationName(str, 10)
-            if (list != null) {
-                val city = ""
-                val country = ""
-                if (list.size == 0) {
-                    //address_result.setText("올바른 주소를 입력해주세요. ")
-                } else {
-                    val address: Address = list.get(0)
-                    val lat: Double = address.getLatitude()
-                    val lon: Double = address.getLongitude()
-                }
-            }
+//            val addressInput = findViewById<EditText>(R.id.addressEditText)
+//            val geocoder = Geocoder(this);
+//            val str: String = addressInput.getText().toString()
+//            var list = geocoder.getFromLocationName(str, 10)
+//            if (list != null) {
+//                val city = ""
+//                val country = ""
+//                if (list.size == 0) {
+//                    //address_result.setText("올바른 주소를 입력해주세요. ")
+//                } else {
+//                    val address: Address = list.get(0)
+//                    val lat: Double = address.getLatitude()
+//                    val lon: Double = address.getLongitude()
+//                }
+//            }
 
             val dialogTemp = AlertDialog.Builder(this)
             val dialog = dialogTemp.create()
