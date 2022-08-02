@@ -19,19 +19,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <TextView
+            <EditText
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="5"
-                android:background="@drawable/rounded_bright_silver"
-                android:hint="운동장르"
+                android:layout_height="wrap_content"
                 android:paddingHorizontal="20dp"
                 android:paddingTop="20dp"
                 android:paddingBottom="15dp"
+                android:background="@drawable/rounded_bright_silver"
                 android:textColorHint="@color/silver"
-                android:textSize="20dp" />
-
+                android:hint="운동장르"
+                android:textSize="20dp"/>
             <ImageButton
                 android:id="@+id/fitnessListBtn"
                 android:layout_width="0dp"
@@ -49,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <TextView
+            <EditText
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -85,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <TextView
+            <EditText
                 android:layout_width="0dp"
                 android:layout_weight="5"
                 android:layout_height="wrap_content"
