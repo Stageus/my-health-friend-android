@@ -41,7 +41,7 @@ class ProfileCreateActivity : AppCompatActivity() {
             dialog.setView(dialogView)
             dialog.show()
             findBtn.setOnClickListener{
-                val addressInput = findViewById<EditText>(R.id.addressEditText)git
+                val addressInput = findViewById<EditText>(R.id.addressEditText)
                 val geocoder = Geocoder(this);
                 val str: String = addressInput.getText().toString()
                 var list = geocoder.getFromLocationName(str, 10)
