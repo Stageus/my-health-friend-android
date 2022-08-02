@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <TextView
+                <EditText
                     android:id="@+id/questionTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
