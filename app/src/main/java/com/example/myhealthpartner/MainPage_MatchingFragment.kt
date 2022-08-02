@@ -1,6 +1,5 @@
 package com.example.myhealthpartner
 
-<<<<<<< HEAD
 import android.app.AlertDialog
 import android.media.Image
 import android.os.Bundle
@@ -10,14 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.DialogFragment
-=======
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
->>>>>>> 7cafa10ff3b9160e7e2835fe83fe335b5350ae1f
 import androidx.fragment.app.Fragment
 
 class MainPage_MatchingFragment : Fragment() {
@@ -30,9 +21,9 @@ class MainPage_MatchingFragment : Fragment() {
         initEvent(view)
         return view
     }
-<<<<<<< HEAD
 
-    fun initEvent(myView : View){
+
+    fun initEvent(myView: View) {
         val fitnessListBtn = myView.findViewById<ImageButton>(R.id.fitnessListBtn)
         fitnessListBtn.setOnClickListener {
             choiceDialog()
@@ -40,47 +31,33 @@ class MainPage_MatchingFragment : Fragment() {
         }
     }
 
-    fun choiceDialog(){
+    fun choiceDialog() {
         val builder = AlertDialog.Builder(ContextThemeWrapper(context, R.style.AlertDialogCustom))
         val selectionItem: ArrayList<String> = arrayListOf()
         builder.setTitle("Test")
-        builder.setMultiChoiceItems(R.array.fitnessList, null){
-            p0, which, isChecked ->
+        builder.setMultiChoiceItems(R.array.fitnessList, null) { p0, which, isChecked ->
 
-            val fitness : Array<String> = resources.getStringArray(R.array.fitnessList)
+            val fitness: Array<String> = resources.getStringArray(R.array.fitnessList)
 
-            if(isChecked){
+            if (isChecked) {
                 selectionItem.add(fitness[which])
-            }
-            else{
+            } else {
                 selectionItem.remove(fitness[which])
             }
         }
 
-        builder.setPositiveButton("ok"){
-            p0, p1 ->
+        builder.setPositiveButton("ok") { p0, p1 ->
             var selections = ArrayList<String>()
-            for(item: String in selectionItem){
+            for (item: String in selectionItem) {
                 selections.add(item)
             }
         }
 
-        builder.setNegativeButton("cancel"){
-            dialog, p1 -> dialog.cancel()
+        builder.setNegativeButton("cancel") { dialog, p1 ->
+            dialog.cancel()
         }
         builder.show()
     }
-
-
-
-=======
-    fun initEvent(myView: View){
-        val matchingstartBtn = myView.findViewById<Button>(R.id.matchingstartBtn)
-        val changeMainpageFragment = context as ChangeMainpageFragment
-
-        matchingstartBtn.setOnClickListener{
-            changeMainpageFragment.change(2)
-        }
-    }
->>>>>>> 7cafa10ff3b9160e7e2835fe83fe335b5350ae1f
 }
+
+
