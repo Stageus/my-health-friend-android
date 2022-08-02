@@ -2,8 +2,9 @@
     <string name="app_name">MyHealthPartner</string>
     
     <string-array name="fitnessList">
-        <item>Test1</item>
-        <item>Test2</item>
-        <item>Test3</item>
+        <item>파워리프팅</item>
+        <item>보디빌딩</item>
+        <item>크로스핏</item>
+        <item>기타</item>
     </string-array>
 </resources>

@@ -12,7 +12,7 @@
         >
         <TextView
             android:layout_marginLeft="10dp"
-            android:fontFamily="@font/hallym_medium"
+            android:fontFamily="@font/nanum_square_regular"
             android:text="송도2동 다닐만한 헬스장 추천해주세요!"
             android:textSize="20dp"
             android:textColor="@color/black"
@@ -21,7 +21,7 @@
             android:layout_weight="1"
             />
         <TextView
-            android:fontFamily="@font/hallym_medium"
+            android:fontFamily="@font/nanum_square_regular"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
             android:orientation="horizontal"
             >
             <TextView
-                android:fontFamily="@font/hallym_medium"
+                android:fontFamily="@font/nanum_square_regular"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:textSize="20dp"
@@ -47,7 +47,7 @@
                 android:text="추천수"
                 android:textColor="@color/black"/>
             <TextView
-                android:fontFamily="@font/hallym_medium"
+                android:fontFamily="@font/nanum_square_regular"
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -55,7 +55,7 @@
                 android:textSize="20dp"
                 android:text="3"/>
             <TextView
-                android:fontFamily="@font/hallym_medium"
+                android:fontFamily="@font/nanum_square_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="30dp"
@@ -63,7 +63,7 @@
                 android:text="댓글"
                 android:textSize="20dp"/>
             <TextView
-                android:fontFamily="@font/hallym_medium"
+                android:fontFamily="@font/nanum_square_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
@@ -76,7 +76,7 @@
                 android:layout_weight="1"/>
 
             <TextView
-                android:fontFamily="@font/hallym_medium"
+                android:fontFamily="@font/nanum_square_regular"
                 android:layout_marginRight="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
