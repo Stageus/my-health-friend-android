@@ -41,12 +41,12 @@ class ProfileCreateActivity : AppCompatActivity() {
             dialog.setView(dialogView)
             dialog.show()
             findBtn.setOnClickListener{
-                val addressInput = findViewById<EditText>(R.id.addressEditText)
+                val addressInput = findViewById<EditText>(R.id.addressEditText)git
                 val geocoder = Geocoder(this);
                 val str: String = addressInput.getText().toString()
                 var list = geocoder.getFromLocationName(str, 10)
                 if (list != null) {
-                    val city = ""a
+                    val city = ""
                     val country = ""
                     if (list.size == 0) {
                         //address_result.setText("올바른 주소를 입력해주세요. ")
