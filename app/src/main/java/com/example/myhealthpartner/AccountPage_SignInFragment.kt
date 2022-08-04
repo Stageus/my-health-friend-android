@@ -21,6 +21,10 @@ class AccountPage_SignInFragment : Fragment() {
         return view
     }
 
+    fun initData(){
+        val jsonString : String
+    }
+
     fun initEvent(myView: View){
         val changeFragment = context as ChangeFragment
         val singinBtn = myView.findViewById<Button>(R.id.signInBtn)
