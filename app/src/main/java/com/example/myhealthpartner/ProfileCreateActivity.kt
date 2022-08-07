@@ -46,7 +46,7 @@ class ProfileCreateActivity : AppCompatActivity() {
                 val str: String = addressInput.getText().toString()
                 var list = geocoder.getFromLocationName(str, 10)
                 if (list != null) {
-                    val city = ""a
+                    val city = ""
                     val country = ""
                     if (list.size == 0) {
                         //address_result.setText("올바른 주소를 입력해주세요. ")

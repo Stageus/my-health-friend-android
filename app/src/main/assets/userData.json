@@ -15,48 +15,28 @@
           "nickname": "agu",
           "address": "인천광역시 남동구 논현동",
           "exerciseType": "피트니스",
-          "age": "",
+          "age": 23,
           "exerciseTime": "낮"
         }
       ]
     },
     {
-      "id": "test1",
+      "id": "test",
       "pw": "123",
       "userDataList": [
         {
-          "name": "Seok",
-          "tel": "01012345678",
-          "email": "wow@naver.com"
+          "name": "song",
+          "tel": "0102123123",
+          "email": "dudgus907@naver.com"
         }
       ],
       "findUserDataList": [
         {
-          "nickname": "star",
-          "address": "서울특별시 서초구",
-          "exerciseType": "보디빌딩",
-          "age": "24",
-          "exerciseTime": "새벽"
-        }
-      ]
-    },
-    {
-      "id": "test2",
-      "pw": "123",
-      "userDataList": [
-        {
-          "name": "park",
-          "tel": "01023241232",
-          "email": "dneow@naver.com"
-        }
-      ],
-      "findUserDataList": [
-        {
-          "nickname": "star",
-          "address": "서울특별시 서초구",
-          "exerciseType": "보디빌딩",
-          "age": "25",
-          "exerciseTime": "낮"
+          "nickname": "",
+          "address": "",
+          "exerciseType": "",
+          "age": null,
+          "exerciseTime": ""
         }
       ]
     }

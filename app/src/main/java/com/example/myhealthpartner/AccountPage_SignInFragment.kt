@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.gson.Gson
 import org.w3c.dom.Text
+import java.net.Inet4Address
 
 class AccountPage_SignInFragment : Fragment() {
     override fun onCreateView(
@@ -16,23 +19,69 @@ class AccountPage_SignInFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view = inflater.inflate(R.layout.account_page_sign_in_fragment, container, false)
-        initEvent(view)
+        val userData = initData()
+        initEvent(view, userData!!)
         return view
     }
 
-    fun initData(){
-        val jsonString : String
-    }
+    fun initData(): UserData? { //json파일 읽어오기 작업
+        val jsonObject : String
+        jsonObject = requireActivity().assets.open("userData.json").bufferedReader().use { it.readText() }
+        val gson = Gson()
+        val userData = gson.fromJson(jsonObject, UserData::class.java)
+        return userData
 
-    fun initEvent(myView: View){
+    }
+    data class UserData(
+        val user : ArrayList<User>
+    )
+
+    data class User(
+        val id : String,
+        val pw : String,
+        val userDataList : ArrayList<UserDataList>,
+        val findUserDataList : ArrayList<FindUserDataList>
+
+    )
+    data class UserDataList(
+        val name : String,
+        val tel : String,
+        val email : String
+    )
+
+    data class FindUserDataList(
+        val nickname : String,
+        val address : String,
+        val exerciseType : String,
+        val age : Int,
+        val exerciseTime : String
+    )
+
+    fun initEvent(myView: View, userData : UserData){
+        Log.d("size", userData.user.size.toString())
         val changeFragment = context as ChangeFragment
         val singinBtn = myView.findViewById<Button>(R.id.signInBtn)
         val signupBtn = myView.findViewById<Button>(R.id.signUpBtn)
         val findPwText = myView.findViewById<TextView>(R.id.findPwText)
 
         singinBtn.setOnClickListener {
-            changeFragment.change(2)
+            val enterId = myView.findViewById<EditText>(R.id.idEditText).text
+            val enterPw = myView.findViewById<EditText>(R.id.pwEditText).text
+            for(index in 0 until userData.user.size){
+                Log.d("msg", userData.user[index].id + enterId.toString())
+
+                if(userData.user[index].id == enterId.toString()){
+                    if(userData.user[index].pw == enterPw.toString()){
+                        changeFragment.change(2)
+                    }
+                    else{
+                        
+                    }
+                }
+            }
+
         }
         signupBtn.setOnClickListener {
             changeFragment.change(1)
