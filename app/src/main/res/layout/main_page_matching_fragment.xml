@@ -61,11 +61,11 @@
                 android:textSize="20dp"/>
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:paddingHorizontal="5dp"
-                android:paddingTop="25dp"
-                android:paddingBottom="17dp"
+
                 android:background="@drawable/rounded_gray"
+                android:gravity="center"
                 android:text="위치찾기"
                 android:textSize="15dp"
                 />
