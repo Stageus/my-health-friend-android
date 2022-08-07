@@ -1,5 +1,6 @@
 package com.example.myhealthpartner
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -67,6 +68,9 @@ class AccountPage_SignInFragment : Fragment() {
         val findPwText = myView.findViewById<TextView>(R.id.findPwText)
 
         singinBtn.setOnClickListener {
+            val dialog = AlertDialog.Builder(context)
+            val dialog2 = dialog.create()
+
             val enterId = myView.findViewById<EditText>(R.id.idEditText).text
             val enterPw = myView.findViewById<EditText>(R.id.pwEditText).text
             for(index in 0 until userData.user.size){
@@ -77,8 +81,30 @@ class AccountPage_SignInFragment : Fragment() {
                         changeFragment.change(2)
                     }
                     else{
-                        
+                        val dialogTemp2 = AlertDialog.Builder(context)
+                        val dialog2 = dialogTemp2.create()
+                        val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog,null)
+                        val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
+                        alertMessage.text = "아이디 또는 비밀번호를 확인해주세요"
+                        dialog2.setView(dialogViewTemp)
+                        dialog2.show()
+                        dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener{
+                            dialog2.dismiss()
+                        }
                     }
+                }
+                else{
+                    val dialogTemp2 = AlertDialog.Builder(context)
+                    val dialog2 = dialogTemp2.create()
+                    val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog,null)
+                    val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
+                    alertMessage.text = "아이디 또는 비밀번호를 확인해주세요"
+                    dialog2.setView(dialogViewTemp)
+                    dialog2.show()
+                    dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener{
+                        dialog2.dismiss()
+                    }
+
                 }
             }
 
