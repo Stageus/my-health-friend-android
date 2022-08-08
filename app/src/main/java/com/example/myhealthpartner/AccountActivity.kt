@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 
 interface ChangeFragment{
@@ -23,6 +25,8 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
             0 -> {
                 val signinFragment = AccountPage_SignInFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, signinFragment).commit()
+                supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+
             }
             1 -> {
                 val signupFragment1 = AccountPage_SignUp1Fragment()
@@ -31,11 +35,25 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
                 transaction.addToBackStack(null).commitAllowingStateLoss()
             }
             2-> {
-                signinSequence()
+                val signup2Fragment = AccountPage_SingUp2Fragment()
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.fragmentBox, signup2Fragment)
+                transaction.addToBackStack(null).commitAllowingStateLoss()
+            }
+            3 -> {
+                val signup3Fragment = AccountPage_SignUp3Fragment()
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.fragmentBox, signup3Fragment)
+                transaction.addToBackStack(null).commitAllowingStateLoss()
+
             }
             4 -> {
-                val findpwFragment = AccountPage_FindPwFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, findpwFragment).addToBackStack(null).commitAllowingStateLoss()
+                val intent = Intent(applicationContext, ProfileCreateActivity::class.java)
+                startActivity(intent)
+            }
+            5 -> {
+                val intent = Intent(applicationContext, MainActivity::class.java)
+                startActivity(intent)
             }
         }
     }

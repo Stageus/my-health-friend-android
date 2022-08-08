@@ -51,6 +51,7 @@ class ProfileCreateActivity : AppCompatActivity() {
         createProfile.setOnClickListener{
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
         val findAdressBtn = findViewById<Button>(R.id.findAdressBtn)
         findAdressBtn.setOnClickListener{
