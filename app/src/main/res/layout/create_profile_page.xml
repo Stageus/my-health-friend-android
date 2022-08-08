@@ -107,14 +107,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="5dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
                 android:background="@drawable/rounded_white"
                 android:textColorHint="@color/silver"
-                android:hint="자기소개입력\n\n\n\n\n\n\n\n\n\n\n\n"
+                android:hint="자기소개입력"
                 android:textSize="20dp"
-                android:maxLength="250"
-                android:inputType="text"/>
+                android:maxLength="250"/>
 
 
 

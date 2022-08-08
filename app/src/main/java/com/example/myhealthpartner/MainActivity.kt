@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 
 interface ChangeMainpageFragment{
     fun change(requestData : Int)
@@ -36,6 +38,11 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
     }
 
     fun initEvent(){
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
+        val testBtn = findViewById<ImageButton>(R.id.navBtn)
+        testBtn.setOnClickListener{
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
         val mainpageMatchingFragment = MainPage_MatchingFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainpageMatchingFragment).commit()
 
