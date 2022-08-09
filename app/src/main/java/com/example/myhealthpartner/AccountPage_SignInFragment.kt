@@ -130,7 +130,7 @@ class AccountPage_SignInFragment : Fragment() {
             changeFragment.change(1)
         }
         findPwText.setOnClickListener{
-            changeFragment.change(4)
+            changeFragment.change(6)
         }
     }
 
