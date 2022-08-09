@@ -6,9 +6,8 @@ import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.lang.Exception
 import java.util.*
@@ -18,6 +17,8 @@ class ProfileCreateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_profile_page)
+        val checkboxLinear = findViewById<LinearLayout>(R.id.checkboxLinear)
+        checkboxLinear.visibility = View.GONE
         initEvent()
     }
 
@@ -47,7 +48,19 @@ class ProfileCreateActivity : AppCompatActivity() {
 
 
     fun initEvent(){
+        val checkboxLinear = findViewById<LinearLayout>(R.id.checkboxLinear)
+        val fitnessListBtn = findViewById<ImageButton>(R.id.fitnessListBtn)
+
+        fitnessListBtn.setOnClickListener {
+            if(checkboxLinear.visibility == View.GONE){
+                checkboxLinear.visibility = View.VISIBLE
+            }
+            else{
+                checkboxLinear.visibility = View.GONE
+            }
+        }
         val createProfile = findViewById<Button>(R.id.createProfileBtn)
+
         createProfile.setOnClickListener{
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)

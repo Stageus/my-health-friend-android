@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white">
     <LinearLayout
+        android:animateLayoutChanges="true"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +16,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical">
         <LinearLayout
-            android:layout_marginBottom="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -42,8 +42,56 @@
                 android:scaleType="fitCenter"
                 android:padding="20dp"
                 android:textSize="20dp" />
+
         </LinearLayout>
         <LinearLayout
+            android:animateLayoutChanges="true"
+            android:id="@+id/checkboxLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="2dp">
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="test1"
+                android:textSize="20dp"
+                android:background="@drawable/rounded_bright_silver"
+                android:textColor="@color/black"
+                android:buttonTint="@color/black"/>
+            <CheckBox
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="test1"
+                android:textSize="20dp"
+                android:background="@drawable/rounded_bright_silver"
+                android:textColor="@color/black"
+                android:buttonTint="@color/black"/>
+            <CheckBox
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="test1"
+                android:textSize="20dp"
+                android:background="@drawable/rounded_bright_silver"
+                android:textColor="@color/black"
+                android:buttonTint="@color/black"/>
+            <CheckBox
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="test1"
+                android:textSize="20dp"
+                android:background="@drawable/rounded_bright_silver"
+                android:textColor="@color/black"
+                android:buttonTint="@color/black"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

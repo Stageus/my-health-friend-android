@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 
@@ -18,46 +19,30 @@ class MainPage_MatchingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.main_page_matching_fragment, container, false)
+        val checkboxLinear = view.findViewById<LinearLayout>(R.id.checkboxLinear)
+        checkboxLinear.visibility = View.GONE
         initEvent(view)
         return view
     }
 
 
     fun initEvent(myView: View) {
+        val checkboxLinear = myView.findViewById<LinearLayout>(R.id.checkboxLinear)
         val fitnessListBtn = myView.findViewById<ImageButton>(R.id.fitnessListBtn)
         fitnessListBtn.setOnClickListener {
-            choiceDialog()
+            if(checkboxLinear.visibility == View.GONE){
+                checkboxLinear.visibility = View.VISIBLE
+            }
+            else{
+                checkboxLinear.visibility = View.GONE
+            }
+
+
 
         }
     }
 
-    fun choiceDialog() {
-        val builder = AlertDialog.Builder(ContextThemeWrapper(context, R.style.AlertDialogCustom))
-        val selectionItem: ArrayList<String> = arrayListOf()
-        builder.setTitle("운동")
-        builder.setMultiChoiceItems(R.array.fitnessList, null) { p0, which, isChecked ->
 
-            val fitness: Array<String> = resources.getStringArray(R.array.fitnessList)
-
-            if (isChecked) {
-                selectionItem.add(fitness[which])
-            } else {
-                selectionItem.remove(fitness[which])
-            }
-        }
-
-        builder.setPositiveButton("ok") { p0, p1 ->
-            var selections = ArrayList<String>()
-            for (item: String in selectionItem) {
-                selections.add(item)
-            }
-        }
-
-        builder.setNegativeButton("cancel") { dialog, p1 ->
-            dialog.cancel()
-        }
-        builder.show()
-    }
 }
 
 
