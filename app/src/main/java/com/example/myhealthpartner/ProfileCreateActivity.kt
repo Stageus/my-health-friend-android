@@ -66,7 +66,7 @@ class ProfileCreateActivity : AppCompatActivity() {
             dialog1.show()
             findBtn.setOnClickListener{
                 try{
-                    val tempAddress = getGeocodeFromAddress("용정공원로 33")
+                    val tempAddress = getGeocodeFromAddress(editText.toString())
                     searchResultTextView.text = tempAddress.getAddressLine(0)
                 }
                 catch(e: Exception) {

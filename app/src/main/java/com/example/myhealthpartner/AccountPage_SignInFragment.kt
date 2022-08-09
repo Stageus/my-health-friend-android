@@ -1,6 +1,8 @@
 package com.example.myhealthpartner
 
 import android.app.AlertDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +15,7 @@ import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import org.w3c.dom.Text
 import java.net.Inet4Address
+import kotlin.math.log
 
 class AccountPage_SignInFragment : Fragment() {
     override fun onCreateView(
@@ -61,28 +64,31 @@ class AccountPage_SignInFragment : Fragment() {
     )
 
     fun initEvent(myView: View, userData : UserData){
+        val loginData = context?.getSharedPreferences("loginData", 0)
         var loginsuccess = false
-        Log.d("size", userData.user.size.toString())
         val changeFragment = context as ChangeFragment
         val singinBtn = myView.findViewById<Button>(R.id.signInBtn)
         val signupBtn = myView.findViewById<Button>(R.id.signUpBtn)
         val findPwText = myView.findViewById<TextView>(R.id.findPwText)
 
+        if(loginData?.getString("id", "no id") != "no id"){
+            changeFragment.change(5)
+        }
+
         singinBtn.setOnClickListener {
             val dialog = AlertDialog.Builder(context)
             val dialog2 = dialog.create()
-
             val enterId = myView.findViewById<EditText>(R.id.idEditText).text
             val enterPw = myView.findViewById<EditText>(R.id.pwEditText).text
             for(index in 0 until userData.user.size){
                 Log.d("msg", userData.user[1].findUserDataList[0].nickname)
-
                 if(userData.user[index].id == enterId.toString()){
                     if(userData.user[index].pw == enterPw.toString()){
                         if(userData.user[index].findUserDataList[0].nickname==""){
                             changeFragment.change(4)
                         }
-                        else{
+                        else{ //user의 프로필이 생성되어있는 경우
+                            setLoginData(loginData, userData, index)
                             changeFragment.change(5)
                         }
 
@@ -126,5 +132,16 @@ class AccountPage_SignInFragment : Fragment() {
         findPwText.setOnClickListener{
             changeFragment.change(4)
         }
+    }
+
+    //sharedpreference 설정
+    fun setLoginData(loginData : SharedPreferences?, userData : UserData, index : Int){
+        loginData?.edit()?.putString("id", userData.user[index].id)?.apply()
+        loginData?.edit()?.putString("pw", userData.user[index].pw)?.apply()
+        loginData?.edit()?.putString("nickname", userData.user[index].findUserDataList[0].nickname)?.apply()
+        loginData?.edit()?.putString("address", userData.user[index].findUserDataList[0].address)?.apply()
+        loginData?.edit()?.putString("exerciseType", userData.user[index].findUserDataList[0].exerciseType)?.apply()
+        loginData?.edit()?.putInt("age", userData.user[index].findUserDataList[0].age)
+        loginData?.edit()?.putString("exerciseTime", userData.user[index].findUserDataList[0].exerciseTime)?.apply()
     }
 }
