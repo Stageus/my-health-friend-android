@@ -161,8 +161,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/rounded_white"
                         android:text="test1"
-                        android:buttonTint="@color/black"
-                        android:textColor="@color/black"
+                        android:buttonTint="@color/silver"
+                        android:textColor="@color/silver"
                         />
                     <CheckBox
                         android:layout_marginTop="1dp"
@@ -171,8 +171,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/rounded_white"
                         android:text="test1"
-                        android:buttonTint="@color/black"
-                        android:textColor="@color/black"
+                        android:buttonTint="@color/silver"
+                        android:textColor="@color/silver"
                         />
                     <CheckBox
                         android:layout_marginTop="1dp"
@@ -181,8 +181,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/rounded_white"
                         android:text="test1"
-                        android:buttonTint="@color/black"
-                        android:textColor="@color/black"
+                        android:buttonTint="@color/silver"
+                        android:textColor="@color/silver"
                         />
                     <CheckBox
                         android:layout_marginTop="1dp"
@@ -191,8 +191,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/rounded_white"
                         android:text="test1"
-                        android:buttonTint="@color/black"
-                        android:textColor="@color/black"
+                        android:buttonTint="@color/silver"
+                        android:textColor="@color/silver"
                         />
 
 

@@ -36,7 +36,6 @@ class AccountPage_SignInFragment : Fragment() {
         val gson = Gson()
         val userData = gson.fromJson(jsonObject, UserData::class.java)
         return userData
-
     }
     data class UserData(
         val user : ArrayList<User>
@@ -76,8 +75,6 @@ class AccountPage_SignInFragment : Fragment() {
         }
 
         singinBtn.setOnClickListener {
-            val dialog = AlertDialog.Builder(context)
-            val dialog2 = dialog.create()
             val enterId = myView.findViewById<EditText>(R.id.idEditText).text
             val enterPw = myView.findViewById<EditText>(R.id.pwEditText).text
             for(index in 0 until userData.user.size){

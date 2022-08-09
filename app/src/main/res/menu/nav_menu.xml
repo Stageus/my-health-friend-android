@@ -12,10 +12,6 @@
     <item android:icon="@mipmap/nav_board_icon"
         android:title="게시판"/>
 
-    <item android:title=""
-        />
-    <item android:title="로그아웃"
-        android:icon="@mipmap/nav_logout_icon"/>
 
 
 
