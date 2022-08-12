@@ -146,6 +146,7 @@
             />
 
         <TextView
+            android:id="@+id/logoutTextView"
             android:fontFamily="@font/nanum_square_extrabold"
             android:paddingLeft="30dp"
             android:layout_width="0dp"

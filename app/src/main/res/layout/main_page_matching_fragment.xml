@@ -54,38 +54,38 @@
             <CheckBox
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="test1"
+                android:text="파워리프팅"
                 android:textSize="20dp"
                 android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/black"
-                android:buttonTint="@color/black"/>
+                android:textColor="@color/silver"
+                android:buttonTint="@color/silver"/>
             <CheckBox
                 android:layout_marginTop="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="test1"
+                android:text="보디빌딩"
                 android:textSize="20dp"
                 android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/black"
-                android:buttonTint="@color/black"/>
+                android:textColor="@color/silver"
+                android:buttonTint="@color/silver"/>
             <CheckBox
                 android:layout_marginTop="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="test1"
+                android:text="크로스핏"
                 android:textSize="20dp"
                 android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/black"
-                android:buttonTint="@color/black"/>
+                android:textColor="@color/silver"
+                android:buttonTint="@color/silver"/>
             <CheckBox
                 android:layout_marginTop="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="test1"
+                android:text="기타"
                 android:textSize="20dp"
                 android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/black"
-                android:buttonTint="@color/black"/>
+                android:textColor="@color/silver"
+                android:buttonTint="@color/silver"/>
 
         </LinearLayout>
 
@@ -118,6 +118,8 @@
                 android:textSize="15dp"
                 />
         </LinearLayout>
+
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -128,7 +130,7 @@
             android:paddingBottom="15dp"
             android:text="기본주소 사용"/>
         <LinearLayout
-            android:layout_marginBottom="35dp"
+            android:layout_marginBottom="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -144,6 +146,7 @@
                 android:hint="운동 시간대"
                 android:textSize="20dp"/>
             <ImageButton
+                android:id="@+id/timeCheckBtn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -153,9 +156,57 @@
                 android:scaleType="fitCenter"
                 android:padding="20dp"
                 android:textSize="20dp" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:animateLayoutChanges="true"
+            android:id="@+id/timeCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="2dp">
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="파워리프팅"
+                android:textSize="20dp"
+                android:background="@drawable/rounded_bright_silver"
+                android:textColor="@color/silver"
+                android:buttonTint="@color/silver"/>
+            <CheckBox
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="보디빌딩"
+                android:textSize="20dp"
+                android:background="@drawable/rounded_bright_silver"
+                android:textColor="@color/silver"
+                android:buttonTint="@color/silver"/>
+            <CheckBox
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="크로스핏"
+                android:textSize="20dp"
+                android:background="@drawable/rounded_bright_silver"
+                android:textColor="@color/silver"
+                android:buttonTint="@color/silver"/>
+            <CheckBox
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="기타"
+                android:textSize="20dp"
+                android:background="@drawable/rounded_bright_silver"
+                android:textColor="@color/silver"
+                android:buttonTint="@color/silver"/>
+
         </LinearLayout>
 
+
         <Button
+            android:layout_marginTop="35dp"
             android:id="@+id/matchingstartBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

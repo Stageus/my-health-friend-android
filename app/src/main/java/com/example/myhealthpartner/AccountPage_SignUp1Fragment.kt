@@ -1,10 +1,14 @@
 package com.example.myhealthpartner
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 
@@ -30,14 +34,48 @@ class AccountPage_SignUp1Fragment : Fragment() {
 
 
     fun initEvent(myView : View, userData : UserData){
-        val dupCheck = false
+        var dupCheck = true
         val dupCheckBtn = myView.findViewById<Button>(R.id.dupCheckBtn)
         val changeFragment = context as ChangeFragment
         val nextBtn = myView.findViewById<Button>(R.id.nextBtn)
+        val idEditText = myView.findViewById<EditText>(R.id.idEditText)
 
         dupCheckBtn.setOnClickListener {
+            var count = 0
             for (index in 0 until userData.user.size) {
+                if(idEditText.text.toString() == userData.user[index].id){
+                    count += 1
+                }
+            }
+            Log.d("test", count.toString())
+            if(count == 0){
+                dupCheck = true
+            }
+            else dupCheck = false
 
+            if(dupCheck == true){
+                val dialogTemp2 = AlertDialog.Builder(context)
+                val dialog2 = dialogTemp2.create()
+                val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog,null)
+                val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
+                alertMessage.text = "사용 가능한 아이디입니다."
+                dialog2.setView(dialogViewTemp)
+                dialog2.show()
+                dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener{
+                    dialog2.dismiss()
+                }
+            }
+            else{
+                val dialogTemp2 = AlertDialog.Builder(context)
+                val dialog2 = dialogTemp2.create()
+                val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog,null)
+                val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
+                alertMessage.text = "사용중인 아이디입니다."
+                dialog2.setView(dialogViewTemp)
+                dialog2.show()
+                dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener{
+                    dialog2.dismiss()
+                }
             }
         }
         nextBtn.setOnClickListener {

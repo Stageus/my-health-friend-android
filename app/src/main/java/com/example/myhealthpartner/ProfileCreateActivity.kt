@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
+import android.media.Image
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -17,6 +18,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import java.io.File
 import java.lang.Exception
 import java.util.*
@@ -31,6 +33,8 @@ class ProfileCreateActivity : AppCompatActivity() {
         setContentView(R.layout.create_profile_page)
         val checkboxLinear = findViewById<LinearLayout>(R.id.checkboxLinear)
         checkboxLinear.visibility = View.GONE
+        val profileImage = findViewById<ImageView>(R.id.profileImage)
+        profileImage.visibility = View.GONE
 
         var imageFile : File
 
@@ -41,7 +45,12 @@ class ProfileCreateActivity : AppCompatActivity() {
             if(result.resultCode == RESULT_OK){
                 val imageUri = result.data?.data
                 imageUri.let{
-                    imageFile = File(getRealPathFromURI(it!!))
+                    imageFile = File(getRealPathFromURI(it!!)) //서버 업로드를 위한 파일형태 변경
+
+                    Glide.with(this)
+                        .load(imageUri)
+                        .circleCrop()
+                        .into(findViewById(R.id.profileImage))
                 }
             }
         }
@@ -117,12 +126,6 @@ class ProfileCreateActivity : AppCompatActivity() {
 //        return
 //    }
 
-    fun navigateGallery(){
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent, 2000)
-
-    }
 
 
 
@@ -130,8 +133,16 @@ class ProfileCreateActivity : AppCompatActivity() {
         val checkboxLinear = findViewById<LinearLayout>(R.id.checkboxLinear)
         val fitnessListBtn = findViewById<ImageButton>(R.id.fitnessListBtn)
         val setprofileBtn = findViewById<Button>(R.id.setProfileBtn)
+        val profileImage = findViewById<ImageView>(R.id.profileImage)
+
 
         setprofileBtn.setOnClickListener {
+            selectGallery()
+            setprofileBtn.visibility = View.GONE
+            profileImage.visibility = View.VISIBLE
+        }
+
+        profileImage.setOnClickListener{
             selectGallery()
         }
 
