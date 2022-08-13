@@ -30,15 +30,6 @@ import java.lang.Exception
 import java.util.*
 import java.util.jar.Manifest
 
-class LoadingDialog(context : Context) : Dialog(context){
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.loading_progress)
-
-        setCancelable(false)
-        window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-    }
-}
 
 class ProfileCreateActivity : AppCompatActivity() {
     private lateinit var progressDialog : AppCompatDialog
@@ -179,7 +170,6 @@ class ProfileCreateActivity : AppCompatActivity() {
 
 
     fun initEvent(){
-        val loadingProgressBar = LoadingDialog(this)
         val checkboxLinear = findViewById<LinearLayout>(R.id.checkboxLinear)
         val fitnessListBtn = findViewById<ImageButton>(R.id.fitnessListBtn)
         val setprofileBtn = findViewById<Button>(R.id.setProfileBtn)

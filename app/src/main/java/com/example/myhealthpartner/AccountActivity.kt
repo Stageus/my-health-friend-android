@@ -21,7 +21,7 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
         initEvent()
     }
 
-    override fun change(requestData: Int) {
+    override fun change(requestData: Int) { //페이지 이동을 위한 함수
         when(requestData){
             0 -> { //로그인페이지로
                 val signinFragment = AccountPage_SignInFragment()
