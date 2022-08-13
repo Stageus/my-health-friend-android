@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import java.util.regex.Pattern
 
@@ -40,7 +41,12 @@ class AccountPage_SignUp3Fragment : Fragment() {
             warningAlert("올바른 전화번호를 입력해주세요!")
             return false
         }
-        else return true
+
+        else{
+            tel.isEnabled = false
+            tel.setBackgroundColor(ContextCompat.getColor(requireActivity().applicationContext,R.color.bright_silver))
+            return true
+        }
     }
 
 

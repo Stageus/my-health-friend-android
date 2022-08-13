@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 
@@ -89,6 +90,7 @@ class AccountPage_SignUp1Fragment : Fragment() {
                 if(dupCheck == true){
                     alertDialog("사용가능한 아이디입니다.")
                     idEditText.isEnabled =false
+                    idEditText.setBackgroundColor(ContextCompat.getColor(requireActivity().applicationContext,R.color.bright_silver))
                 }
                 else{
                     alertDialog("이미 사용중인 아이디입니다.")

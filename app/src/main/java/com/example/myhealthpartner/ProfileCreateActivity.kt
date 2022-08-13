@@ -1,8 +1,12 @@
 package com.example.myhealthpartner
 
 import android.app.AlertDialog
+import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.location.Address
 import android.location.Geocoder
 import android.media.Image
@@ -16,16 +20,28 @@ import android.widget.*
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.widget.ContentLoadingProgressBar
 import com.bumptech.glide.Glide
 import java.io.File
 import java.lang.Exception
 import java.util.*
 import java.util.jar.Manifest
 
+class LoadingDialog(context : Context) : Dialog(context){
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.loading_progress)
+
+        setCancelable(false)
+        window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    }
+}
 
 class ProfileCreateActivity : AppCompatActivity() {
+    private lateinit var progressDialog : AppCompatDialog
 
     lateinit var imageResult : ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,16 +58,20 @@ class ProfileCreateActivity : AppCompatActivity() {
             ActivityResultContracts.StartActivityForResult()
         ){
             result ->
+
             if(result.resultCode == RESULT_OK){
+                progressOff()
                 val imageUri = result.data?.data
                 imageUri.let{
-                    imageFile = File(getRealPathFromURI(it!!)) //서버 업로드를 위한 파일형태 변경
 
+                    imageFile = File(getRealPathFromURI(it!!)) //서버 업로드를 위한 파일형태 변경
                     Glide.with(this)
                         .load(imageUri)
                         .circleCrop()
                         .into(findViewById(R.id.profileImage))
                 }
+            }else {
+                progressOff()
             }
         }
 
@@ -65,6 +85,21 @@ class ProfileCreateActivity : AppCompatActivity() {
         const val PARAM_KEY_PRODUCT_ID = "product_id"
         const val PARAM_KEY_REVIEW = "review_content"
         const val PARAM_KEY_RATING = "rating"
+    }
+
+    fun progressOn(){
+        progressDialog = AppCompatDialog(this)
+        progressDialog.setCancelable(false)
+        progressDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        progressDialog.setContentView(R.layout.loading_progress)
+        progressDialog.show()
+
+    }
+
+    fun progressOff(){
+        if(progressDialog != null && progressDialog.isShowing()){
+            progressDialog.dismiss()
+        }
     }
 
     fun getRealPathFromURI(uri : Uri) : String{
@@ -89,6 +124,7 @@ class ProfileCreateActivity : AppCompatActivity() {
     }
 
     private fun selectGallery(){
+        progressOn()
         val readPermission = ContextCompat.checkSelfPermission(this,
         android.Manifest.permission.READ_EXTERNAL_STORAGE)
 
@@ -128,8 +164,22 @@ class ProfileCreateActivity : AppCompatActivity() {
 
 
 
+    fun warningAlert(msg : String){
+        val dialogTemp2 = AlertDialog.Builder(this)
+        val dialog2 = dialogTemp2.create()
+        val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog,null)
+        val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
+        alertMessage.text = msg
+        dialog2.setView(dialogViewTemp)
+        dialog2.show()
+        dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener{
+            dialog2.dismiss()
+        }
+    }
+
 
     fun initEvent(){
+        val loadingProgressBar = LoadingDialog(this)
         val checkboxLinear = findViewById<LinearLayout>(R.id.checkboxLinear)
         val fitnessListBtn = findViewById<ImageButton>(R.id.fitnessListBtn)
         val setprofileBtn = findViewById<Button>(R.id.setProfileBtn)
@@ -143,7 +193,13 @@ class ProfileCreateActivity : AppCompatActivity() {
         }
 
         profileImage.setOnClickListener{
-            selectGallery()
+            try {
+                selectGallery()
+            }
+            catch (e : Exception){
+                warningAlert("사진 불러오기 실패")
+            }
+
         }
 
 
@@ -179,31 +235,13 @@ class ProfileCreateActivity : AppCompatActivity() {
                     searchResultTextView.text = tempAddress.getAddressLine(0)
                 }
                 catch(e: Exception) {
-                    val dialogTemp2 = AlertDialog.Builder(this)
-                    val dialog2 = dialogTemp2.create()
-                    val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog,null)
-                    val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
-                    alertMessage.text = "유효하지 않은 주소\n(혹은 입력)입니다"
-                    dialog2.setView(dialogViewTemp)
-                    dialog2.show()
-                    dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener{
-                        dialog2.dismiss()
-                    }
+                    warningAlert("유효하지 않은 주소\n(혹은 입력)입니다")
                 }
             }
             confirmBtn.setOnClickListener{
                 if (dialogView.findViewById<TextView>(R.id.addressResultTextView).text == "")
                 {
-                    val dialogTemp2 = AlertDialog.Builder(this)
-                    val dialog2 = dialogTemp2.create()
-                    val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog,null)
-                    val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
-                    alertMessage.text = "유효하지 않은 주소\n(혹은 입력)입니다"
-                    dialog2.setView(dialogViewTemp)
-                    dialog2.show()
-                    dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener{
-                        dialog2.dismiss()
-                    }
+                    warningAlert("유효하지 않은 주소\n(혹은 입력)입니다")
                 }
                 else {
                     findViewById<TextView>(R.id.addressTextView).text = dialogView.findViewById<TextView>(R.id.addressResultTextView).text
