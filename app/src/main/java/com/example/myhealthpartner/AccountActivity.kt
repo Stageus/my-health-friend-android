@@ -69,7 +69,6 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
         super.onBackPressed()
     }
 
-
     fun initEvent(){
         val accountPageSigninFragment = AccountPage_SignInFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, accountPageSigninFragment).commit()

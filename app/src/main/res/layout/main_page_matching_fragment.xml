@@ -169,15 +169,6 @@
             <CheckBox
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="새벽"
-                android:textSize="20dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/silver"
-                android:buttonTint="@color/silver"/>
-            <CheckBox
-                android:layout_marginTop="2dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:text="오전"
                 android:textSize="20dp"
                 android:background="@drawable/rounded_bright_silver"
@@ -196,7 +187,16 @@
                 android:layout_marginTop="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="야간"
+                android:text="밤"
+                android:textSize="20dp"
+                android:background="@drawable/rounded_bright_silver"
+                android:textColor="@color/silver"
+                android:buttonTint="@color/silver"/>
+            <CheckBox
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="새벽"
                 android:textSize="20dp"
                 android:background="@drawable/rounded_bright_silver"
                 android:textColor="@color/silver"

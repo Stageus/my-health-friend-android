@@ -142,7 +142,7 @@
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:background="@drawable/rounded_white"
-                        android:textColorHint="@color/silver"
+                        android:textColorHint="@color/gray"
                         android:hint="운동장르"
                         android:textSize="20dp"/>
 

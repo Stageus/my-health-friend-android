@@ -25,6 +25,5 @@ class MainPageActivity : AppCompatActivity() {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-
     }
 }
