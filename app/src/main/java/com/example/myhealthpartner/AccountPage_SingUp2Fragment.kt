@@ -25,4 +25,5 @@ class AccountPage_SingUp2Fragment : Fragment() {
             changeFragment.change(3)
         }
     }
+
 }

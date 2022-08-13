@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
@@ -23,6 +25,9 @@ class AccountPage_SignUp3Fragment : Fragment() {
     fun initEvent(myView : View){
         val changeFragment = context as ChangeFragment
         val signupBtn = myView.findViewById<Button>(R.id.signUpBtn)
+        val certificationLayout = myView.findViewById<LinearLayout>(R.id.certificationLayout)
+        certificationLayout.visibility = View.GONE
+
         signupBtn.setOnClickListener {
             val dialogTemp2 = AlertDialog.Builder(context)
             val dialog2 = dialogTemp2.create()
@@ -35,6 +40,14 @@ class AccountPage_SignUp3Fragment : Fragment() {
                 dialog2.dismiss()
             }
             changeFragment.change(0)
+        }
+        myView.findViewById<Button>(R.id.getCertificationBtn).setOnClickListener{
+            if(certificationLayout.visibility == View.GONE){
+                certificationLayout.visibility = View.VISIBLE
+            }
+            else{
+                certificationLayout.visibility = View.GONE
+            }
         }
     }
 }

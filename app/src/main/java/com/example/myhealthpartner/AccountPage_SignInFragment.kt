@@ -70,9 +70,9 @@ class AccountPage_SignInFragment : Fragment() {
         val signupBtn = myView.findViewById<Button>(R.id.signUpBtn)
         val findPwText = myView.findViewById<TextView>(R.id.findPwText)
 
-        if(loginData?.getString("id", "no id") != "no id"){
-            changeFragment.change(5)
-        }
+//        if(loginData?.getString("id", "no id") != "no id"){
+//            changeFragment.change(5)
+//        }
 
         singinBtn.setOnClickListener {
             val enterId = myView.findViewById<EditText>(R.id.idEditText).text
@@ -98,7 +98,7 @@ class AccountPage_SignInFragment : Fragment() {
                         val dialog2 = dialogTemp2.create()
                         val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog,null)
                         val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
-                        alertMessage.text = "아이디 또는 비밀번호를 확인해주세요"
+                        alertMessage.text = "아이디 또는 비밀번호를 \n확인해주세요"
                         dialog2.setView(dialogViewTemp)
                         dialog2.show()
                         dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener{
@@ -113,7 +113,7 @@ class AccountPage_SignInFragment : Fragment() {
                 val dialog2 = dialogTemp2.create()
                 val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog,null)
                 val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
-                alertMessage.text = "아이디 또는 비밀번호를 확인해주세요"
+                alertMessage.text = "아이디 또는 비밀번호를 \n확인해주세요"
                 dialog2.setView(dialogViewTemp)
                 dialog2.show()
                 dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener{
