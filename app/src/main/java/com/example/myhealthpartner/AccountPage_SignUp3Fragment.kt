@@ -35,6 +35,7 @@ class AccountPage_SignUp3Fragment : Fragment() {
         }
     }
 
+    //올바른 전화번호 입력 체크
     fun checkTel(myView: View) : Boolean{
         val tel = myView.findViewById<EditText>(R.id.phoneNumEditText)
         if(!Pattern.matches("^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$",tel.text.toString())){

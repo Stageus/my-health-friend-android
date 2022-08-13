@@ -34,6 +34,7 @@ import java.util.jar.Manifest
 class ProfileCreateActivity : AppCompatActivity() {
     private lateinit var progressDialog : AppCompatDialog
 
+    //이미지를 결과값을 받는 변수
     lateinit var imageResult : ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,42 +43,35 @@ class ProfileCreateActivity : AppCompatActivity() {
         checkboxLinear.visibility = View.GONE
         val profileImage = findViewById<ImageView>(R.id.profileImage)
         profileImage.visibility = View.GONE
+        var imageFile : File //이미지를 파일형태로 저장 -> 추후 서버에 보낼때 보낼 변수
 
-        var imageFile : File
-
-        imageResult = registerForActivityResult(
+        imageResult = registerForActivityResult( //oncreate에서만 정의가능 -> 모듈화 불가능
             ActivityResultContracts.StartActivityForResult()
         ){
             result ->
-
-            if(result.resultCode == RESULT_OK){
+            if(result.resultCode == RESULT_OK){ // 이미지를 선택하면..
                 progressOff()
+                //uri형태로 받아온 데이터 저장
                 val imageUri = result.data?.data
                 imageUri.let{
-
                     imageFile = File(getRealPathFromURI(it!!)) //서버 업로드를 위한 파일형태 변경
-                    Glide.with(this)
+                    Glide.with(this) //이미지 적용
                         .load(imageUri)
                         .circleCrop()
                         .into(findViewById(R.id.profileImage))
                 }
-            }else {
+            }else { //갤러리창에서 뒤로가기할 시
                 progressOff()
             }
         }
-
         initEvent()
     }
 
     companion object{
-        const val REVIEW_MIN_LENGTH = 10
         const val REQ_GALLERY = 1
-        const val PARAM_KEY_IMAGE = "image"
-        const val PARAM_KEY_PRODUCT_ID = "product_id"
-        const val PARAM_KEY_REVIEW = "review_content"
-        const val PARAM_KEY_RATING = "rating"
-    }
 
+    }
+    //로딩바 시작
     fun progressOn(){
         progressDialog = AppCompatDialog(this)
         progressDialog.setCancelable(false)
@@ -86,13 +80,14 @@ class ProfileCreateActivity : AppCompatActivity() {
         progressDialog.show()
 
     }
-
+    //로딩바 종료
     fun progressOff(){
         if(progressDialog != null && progressDialog.isShowing()){
             progressDialog.dismiss()
         }
     }
 
+    //이미지의 실제 경로를위한 함수
     fun getRealPathFromURI(uri : Uri) : String{
         val buildName = Build.MANUFACTURER
         if(buildName.equals("Xiaomi")){
@@ -114,6 +109,7 @@ class ProfileCreateActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 
+    //갤러리 접근을 위한 함수
     private fun selectGallery(){
         progressOn()
         val readPermission = ContextCompat.checkSelfPermission(this,

@@ -44,7 +44,7 @@ class AccountPage_SingUp2Fragment : Fragment() {
             return true
         }
     }
-
+    //올바른 이메일 체크
     fun emailCheck(myView: View) : Boolean{
         val email = myView.findViewById<EditText>(R.id.mailEditText)
         if(!Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()){
@@ -61,6 +61,7 @@ class AccountPage_SingUp2Fragment : Fragment() {
             val emailChecked = emailCheck(myView)
             if(nameChecked == true){
                 if(emailChecked == true){
+                    //이름체크와 이메일체크 모두 통과시
                     changeFragment.change(3)
                 }
                 else {

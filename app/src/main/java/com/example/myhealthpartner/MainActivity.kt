@@ -54,7 +54,10 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         val logoutTextView = findViewById<TextView>(R.id.logoutTextView)
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val testBtn = findViewById<ImageButton>(R.id.navBtn)
+        val matchRecieveBtn = findViewById<ImageButton>(R.id.notiBtn)
+        val mainpageMatchingFragment = MainPage_MatchingFragment()
 
+        //네비게이션의 로그아웃 버튼
         logoutTextView.setOnClickListener{
             logoutEvent()
         }
@@ -63,10 +66,8 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        val mainpageMatchingFragment = MainPage_MatchingFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainpageMatchingFragment).commit()
 
-        val matchRecieveBtn = findViewById<ImageButton>(R.id.notiBtn)
         matchRecieveBtn.setOnClickListener{
             val changeFragment = this as ChangeMainpageFragment
             changeFragment.change(2)

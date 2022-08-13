@@ -31,8 +31,6 @@ class AccountPage_FindPwFragment : Fragment() {
             val nameEdit = view.findViewById<EditText>(R.id.nameEditText)
             idEdit.setBackgroundColor(ContextCompat.getColor(requireActivity().applicationContext,R.color.bright_silver))
             nameEdit.setBackgroundColor(ContextCompat.getColor(requireActivity().applicationContext,R.color.bright_silver))
-
-
             idEdit.isEnabled =false
             nameEdit.isEnabled =false
 

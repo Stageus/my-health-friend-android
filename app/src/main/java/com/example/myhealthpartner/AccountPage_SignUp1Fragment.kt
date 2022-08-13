@@ -50,6 +50,19 @@ class AccountPage_SignUp1Fragment : Fragment() {
             return false
         }
     }
+    //중복체크 함수
+    fun dupCheck(userData : UserData, idEditText : EditText) : Boolean{
+        var count = 0
+        for (index in 0 until userData.user.size) {
+            if(idEditText.text.toString() == userData.user[index].id){
+                count += 1
+            }
+        }
+        if(count == 0){
+            return true
+        }
+        else return false
+    }
 
     fun alertDialog(alertMessageTemp :String){
         val dialogTemp = AlertDialog.Builder(context)
@@ -66,7 +79,7 @@ class AccountPage_SignUp1Fragment : Fragment() {
 
 
     fun initEvent(myView : View, userData : UserData){
-        var dupCheck = false
+        var dupChecked = false
         val dupCheckBtn = myView.findViewById<Button>(R.id.dupCheckBtn)
         val changeFragment = context as ChangeFragment
         val nextBtn = myView.findViewById<Button>(R.id.nextBtn)
@@ -75,19 +88,8 @@ class AccountPage_SignUp1Fragment : Fragment() {
         dupCheckBtn.setOnClickListener {
             if(idEditText.text.toString().length >= 4) {//크기체크
                 //중복체크
-                var count = 0
-                for (index in 0 until userData.user.size) {
-                    if(idEditText.text.toString() == userData.user[index].id){
-                        count += 1
-                    }
-                }
-                Log.d("test", count.toString())
-                if(count == 0){
-                    dupCheck = true
-                }
-                else dupCheck = false
-
-                if(dupCheck == true){
+                dupChecked = dupCheck(userData, idEditText)
+                if(dupChecked == true){
                     alertDialog("사용가능한 아이디입니다.")
                     idEditText.isEnabled =false
                     idEditText.setBackgroundColor(ContextCompat.getColor(requireActivity().applicationContext,R.color.bright_silver))
@@ -103,7 +105,7 @@ class AccountPage_SignUp1Fragment : Fragment() {
         }
 
         nextBtn.setOnClickListener {
-            if(dupCheck == false)
+            if(dupChecked == false)
             {
                 alertDialog("아이디 중복확인을 해주세요")
             }
