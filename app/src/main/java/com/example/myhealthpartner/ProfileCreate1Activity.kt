@@ -31,7 +31,7 @@ import java.util.*
 import java.util.jar.Manifest
 
 
-class ProfileCreateActivity : AppCompatActivity() {
+class ProfileCreate1Activity : AppCompatActivity() {
     private lateinit var progressDialog : AppCompatDialog
 
     //이미지를 결과값을 받는 변수

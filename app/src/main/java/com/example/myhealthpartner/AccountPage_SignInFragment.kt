@@ -102,8 +102,11 @@ class AccountPage_SignInFragment : Fragment() {
         loginData?.edit()?.putString("id", userData.user[index].id)?.apply()
         loginData?.edit()?.putString("pw", userData.user[index].pw)?.apply()
         loginData?.edit()?.putString("nickname", userData.user[index].findUserDataList[0].nickname)?.apply()
+        loginData?.edit()?.putString("career", userData.user[index].findUserDataList[0].career)?.apply()
+        loginData?.edit()?.putString("ability", userData.user[index].findUserDataList[0].ability)?.apply()
         loginData?.edit()?.putString("address", userData.user[index].findUserDataList[0].address)?.apply()
         loginData?.edit()?.putString("exerciseType", userData.user[index].findUserDataList[0].exerciseType)?.apply()
+        loginData?.edit()?.putInt("rpm", userData.user[index].findUserDataList[0].rpm)?.apply()
         loginData?.edit()?.putInt("age", userData.user[index].findUserDataList[0].age)
         loginData?.edit()?.putString("exerciseTime", userData.user[index].findUserDataList[0].exerciseTime)?.apply()
     }
@@ -129,8 +132,11 @@ class AccountPage_SignInFragment : Fragment() {
 
     data class FindUserDataList(
         val nickname : String,
+        val career : String,
+        val ability : String,
         val address : String,
         val exerciseType : String,
+        val rpm : Int,
         val age : Int,
         val exerciseTime : String
     )

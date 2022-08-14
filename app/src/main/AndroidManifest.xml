@@ -22,8 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileCreateActivity" />
+        <activity android:name=".ProfileCreate1Activity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".MyProfilePageActivity"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBTdCYGKw38FjkZg-s6kNiVhfAVzr8BonM" />

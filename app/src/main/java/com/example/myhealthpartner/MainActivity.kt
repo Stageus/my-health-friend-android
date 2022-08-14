@@ -1,6 +1,7 @@
 package com.example.myhealthpartner
 
 import android.app.AlertDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -60,10 +61,16 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val testBtn = findViewById<ImageButton>(R.id.navBtn)
         val matchRecieveBtn = findViewById<ImageButton>(R.id.notiBtn)
+        val navProfileBtn = findViewById<TextView>(R.id.navProfileBtn)
 
         //네비게이션의 로그아웃 버튼
         logoutTextView.setOnClickListener{
             logoutEvent()
+        }
+
+        navProfileBtn.setOnClickListener{
+            val intent = Intent(applicationContext, MyProfilePageActivity::class.java)
+            startActivity(intent)
         }
 
         testBtn.setOnClickListener{

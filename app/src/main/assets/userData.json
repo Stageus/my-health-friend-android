@@ -13,10 +13,13 @@
       "findUserDataList": [
         {
           "nickname": "agu",
-          "address": "인천광역시 남동구 논현동",
+          "career" : "1년",
+          "ability" : "3대400",
+          "address": "인천광역시 남동구",
           "exerciseType": "피트니스",
+          "rpm" : 170,
           "age": 23,
-          "exerciseTime": "낮"
+          "exerciseTime": "FTFF"
         }
       ]
     },
@@ -33,8 +36,11 @@
       "findUserDataList": [
         {
           "nickname": "",
+          "career" : "1년",
+          "ability" : "3대400",
           "address": "",
           "exerciseType": "",
+          "rpm" : 170,
           "age": null,
           "exerciseTime": ""
         }

@@ -10,8 +10,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import org.w3c.dom.Text
 
 class MainPage_MatchingFragment : Fragment() {
     override fun onCreateView(
@@ -30,10 +32,18 @@ class MainPage_MatchingFragment : Fragment() {
 
 
     fun initEvent(myView: View) {
+        val loginData = context?.getSharedPreferences("loginData", 0)
         val checkboxLinear = myView.findViewById<LinearLayout>(R.id.checkboxLinear)
         val timeCheckbox = myView.findViewById<LinearLayout>(R.id.timeCheckbox)
         val timeCheckBtn = myView.findViewById<ImageButton>(R.id.timeCheckBtn)
         val fitnessListBtn = myView.findViewById<ImageButton>(R.id.fitnessListBtn)
+        val baseAddressBtn = myView.findViewById<Button>(R.id.baseAddressBtn)
+
+        baseAddressBtn.setOnClickListener {
+            val addressTextView = myView.findViewById<TextView>(R.id.addressTextView)
+            addressTextView.text = loginData!!.getString("address", "")
+        }
+
         fitnessListBtn.setOnClickListener {
             if(checkboxLinear.visibility == View.GONE){
                 checkboxLinear.visibility = View.VISIBLE

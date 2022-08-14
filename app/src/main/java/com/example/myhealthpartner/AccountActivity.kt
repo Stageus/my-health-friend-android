@@ -4,11 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import androidx.core.os.trace
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 
 interface ChangeFragment{
     fun change(requestData : Int)
@@ -49,7 +45,7 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
 
             }
             4 -> { //프로필 생성 페이지로
-                val intent = Intent(applicationContext, ProfileCreateActivity::class.java)
+                val intent = Intent(applicationContext, ProfileCreate1Activity::class.java)
                 startActivity(intent)
             }
             5 -> { // 메칭페이지로
@@ -78,7 +74,7 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
         //shared preference 세팅
         //만약 통과를 했고, 첫번째 접속하는 계정이라면,
         Log.d("error code:","error detect")
-        val intent = Intent(this,ProfileCreateActivity::class.java)
+        val intent = Intent(this,ProfileCreate1Activity::class.java)
         //intent.putExtra("userid", )
         startActivity(intent)
         // 만약 통과를 했고, 두번째 접속하는 계정이라면,
