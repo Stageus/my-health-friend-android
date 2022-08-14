@@ -44,7 +44,8 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <ScrollView
+        <FrameLayout
+            android:id="@+id/fragmentBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@color/white"
@@ -55,12 +56,7 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp">
 
-            <LinearLayout
-                android:id="@+id/fragmentBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

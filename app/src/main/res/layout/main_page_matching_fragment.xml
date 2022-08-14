@@ -5,226 +5,251 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
-    <LinearLayout
-        android:animateLayoutChanges="true"
-        android:layout_marginTop="20dp"
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical">
+        >
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="20dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="15dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColorHint="@color/silver"
-                android:hint="운동장르"
-                android:textSize="20dp"/>
-
-            <ImageButton
-                android:id="@+id/fitnessListBtn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_gray"
-                android:paddingHorizontal="5dp"
-                android:src="@drawable/reverse_triangle"
-                android:scaleType="fitCenter"
-                android:padding="20dp"
-                android:textSize="20dp" />
-
-        </LinearLayout>
-        <LinearLayout
+            android:layout_marginTop="20dp"
             android:animateLayoutChanges="true"
-            android:id="@+id/checkboxLinear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="2dp">
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="파워리프팅"
-                android:textSize="20dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/silver"
-                android:buttonTint="@color/silver"/>
-            <CheckBox
-                android:layout_marginTop="2dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="보디빌딩"
-                android:textSize="20dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/silver"
-                android:buttonTint="@color/silver"/>
-            <CheckBox
-                android:layout_marginTop="2dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="크로스핏"
-                android:textSize="20dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/silver"
-                android:buttonTint="@color/silver"/>
-            <CheckBox
-                android:layout_marginTop="2dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="기타"
-                android:textSize="20dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/silver"
-                android:buttonTint="@color/silver"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
 
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="20dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="15dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColorHint="@color/silver"
-                android:hint=""
-                android:textSize="20dp"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/rounded_bright_silver"
+                    android:hint="운동장르"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="15dp"
+                    android:textColorHint="@color/silver"
+                    android:textSize="20dp" />
+
+                <ImageButton
+                    android:id="@+id/fitnessListBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_gray"
+                    android:padding="20dp"
+                    android:paddingHorizontal="5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/reverse_triangle"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/checkboxLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_bright_silver"
+                    android:buttonTint="@color/silver"
+                    android:text="파워리프팅"
+                    android:textColor="@color/silver"
+                    android:textSize="20dp" />
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/rounded_bright_silver"
+                    android:buttonTint="@color/silver"
+                    android:text="보디빌딩"
+                    android:textColor="@color/silver"
+                    android:textSize="20dp" />
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/rounded_bright_silver"
+                    android:buttonTint="@color/silver"
+                    android:text="크로스핏"
+                    android:textColor="@color/silver"
+                    android:textSize="20dp" />
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/rounded_bright_silver"
+                    android:buttonTint="@color/silver"
+                    android:text="기타"
+                    android:textColor="@color/silver"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_bright_silver"
+                    android:hint=""
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="15dp"
+                    android:textColorHint="@color/silver"
+                    android:textSize="20dp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_gray"
+
+                    android:gravity="center"
+                    android:paddingHorizontal="5dp"
+                    android:text="위치찾기"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:paddingHorizontal="5dp"
-
-                android:background="@drawable/rounded_gray"
-                android:gravity="center"
-                android:text="위치찾기"
-                android:textSize="15dp"
-                />
-        </LinearLayout>
-
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginBottom="25dp"
-            android:textSize="25dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="15dp"
-            android:text="기본주소 사용"/>
-        <LinearLayout
-            android:layout_marginBottom="2dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="5"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="25dp"
+                android:gravity="center"
                 android:paddingTop="20dp"
                 android:paddingBottom="15dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColorHint="@color/silver"
-                android:hint="운동 시간대"
-                android:textSize="20dp"/>
-            <ImageButton
-                android:id="@+id/timeCheckBtn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_gray"
-                android:paddingHorizontal="5dp"
-                android:src="@drawable/reverse_triangle"
-                android:scaleType="fitCenter"
-                android:padding="20dp"
-                android:textSize="20dp" />
+                android:text="기본주소 사용"
+                android:textSize="25dp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/rounded_bright_silver"
+                    android:hint="운동 시간대"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="15dp"
+                    android:textColorHint="@color/silver"
+                    android:textSize="20dp" />
+
+                <ImageButton
+                    android:id="@+id/timeCheckBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_gray"
+                    android:padding="20dp"
+                    android:paddingHorizontal="5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/reverse_triangle"
+                    android:textSize="20dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/timeCheckbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_bright_silver"
+                    android:buttonTint="@color/silver"
+                    android:text="오전"
+                    android:textColor="@color/silver"
+                    android:textSize="20dp" />
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/rounded_bright_silver"
+                    android:buttonTint="@color/silver"
+                    android:text="오후"
+                    android:textColor="@color/silver"
+                    android:textSize="20dp" />
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/rounded_bright_silver"
+                    android:buttonTint="@color/silver"
+                    android:text="밤"
+                    android:textColor="@color/silver"
+                    android:textSize="20dp" />
+
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/rounded_bright_silver"
+                    android:buttonTint="@color/silver"
+                    android:text="새벽"
+                    android:textColor="@color/silver"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/matchingstartBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/rounded_signature_purple2"
+                android:gravity="center"
+                android:paddingVertical="80dp"
+                android:text="매칭시작"
+                android:textSize="30dp" />
 
         </LinearLayout>
-        <LinearLayout
-            android:animateLayoutChanges="true"
-            android:id="@+id/timeCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="2dp">
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="오전"
-                android:textSize="20dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/silver"
-                android:buttonTint="@color/silver"/>
-            <CheckBox
-                android:layout_marginTop="2dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="오후"
-                android:textSize="20dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/silver"
-                android:buttonTint="@color/silver"/>
-            <CheckBox
-                android:layout_marginTop="2dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="밤"
-                android:textSize="20dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/silver"
-                android:buttonTint="@color/silver"/>
-            <CheckBox
-                android:layout_marginTop="2dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="새벽"
-                android:textSize="20dp"
-                android:background="@drawable/rounded_bright_silver"
-                android:textColor="@color/silver"
-                android:buttonTint="@color/silver"/>
-
-        </LinearLayout>
 
 
-        <Button
-            android:layout_marginTop="35dp"
-            android:id="@+id/matchingstartBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:gravity="center"
-            android:paddingVertical="80dp"
-            android:text="매칭시작"
-            android:textSize="30dp"
-            android:background="@drawable/rounded_signature_purple2"/>
-
-    </LinearLayout>
-
-
-
-
-
-
-
+    </ScrollView>
 
 
 

@@ -3,6 +3,7 @@ package com.example.myhealthpartner
 import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
@@ -19,6 +20,10 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_page)
+        val mainpageMatchingFragment = MainPage_MatchingFragment()
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainpageMatchingFragment).commit()
+        Log.d("실행", "test")
+
 
         initEvent()
     }
@@ -55,7 +60,6 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val testBtn = findViewById<ImageButton>(R.id.navBtn)
         val matchRecieveBtn = findViewById<ImageButton>(R.id.notiBtn)
-        val mainpageMatchingFragment = MainPage_MatchingFragment()
 
         //네비게이션의 로그아웃 버튼
         logoutTextView.setOnClickListener{
@@ -66,7 +70,6 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainpageMatchingFragment).commit()
 
         matchRecieveBtn.setOnClickListener{
             val changeFragment = this as ChangeMainpageFragment
