@@ -197,43 +197,12 @@ class ProfileCreate1Activity : AppCompatActivity() {
                 checkboxLinear.visibility = View.GONE
             }
         }
-        val createProfile = findViewById<Button>(R.id.createProfileBtn)
+        val setAddressBtn = findViewById<Button>(R.id.setAddressBtn)
 
-        createProfile.setOnClickListener{
-            val intent = Intent(this,MainActivity::class.java)
+        setAddressBtn.setOnClickListener{
+            val intent = Intent(this,ProfileCreate2Activity::class.java)
             startActivity(intent)
             finish()
-        }
-        val findAdressBtn = findViewById<Button>(R.id.findAdressBtn)
-        findAdressBtn.setOnClickListener{
-            val dialogTemp1 = AlertDialog.Builder(this)
-            val dialog1 = dialogTemp1.create()
-            val dialogView = layoutInflater.inflate(R.layout.address_dialog1,null)
-            val findBtn = dialogView.findViewById<Button>(R.id.findBtn)
-            val editText = dialogView.findViewById<EditText>(R.id.questionTextView)
-            val searchResultTextView = dialogView.findViewById<TextView>(R.id.addressResultTextView)
-            val confirmBtn = dialogView.findViewById<Button>(R.id.confirmButton)
-            dialog1.setView(dialogView)
-            dialog1.show()
-            findBtn.setOnClickListener{
-                try{
-                    val tempAddress = getGeocodeFromAddress(editText.toString())
-                    searchResultTextView.text = tempAddress.getAddressLine(0)
-                }
-                catch(e: Exception) {
-                    warningAlert("유효하지 않은 주소\n(혹은 입력)입니다")
-                }
-            }
-            confirmBtn.setOnClickListener{
-                if (dialogView.findViewById<TextView>(R.id.addressResultTextView).text == "")
-                {
-                    warningAlert("유효하지 않은 주소\n(혹은 입력)입니다")
-                }
-                else {
-                    findViewById<TextView>(R.id.addressTextView).text = dialogView.findViewById<TextView>(R.id.addressResultTextView).text
-                    dialog1.dismiss()
-                }
-            }
         }
     }
 }
