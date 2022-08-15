@@ -23,8 +23,6 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         val mainpageMatchingFragment = MainPage_MatchingFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainpageMatchingFragment).commit()
         Log.d("실행", "test")
-
-
         initEvent()
     }
     var fragmentNum = 0

@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyHealthPartner">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBTdCYGKw38FjkZg-s6kNiVhfAVzr8BonM" />
         <activity
             android:name=".AccountActivity"
             android:exported="true">
@@ -22,13 +27,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileCreateActivity" />
+        <activity android:name=".ProfileCreate1Activity" />
+        <activity android:name=".ProfileCreate2Activity" />
         <activity android:name=".MainActivity" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBTdCYGKw38FjkZg-s6kNiVhfAVzr8BonM" />
+        <activity android:name=".MainPageActivity" />
 
-
+        
     </application>
 
 </manifest>
