@@ -31,6 +31,7 @@
         <activity android:name=".ProfileCreate2Activity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".MainPageActivity" />
+        <activity android:name=".MyProfilePageActivity" />
 
         
     </application>

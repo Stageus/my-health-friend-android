@@ -220,28 +220,32 @@ class ProfileCreate1Activity : AppCompatActivity() {
         val userData = gson.fromJson(jsonObject,UserData::class.java)
         val nickNameEditText = findViewById<EditText>(R.id.nickNameEditText)
         var dupCheckValue = false
+        var nickNameUseAble = false
 
         dupCheckBtn.setOnClickListener {
             for(index in 0 until userData.user.size){
-                if(userData.user[index].findUserDataList[0].nickname == nickNameEditText.text.toString()) {
+                if(userData.user[index].findUserDataList[0].nickname.toString() == nickNameEditText.text.toString()) {
                     //하나라도 중복된게 있다면
                     dupCheckValue = true
                 }
+                Log.d("ddd: ","${userData.user[index].findUserDataList[0].nickname }")
             }
-            if ((dupCheckValue == true) and (nickNameEditText.text.length > 1))
+            if ((dupCheckValue == false) && (nickNameEditText.text.length > 1))
             {
                 alertDialog("사용가능합니다!")
                 nickNameEditText.isEnabled = false
                 nickNameEditText.setBackgroundColor(ContextCompat.getColor(applicationContext,R.color.bright_silver))
+                nickNameUseAble = true
             }
             else {
                 alertDialog("이미 있거나 사용불가한 \n닉네임입니다.")
+                dupCheckValue = false
             }
         }
         val setAddressBtn = findViewById<Button>(R.id.setAddressBtn)
 
         setAddressBtn.setOnClickListener{
-            if(dupCheckValue == true) {
+            if(nickNameUseAble == true) {
                 val intent = Intent(this, ProfileCreate2Activity::class.java)
                 startActivity(intent)
                 finish()
