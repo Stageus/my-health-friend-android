@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".AccountActivity">
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/mainlogo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <LinearLayout
         android:id="@+id/editTextLayout"
         android:layout_width="match_parent"
@@ -60,7 +71,7 @@
             android:layout_marginBottom="10dp"
             android:textSize="20dp"
             android:paddingTop="20dp"
-            android:paddingBottom="15dp"
+            android:paddingBottom="20dp"
             android:text="로그인"/>
         <Button
             android:id="@+id/signUpBtn"
@@ -69,7 +80,7 @@
             android:layout_marginBottom="15dp"
             android:gravity="center"
             android:paddingTop="15dp"
-            android:paddingBottom="10dp"
+            android:paddingBottom="15dp"
             android:text="회원가입"
             android:textSize="20dp"/>
         <TextView

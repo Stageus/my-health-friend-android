@@ -78,9 +78,6 @@ class AccountPage_SignInFragment : Fragment() {
                         enterPw.clear()
                         loginsuccess = true
                     }
-                    else{
-                        alertDialog("아이디 또는 비밀번호를 \n확인해주세요")
-                    }
                 }
             }
             //로그인 실패시
