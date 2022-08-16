@@ -66,8 +66,7 @@
                     android:inputType="text"
                     android:maxLength="15"
                     android:paddingHorizontal="20dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                    android:paddingVertical="20dp"
                     android:textColorHint="@color/silver"
                     android:textSize="20dp" />
 
@@ -117,9 +116,8 @@
                         android:background="@drawable/rounded_white"
                         android:hint="운동장르"
                         android:paddingHorizontal="20dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
                         android:textColorHint="@color/gray"
+                        android:paddingVertical="20dp"
                         android:textSize="20dp" />
 
                     <ImageButton
@@ -196,8 +194,7 @@
                 android:background="@drawable/rounded_white"
                 android:hint="운동경력 (선택)"
                 android:paddingHorizontal="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingVertical="20dp"
                 android:textColorHint="@color/silver"
                 android:textSize="20dp" />
 
@@ -209,8 +206,7 @@
                 android:background="@drawable/rounded_white"
                 android:hint="나이 (선택)"
                 android:paddingHorizontal="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingVertical="20dp"
                 android:textColorHint="@color/silver"
                 android:textSize="20dp" />
 
@@ -222,8 +218,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:paddingTop="20dp"
-                android:paddingBottom="15dp"
+                android:paddingVertical="20dp"
                 android:text="위치설정"
                 android:textSize="20dp" />
         </LinearLayout>

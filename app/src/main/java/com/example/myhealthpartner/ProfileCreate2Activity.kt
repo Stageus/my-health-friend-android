@@ -10,19 +10,14 @@ import android.location.Location
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
+import android.os.NetworkOnMainThreadException
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.requestPermissions
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -30,10 +25,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
 import java.io.IOException
-import java.lang.Exception
 
 class ProfileCreate2Activity : AppCompatActivity(),
     OnMapReadyCallback,
@@ -129,6 +121,10 @@ class ProfileCreate2Activity : AppCompatActivity(),
         {
             return ""
         }
+        catch(e: NetworkOnMainThreadException)
+        {
+            return ""
+        }
     }
 
 
@@ -195,14 +191,14 @@ class ProfileCreate2Activity : AppCompatActivity(),
 
 
     override fun onCameraIdle() {
-        val temp = getAddressFromCode(mMap.cameraPosition.target)
-        if (temp == "") {
-            //pass
-        }
-        else{
-            var addressOutput = findViewById<TextView>(R.id.address)
-            addressOutput.text = temp
-        }
+            val temp = getAddressFromCode(mMap.cameraPosition.target)
+            if (temp == "") {
+                //pass
+            }
+            else{
+                var addressOutput = findViewById<TextView>(R.id.address)
+                addressOutput.text = temp
+            }
     }
     fun initEvent(){
         val createBtn = findViewById<Button>(R.id.button)

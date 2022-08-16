@@ -8,6 +8,7 @@
 
     <ImageView
         android:layout_width="0dp"
+        app:layout_constraintWidth_percent="1.1"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
@@ -31,11 +32,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
+            android:paddingVertical="20dp"
             android:background="@drawable/rounded_white"
             android:textColorHint="@color/silver"
-            android:hint="ID"
+            android:hint="아이디"
             android:textSize="20dp"/>
         <EditText
             android:inputType="textPassword"
@@ -44,11 +44,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
+            android:paddingVertical="20dp"
             android:background="@drawable/rounded_white"
             android:textColorHint="@color/silver"
-            android:hint="PW"
+            android:hint="비밀번호"
             android:textSize="20dp"/>
     </LinearLayout>
 

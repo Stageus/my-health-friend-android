@@ -234,7 +234,7 @@ class ProfileCreate1Activity : AppCompatActivity() {
             {
                 alertDialog("사용가능합니다!")
                 nickNameEditText.isEnabled = false
-                nickNameEditText.setBackgroundColor(ContextCompat.getColor(applicationContext,R.color.bright_silver))
+                nickNameEditText.setBackgroundResource(R.drawable.rounded_bright_silver)
                 nickNameUseAble = true
             }
             else {

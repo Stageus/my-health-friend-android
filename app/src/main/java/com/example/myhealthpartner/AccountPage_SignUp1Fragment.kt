@@ -92,7 +92,7 @@ class AccountPage_SignUp1Fragment : Fragment() {
                 if(dupChecked == true){
                     alertDialog("사용가능한 아이디입니다.")
                     idEditText.isEnabled =false
-                    idEditText.setBackgroundColor(ContextCompat.getColor(requireActivity().applicationContext,R.color.bright_silver))
+                    idEditText.setBackgroundResource(R.drawable.rounded_bright_silver)
                 }
                 else{
                     alertDialog("이미 사용중인 아이디입니다.")
