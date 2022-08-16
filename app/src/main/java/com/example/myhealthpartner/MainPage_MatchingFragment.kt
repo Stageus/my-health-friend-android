@@ -97,7 +97,7 @@ class MainPage_MatchingFragment : Fragment() {
             bundle.putString("exerciseChecked", userTimeChecked)
             val matchingResult = MainPage_Matching_Result_fragment()
             matchingResult.arguments = bundle
-            parentFragmentManager.beginTransaction().replace(R.id.fragmentBox, matchingResult).commit()
+            parentFragmentManager.beginTransaction().replace(R.id.fragmentBox, matchingResult).addToBackStack(null).commitAllowingStateLoss()
 
 
 
