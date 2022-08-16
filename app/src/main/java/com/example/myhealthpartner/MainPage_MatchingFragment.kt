@@ -1,19 +1,11 @@
 package com.example.myhealthpartner
 
-import android.app.AlertDialog
-import android.media.Image
 import android.os.Bundle
-import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.fragment.app.DialogFragment
+import android.widget.*
 import androidx.fragment.app.Fragment
-import org.w3c.dom.Text
 
 class MainPage_MatchingFragment : Fragment() {
     override fun onCreateView(
@@ -30,8 +22,48 @@ class MainPage_MatchingFragment : Fragment() {
         return view
     }
 
+    fun timeChecked(myView: View) :String {
+        val checkBoxes = arrayListOf<CheckBox>()
+        var userChecked = String()
+        checkBoxes.add(myView.findViewById<CheckBox>(R.id.timeCheckBox1))
+        checkBoxes.add(myView.findViewById<CheckBox>(R.id.timeCheckBox2))
+        checkBoxes.add(myView.findViewById<CheckBox>(R.id.timeCheckBox3))
+        checkBoxes.add(myView.findViewById<CheckBox>(R.id.timeCheckBox4))
+
+        for(index in 0 until 4){
+            if (checkBoxes[index].isChecked){
+                userChecked += "T"
+            }
+            else {
+                userChecked += "F"
+            }
+        }
+        return userChecked
+    }
+
+    fun exerciseChecked(myView: View) : String {
+        val checkBoxes = arrayListOf<CheckBox>()
+        var userChecked = String()
+        checkBoxes.add(myView.findViewById<CheckBox>(R.id.exerCheck1))
+        checkBoxes.add(myView.findViewById<CheckBox>(R.id.exerCheck2))
+        checkBoxes.add(myView.findViewById<CheckBox>(R.id.exerCheck3))
+        checkBoxes.add(myView.findViewById<CheckBox>(R.id.exerCheck4))
+
+
+        for(index in 0 until 4){
+            if (checkBoxes[index].isChecked){
+                userChecked += "T"
+            }
+            else {
+                userChecked += "F"
+            }
+        }
+        return userChecked
+    }
+
 
     fun initEvent(myView: View) {
+        val matchingStartBtn = myView.findViewById<Button>(R.id.matchingstartBtn)
         val loginData = context?.getSharedPreferences("loginData", 0)
         val checkboxLinear = myView.findViewById<LinearLayout>(R.id.checkboxLinear)
         val timeCheckbox = myView.findViewById<LinearLayout>(R.id.timeCheckbox)
@@ -55,6 +87,20 @@ class MainPage_MatchingFragment : Fragment() {
         timeCheckBtn.setOnClickListener {
             if(timeCheckbox.visibility == View.GONE) timeCheckbox.visibility = View.VISIBLE
             else timeCheckbox.visibility = View.GONE
+        }
+
+        matchingStartBtn.setOnClickListener {
+            val userExerciseChecked = exerciseChecked(myView)
+            val userTimeChecked = timeChecked(myView)
+            val bundle = Bundle()
+            bundle.putString("timeChecked", userExerciseChecked)
+            bundle.putString("exerciseChecked", userTimeChecked)
+            val matchingResult = MainPage_Matching_Result_fragment()
+            matchingResult.arguments = bundle
+            parentFragmentManager.beginTransaction().replace(R.id.fragmentBox, matchingResult).commit()
+
+
+
         }
 
     }

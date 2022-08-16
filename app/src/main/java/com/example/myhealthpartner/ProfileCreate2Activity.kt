@@ -10,6 +10,7 @@ import android.location.Location
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
+import android.os.NetworkOnMainThreadException
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -127,6 +128,9 @@ class ProfileCreate2Activity : AppCompatActivity(),
         }
         catch (e: IOException)
         {
+            return ""
+        }
+        catch (e : NetworkOnMainThreadException){
             return ""
         }
     }
