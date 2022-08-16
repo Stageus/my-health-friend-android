@@ -107,34 +107,6 @@ class AccountPage_SignInFragment : Fragment() {
         loginData?.edit()?.putInt("age", userData.user[index].findUserDataList[0].age)
         loginData?.edit()?.putString("exerciseTime", userData.user[index].findUserDataList[0].exerciseTime)?.apply()
     }
-
-
     //gson을 위한 data class
-    data class UserData(
-        val user : ArrayList<User>
-    )
 
-    data class User(
-        val id : String,
-        val pw : String,
-        val userDataList : ArrayList<UserDataList>,
-        val findUserDataList : ArrayList<FindUserDataList>
-
-    )
-    data class UserDataList(
-        val name : String,
-        val tel : String,
-        val email : String
-    )
-
-    data class FindUserDataList(
-        val nickname : String,
-        val career : String,
-        val ability : String,
-        val address : String,
-        val exerciseType : String,
-        val rpm : Int,
-        val age : Int,
-        val exerciseTime : String
-    )
 }

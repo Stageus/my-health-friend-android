@@ -117,28 +117,4 @@ class AccountPage_SignUp1Fragment : Fragment() {
         }
     }
 
-    data class UserData(
-        val user : ArrayList<User>
-    )
-
-    data class User(
-        val id : String,
-        val pw : String,
-        val userDataList : ArrayList<UserDataList>,
-        val findUserDataList : ArrayList<FindUserDataList>
-
-    )
-    data class UserDataList(
-        val name : String,
-        val tel : String,
-        val email : String
-    )
-
-    data class FindUserDataList(
-        val nickname : String,
-        val address : String,
-        val exerciseType : String,
-        val age : Int,
-        val exerciseTime : String
-    )
 }
