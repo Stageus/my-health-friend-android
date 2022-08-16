@@ -69,6 +69,7 @@
                 android:orientation="vertical">
 
                 <CheckBox
+                    android:id="@+id/exerCheck1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_bright_silver"
@@ -78,6 +79,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/exerCheck2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -88,6 +90,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/exerCheck3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -98,6 +101,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/exerCheck4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -196,6 +200,7 @@
                 android:orientation="vertical">
 
                 <CheckBox
+                    android:id="@+id/timeCheckBox1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_bright_silver"
@@ -205,6 +210,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/timeCheckBox2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -215,6 +221,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/timeCheckBox3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -225,6 +232,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/timeCheckBox4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"

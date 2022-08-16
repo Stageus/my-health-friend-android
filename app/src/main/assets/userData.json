@@ -16,10 +16,10 @@
           "career" : "1년",
           "ability" : "3대400",
           "address": "인천광역시 남동구",
-          "exerciseType": "피트니스",
+          "exerciseType": "TTFF",
           "rpm" : 170,
           "age": 23,
-          "exerciseTime": "FTFF"
+          "exerciseTime": "TTFF"
         }
       ]
     },
@@ -43,6 +43,29 @@
           "rpm" : 170,
           "age": null,
           "exerciseTime": ""
+        }
+      ]
+    },
+    {
+      "id": "test1",
+      "pw": "123",
+      "userDataList": [
+        {
+          "name": "song",
+          "tel": "0102123123",
+          "email": "dudgus907@naver.com"
+        }
+      ],
+      "findUserDataList": [
+        {
+          "nickname": "하이하이",
+          "career" : "1년",
+          "ability" : "3대400",
+          "address": "인천광역시 남동구",
+          "exerciseType": "FFTT",
+          "rpm" : 170,
+          "age": 23,
+          "exerciseTime": "FFTT"
         }
       ]
     }

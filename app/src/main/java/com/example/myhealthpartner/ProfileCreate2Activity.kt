@@ -121,8 +121,7 @@ class ProfileCreate2Activity : AppCompatActivity(),
         {
             return ""
         }
-        catch(e: NetworkOnMainThreadException)
-        {
+        catch (e : NetworkOnMainThreadException){
             return ""
         }
     }
