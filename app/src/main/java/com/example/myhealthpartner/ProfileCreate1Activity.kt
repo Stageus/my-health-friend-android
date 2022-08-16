@@ -25,6 +25,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ContentLoadingProgressBar
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import java.io.File
 import java.lang.Exception
 import java.util.*
@@ -162,7 +163,21 @@ class ProfileCreate1Activity : AppCompatActivity() {
         dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener{
             dialog2.dismiss()
         }
+
     }
+    fun alertDialog(alertMessageTemp :String){
+        val dialogTemp = AlertDialog.Builder(this)
+        val dialog = dialogTemp.create()
+        val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog,null)
+        val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
+        alertMessage.text = alertMessageTemp
+        dialog.setView(dialogViewTemp)
+        dialog.show()
+        dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener {
+            dialog.dismiss()
+        }
+    }
+
 
 
     fun initEvent(){
@@ -197,12 +212,43 @@ class ProfileCreate1Activity : AppCompatActivity() {
                 checkboxLinear.visibility = View.GONE
             }
         }
+
+        val dupCheckBtn = findViewById<Button>(R.id.dupCheckBtn)
+        val jsonObject : String
+        jsonObject = assets.open("userData.json").bufferedReader().use { it.readText() }
+        val gson = Gson()
+        val userData = gson.fromJson(jsonObject,UserData::class.java)
+        val nickNameEditText = findViewById<EditText>(R.id.nickNameEditText)
+        var dupCheckValue = false
+
+        dupCheckBtn.setOnClickListener {
+            for(index in 0 until userData.user.size){
+                if(userData.user[index].findUserDataList[0].nickname == nickNameEditText.text.toString()) {
+                    //하나라도 중복된게 있다면
+                    dupCheckValue = true
+                }
+            }
+            if ((dupCheckValue == true) and (nickNameEditText.text.length > 1))
+            {
+                alertDialog("사용가능합니다!")
+                nickNameEditText.isEnabled = false
+                nickNameEditText.setBackgroundColor(ContextCompat.getColor(applicationContext,R.color.bright_silver))
+            }
+            else {
+                alertDialog("이미 있거나 사용불가한 \n닉네임입니다.")
+            }
+        }
         val setAddressBtn = findViewById<Button>(R.id.setAddressBtn)
 
         setAddressBtn.setOnClickListener{
-            val intent = Intent(this,ProfileCreate2Activity::class.java)
-            startActivity(intent)
-            finish()
+            if(dupCheckValue == true) {
+                val intent = Intent(this, ProfileCreate2Activity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else{
+                alertDialog("닉네임 중복체크를 \n먼저 해주세요.")
+            }
         }
     }
 }

@@ -58,6 +58,12 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
                 transaction.replace(R.id.fragmentBox, findpwFragment)
                 transaction.addToBackStack(null).commitAllowingStateLoss()
             }
+            7 ->{ //pw변경 페이지로
+                val changePwFragment = AccountPage_ChangePwFragment()
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.fragmentBox, changePwFragment)
+                transaction.addToBackStack(null).commitAllowingStateLoss()
+            }
         }
     }
 
