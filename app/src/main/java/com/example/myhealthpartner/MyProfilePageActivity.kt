@@ -1,7 +1,9 @@
 package com.example.myhealthpartner
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -41,7 +43,7 @@ class MyProfilePageActivity : AppCompatActivity() {
         val viewPagerFragment = ViewPagerAdapter(this)
         viewPager2.adapter = viewPagerFragment
 
-        val tabTitles = listOf<String>("첫번째", "두번째")
+        val tabTitles = listOf<String>("상세소개", "나의 운동 영상")
         TabLayoutMediator(tabLayout, viewPager2, {tab, position -> tab.text = tabTitles[position]}).attach()
         initEvent()
     }
@@ -63,6 +65,14 @@ class MyProfilePageActivity : AppCompatActivity() {
     }
 
     fun initEvent(){
+        val changProfileBtn = findViewById<Button>(R.id.changeProfileBtn)
+        changProfileBtn.setOnClickListener {
+            val intent = Intent(applicationContext, ProfileCreate1Activity::class.java)
+            intent.putExtra("Lat",latTemp)
+            intent.putExtra("Lng",lngTemp)
+            startActivity(intent)
+
+        }
 
         initData()
     }

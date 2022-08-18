@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 
 class MainPage_Matching_Result_fragment : Fragment() {
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,6 +29,8 @@ class MainPage_Matching_Result_fragment : Fragment() {
         initEvent(view, userData!!)
         return view
     }
+
+
 
     fun initData(): UserData? { //json파일 읽어오기 작업
         val jsonObject : String

@@ -104,11 +104,13 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
     }
 
     override fun onBackPressed() {
-        if(fragmentNum == 0){
+        val count = supportFragmentManager.backStackEntryCount
+        Log.d("test", count.toString())
+        if(count == 0){
             logoutEvent()
         }
         else{
-            change(0)
+            super.onBackPressed()
         }
     }
 }
