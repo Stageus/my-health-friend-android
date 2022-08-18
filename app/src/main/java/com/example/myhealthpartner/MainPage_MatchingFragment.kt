@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.ImageButton
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 
 class MainPage_MatchingFragment : Fragment() {
@@ -14,6 +17,9 @@ class MainPage_MatchingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.main_page_matching_fragment, container, false)
+        val scale = resources.displayMetrics.density
+        val padding_40p = (40 * scale + 0.5f).toInt()
+        view.setPadding(padding_40p,0,padding_40p,0)
         val checkboxLinear = view.findViewById<LinearLayout>(R.id.checkboxLinear)
         val timeCheckbox = view.findViewById<LinearLayout>(R.id.timeCheckbox)
         timeCheckbox.visibility = View.GONE

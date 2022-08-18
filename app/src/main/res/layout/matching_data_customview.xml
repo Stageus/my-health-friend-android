@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bg"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_signature_bright_purple"
-
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
+    android:orientation="vertical"
     android:layout_marginTop="20dp"
-    android:orientation="vertical">
+    android:paddingVertical="10dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/signature_bright_color">
+        android:background="@color/signature_bright_color"
+        android:id="@+id/constraintLayout1"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
         <Button
             android:id="@+id/symbol"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:layout_marginLeft="10dp"
             android:background="@drawable/circle_white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.3" />
+            app:layout_constraintWidth_percent="0.3"
+            />
         <TextView
 
             android:gravity="center"
@@ -34,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="test1"
+            android:textSize="20dp"
             android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@id/symbol"
             app:layout_constraintEnd_toStartOf="@id/text2"
@@ -48,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="test2"
+            android:textSize="20dp"
             android:textColor="@color/white"
             android:background="@color/signature_bright_color"
             app:layout_constraintStart_toEndOf="@id/text1"
@@ -58,42 +62,62 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
+        android:id="@+id/timeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="5분전"
-        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:text="200m"
+        android:textColor="@color/gray"
         android:layout_gravity="right"
-        android:layout_marginRight="20dp"/>
-    <LinearLayout
+        android:layout_marginRight="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout1"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/signature_bright_color"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="50dp">
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeText">
         <Button
-            android:paddingVertical="5dp"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:id="@+id/goProfile"
+            android:paddingVertical="10dp"
+            android:layout_width="wrap_content"
             android:gravity="center"
+            android:paddingHorizontal="20dp"
             android:text="프로필 이동"
             android:textSize="20dp"
             android:textColor="@color/white"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:inputType="text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/seeMessage"/>
         <Button
-            android:paddingVertical="5dp"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:id="@+id/seeMessage"
+            android:paddingVertical="10dp"
+            android:layout_width="wrap_content"
             android:gravity="center"
+            android:paddingHorizontal="20dp"
             android:text="메세지 보기"
             android:textSize="20dp"
             android:textColor="@color/white"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"/>
-    </LinearLayout>
+            android:layout_marginHorizontal="10dp"
+            android:inputType="text"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/goProfile"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>
