@@ -25,6 +25,7 @@
                 android:background="@color/white"
                 android:scaleType="fitCenter"
                 android:src="@mipmap/navibar"
+                android:layout_margin="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintWidth_percent="0.15"
                 />

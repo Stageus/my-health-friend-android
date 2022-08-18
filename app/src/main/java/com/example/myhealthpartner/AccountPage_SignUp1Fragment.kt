@@ -107,7 +107,7 @@ class AccountPage_SignUp1Fragment : Fragment() {
         nextBtn.setOnClickListener {
             if(dupChecked == false)
             {
-                alertDialog("아이디 중복확인을 해주세요")
+                alertDialog("아이디 중복확인을\n 해주세요")
             }
             else{
                 if(confirmPw(myView) == true) {

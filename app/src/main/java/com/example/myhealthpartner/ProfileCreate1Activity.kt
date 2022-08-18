@@ -13,6 +13,7 @@ import android.media.Image
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.NetworkOnMainThreadException
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
@@ -25,8 +26,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ContentLoadingProgressBar
 import com.bumptech.glide.Glide
+import com.google.android.gms.maps.model.LatLng
 import com.google.gson.Gson
 import java.io.File
+import java.io.IOException
 import java.lang.Exception
 import java.util.*
 import java.util.jar.Manifest
@@ -34,12 +37,31 @@ import java.util.jar.Manifest
 
 class ProfileCreate1Activity : AppCompatActivity() {
     private lateinit var progressDialog : AppCompatDialog
+    private lateinit var getResultAddress : ActivityResultLauncher<Intent>
 
+
+    var latTemp : Double? = null
+    var lngTemp : Double? = null
     //이미지를 결과값을 받는 변수
     lateinit var imageResult : ActivityResultLauncher<Intent>
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getResultAddress = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+            result ->
+            if(result.resultCode == RESULT_OK){
+                val addressText = findViewById<TextView>(R.id.addressText)
+                val addressString = result.data?.getStringExtra("address")
+                addressText.text = addressString
+            }
+        }
+        //실행할 때 현재 위치 전페이지서 전달받아오기
         setContentView(R.layout.create_profile_page)
+        latTemp = intent.getSerializableExtra("Lat") as Double
+        lngTemp = intent.getSerializableExtra("Lng") as Double
+
         val checkboxLinear = findViewById<LinearLayout>(R.id.checkboxLinear)
         checkboxLinear.visibility = View.GONE
         val profileImage = findViewById<ImageView>(R.id.profileImage)
@@ -131,40 +153,28 @@ class ProfileCreate1Activity : AppCompatActivity() {
 
     }
 
-    fun getGeocodeFromAddress(address: String): Address {
-        val coder = Geocoder(this)
-        val geocodedAddress: List<Address> = coder.getFromLocationName(address, 50)
-        Log.d("GmapViewFragment", "Geocode from Address ${geocodedAddress}${geocodedAddress.get(0).longitude}")
-        return geocodedAddress[0]
-    }
-
-//    fun getDistanceFromCurrentLocation(current: LatLng, dest: LatLng): ArrayList<Int> {
-//        val currentLocation = Location("현재위치")
-//        currentLocation.latitude = current.latitude
-//        currentLocation.longitude = current.longitude
-//        val destLocation = Location("목적지")
-//        destLocation.latitude = dest.latitude
-//        destLocation.longitude = dest.longitude
-//        val distance: Float = currentLocation.distanceTo(destLocation)
-//        Log.d("GmapViewFragment","Current Lat: ${currentLocation.latitude}, Lng: ${currentLocation.longitude}")
-//        return
-//    }
-
-
-
-    fun warningAlert(msg : String){
-        val dialogTemp2 = AlertDialog.Builder(this)
-        val dialog2 = dialogTemp2.create()
-        val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog,null)
-        val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
-        alertMessage.text = msg
-        dialog2.setView(dialogViewTemp)
-        dialog2.show()
-        dialogViewTemp.findViewById<Button>(R.id.confirmButton).setOnClickListener{
-            dialog2.dismiss()
+    //위도 경도로 주소 반환
+    fun getAddressFromCode(latLng: LatLng): String{
+        try{
+            val coder = Geocoder(this)
+            var addressTemp = coder.getFromLocation(latLng.latitude, latLng.longitude,1)
+            Log.d("ttt", "  ${addressTemp[0].getAddressLine(0)}")
+            return addressTemp[0].getAddressLine(0)
         }
-
+        catch(e: IndexOutOfBoundsException)
+        {
+            return ""
+        }
+        catch (e: IOException)
+        {
+            return ""
+        }
+        catch (e : NetworkOnMainThreadException){
+            return ""
+        }
     }
+
+    //경고메시지
     fun alertDialog(alertMessageTemp :String){
         val dialogTemp = AlertDialog.Builder(this)
         val dialog = dialogTemp.create()
@@ -186,24 +196,25 @@ class ProfileCreate1Activity : AppCompatActivity() {
         val setprofileBtn = findViewById<Button>(R.id.setProfileBtn)
         val profileImage = findViewById<ImageView>(R.id.profileImage)
 
-
+        //ui 시각, 비시각화
         setprofileBtn.setOnClickListener {
             selectGallery()
             setprofileBtn.visibility = View.GONE
             profileImage.visibility = View.VISIBLE
         }
 
+        //프로필 이미지 넣기
         profileImage.setOnClickListener{
             try {
                 selectGallery()
             }
             catch (e : Exception){
-                warningAlert("사진 불러오기 실패")
+                alertDialog("사진 불러오기 실패")
             }
 
         }
 
-
+        //장르 목록
         fitnessListBtn.setOnClickListener {
             if(checkboxLinear.visibility == View.GONE){
                 checkboxLinear.visibility = View.VISIBLE
@@ -213,6 +224,7 @@ class ProfileCreate1Activity : AppCompatActivity() {
             }
         }
 
+        //중복체크에 필요한 변수들
         val dupCheckBtn = findViewById<Button>(R.id.dupCheckBtn)
         val jsonObject : String
         jsonObject = assets.open("userData.json").bufferedReader().use { it.readText() }
@@ -222,6 +234,7 @@ class ProfileCreate1Activity : AppCompatActivity() {
         var dupCheckValue = false
         var nickNameUseAble = false
 
+        //닉네임 중복체크
         dupCheckBtn.setOnClickListener {
             for(index in 0 until userData.user.size){
                 if(userData.user[index].findUserDataList[0].nickname.toString() == nickNameEditText.text.toString()) {
@@ -242,17 +255,34 @@ class ProfileCreate1Activity : AppCompatActivity() {
                 dupCheckValue = false
             }
         }
-        val setAddressBtn = findViewById<Button>(R.id.setAddressBtn)
 
-        setAddressBtn.setOnClickListener{
+
+        //다음 페이지 넘어가는 이벤트
+        val startBtn = findViewById<Button>(R.id.startBtn)
+
+        startBtn.setOnClickListener{
             if(nickNameUseAble == true) {
-                val intent = Intent(this, ProfileCreate2Activity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             }
             else{
                 alertDialog("닉네임 중복체크를 \n먼저 해주세요.")
             }
+        }
+
+        // 시작할 때 자기 위치 기반으로 기본 주소 설정
+        val addressText = findViewById<TextView>(R.id.addressText)
+        val latlngTemp = LatLng(latTemp!!, lngTemp!!)
+        addressText.text = getAddressFromCode(latlngTemp)
+
+        // 주소지 변경
+        val addressChangeBtn = findViewById<Button>(R.id.addressChangeBtn)
+        addressChangeBtn.setOnClickListener {
+            val intent = Intent(this, ProfileCreate2Activity::class.java)
+            intent.putExtra("Lat",latTemp)
+            intent.putExtra("Lng",lngTemp)
+            getResultAddress.launch(intent)
         }
     }
 }

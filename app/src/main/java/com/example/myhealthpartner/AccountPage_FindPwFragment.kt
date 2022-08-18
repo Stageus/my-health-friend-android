@@ -118,7 +118,7 @@ class AccountPage_FindPwFragment : Fragment() {
 
             }
             else{
-                alertDialog("본인인증이 되지 않았습니다!")
+                alertDialog("본인인증이 되지 \n않았습니다!")
             }
         }
     }

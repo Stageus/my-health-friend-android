@@ -65,7 +65,7 @@ class AccountPage_SingUp2Fragment : Fragment() {
                     changeFragment.change(3)
                 }
                 else {
-                    warningAlert("올바른 이메일을 입력해주세요.")
+                    warningAlert("올바른 이메일을 \n입력해주세요.")
                 }
             }
             else{

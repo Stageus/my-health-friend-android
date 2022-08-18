@@ -29,8 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profileImage">
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
+            android:paddingVertical="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
@@ -43,11 +42,12 @@
                 app:layout_constraintEnd_toStartOf="@+id/navProfileBtn"/>
 
             <TextView
+                android:paddingVertical="5dp"
+                android:paddingLeft="5dp"
                 android:id="@+id/navProfileBtn"
                 android:fontFamily="@font/nanum_square_extrabold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 android:text="내 프로필"
                 android:textColor="@color/black"
                 android:textSize="20dp"
@@ -57,8 +57,7 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:paddingVertical="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
@@ -71,11 +70,12 @@
                 app:layout_constraintEnd_toStartOf="@+id/navMatchingBtn"/>
 
             <TextView
+                android:paddingVertical="5dp"
+                android:paddingLeft="5dp"
                 android:id="@+id/navMatchingBtn"
                 android:fontFamily="@font/nanum_square_extrabold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 android:text="매칭시작"
                 android:textColor="@color/black"
                 android:textSize="20dp"
@@ -86,8 +86,7 @@
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:paddingVertical="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
@@ -98,13 +97,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/navHistoryBtn"/>
-
             <TextView
+                android:paddingVertical="5dp"
+                android:paddingLeft="5dp"
                 android:id="@+id/navHistoryBtn"
                 android:fontFamily="@font/nanum_square_extrabold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 android:text="매칭기록"
                 android:textColor="@color/black"
                 android:textSize="20dp"
@@ -114,10 +113,9 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingVertical="20dp">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
@@ -125,15 +123,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/navBoardBtn"/>
+                app:layout_constraintEnd_toStartOf="@+id/navBoardBtn" />
 
             <TextView
+                android:paddingVertical="5dp"
+                android:paddingLeft="5dp"
                 android:id="@+id/navBoardBtn"
                 android:fontFamily="@font/nanum_square_extrabold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="매칭기록"
+                android:text="게시판"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -145,11 +144,12 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingVertical="20dp"
+        android:background="@color/bright_silver">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -160,11 +160,12 @@
             app:layout_constraintEnd_toStartOf="@+id/logoutTextView"/>
 
         <TextView
+            android:paddingVertical="5dp"
+            android:paddingLeft="5dp"
             android:id="@+id/logoutTextView"
             android:fontFamily="@font/nanum_square_extrabold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:text="로그아웃"
             android:textColor="@color/black"
             android:textSize="20dp"

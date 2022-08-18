@@ -55,20 +55,7 @@
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/showLatLng"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:padding="5dp"
-        android:background="@color/white"
-        android:gravity="center"
-        android:text="lat and lng"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/centerMarker" />
+
 
     <TextView
         android:id="@+id/address"
@@ -94,7 +81,7 @@
         android:background="@drawable/rounded_signature_purple2"
         android:gravity="center"
         android:paddingVertical="20dp"
-        android:text="사용 시작하기!"
+        android:text="여기에서 운동해요!"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,27 +94,14 @@
         android:id="@+id/centerMarker"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintHeight_percent="0.03"
+        app:layout_constraintVertical_bias="0.47"
         android:src="@mipmap/placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
-    <ImageButton
-        android:id="@+id/currentLocationBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent="0.15"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        app:layout_constraintTop_toBottomOf="@+id/findLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@mipmap/currentplace"
-        android:background="@drawable/circle_white"
-        android:padding="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="15dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,12 +69,12 @@ class MainPage_MatchingFragment : Fragment() {
         val timeCheckbox = myView.findViewById<LinearLayout>(R.id.timeCheckbox)
         val timeCheckBtn = myView.findViewById<ImageButton>(R.id.timeCheckBtn)
         val fitnessListBtn = myView.findViewById<ImageButton>(R.id.fitnessListBtn)
-        val baseAddressBtn = myView.findViewById<Button>(R.id.baseAddressBtn)
-
-        baseAddressBtn.setOnClickListener {
-            val addressTextView = myView.findViewById<TextView>(R.id.addressTextView)
-            addressTextView.text = loginData!!.getString("address", "")
-        }
+//        val baseAddressBtn = myView.findViewById<Button>(R.id.baseAddressBtn)
+//
+//        baseAddressBtn.setOnClickListener {
+//            val addressTextView = myView.findViewById<TextView>(R.id.addressTextView)
+//            addressTextView.text = loginData!!.getString("address", "")
+//        }
 
         fitnessListBtn.setOnClickListener {
             if(checkboxLinear.visibility == View.GONE){
@@ -99,10 +99,7 @@ class MainPage_MatchingFragment : Fragment() {
             matchingResult.arguments = bundle
             parentFragmentManager.beginTransaction().replace(R.id.fragmentBox, matchingResult).addToBackStack(null).commitAllowingStateLoss()
 
-
-
         }
-
     }
 
 
