@@ -1,6 +1,7 @@
 package com.example.myhealthpartner
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -66,13 +67,13 @@ class MyProfilePageActivity : AppCompatActivity() {
 
     fun initEvent(){
         val changProfileBtn = findViewById<Button>(R.id.changeProfileBtn)
-        changProfileBtn.setOnClickListener {
-            val intent = Intent(applicationContext, ProfileCreate1Activity::class.java)
-            intent.putExtra("Lat",latTemp)
-            intent.putExtra("Lng",lngTemp)
-            startActivity(intent)
-
-        }
+//        changProfileBtn.setOnClickListener {
+//            val intent = Intent(applicationContext, ProfileCreate1Activity::class.java)
+//            intent.putExtra("Lat",latTemp)
+//            intent.putExtra("Lng",lngTemp)
+//            startActivity(intent)
+//
+//        }
 
         initData()
     }

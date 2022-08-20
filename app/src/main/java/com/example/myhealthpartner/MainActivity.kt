@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentManager
+import org.w3c.dom.Text
 
 interface ChangeMainpageFragment{
     fun change(requestData : Int)
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         val testBtn = findViewById<ImageButton>(R.id.navBtn)
         val matchRecieveBtn = findViewById<ImageButton>(R.id.notiBtn)
         val navProfileBtn = findViewById<TextView>(R.id.navProfileBtn)
+        val navmatchingBtn = findViewById<TextView>(R.id.navMatchingBtn)
 
         //네비게이션의 로그아웃 버튼
         logoutTextView.setOnClickListener{
@@ -69,6 +71,19 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         navProfileBtn.setOnClickListener{
             val intent = Intent(applicationContext, MyProfilePageActivity::class.java)
             startActivity(intent)
+        }
+
+        navmatchingBtn.setOnClickListener{
+            val count = supportFragmentManager.backStackEntryCount
+            if(count == 0 ){
+                drawerLayout.closeDrawer(GravityCompat.START)
+            }
+            else{
+                val mainpageMatchingFragment = MainPage_MatchingFragment()
+                supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                supportFragmentManager.beginTransaction().replace(R.id.frameComment, mainpageMatchingFragment)
+                drawerLayout.closeDrawer(GravityCompat.START)
+            }
         }
 
         testBtn.setOnClickListener{
