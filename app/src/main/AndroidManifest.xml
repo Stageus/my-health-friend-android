@@ -32,6 +32,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".MainPageActivity" />
         <activity android:name=".MyProfilePageActivity" />
+        <activity android:name=".BoardPageActivity"/>
 
 
         

@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         val matchRecieveBtn = findViewById<ImageButton>(R.id.notiBtn)
         val navProfileBtn = findViewById<TextView>(R.id.navProfileBtn)
         val navmatchingBtn = findViewById<TextView>(R.id.navMatchingBtn)
+        val navBoardBtn = findViewById<TextView>(R.id.navBoardBtn)
 
         //네비게이션의 로그아웃 버튼
         logoutTextView.setOnClickListener{
@@ -84,6 +85,11 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
                 supportFragmentManager.beginTransaction().replace(R.id.frameComment, mainpageMatchingFragment)
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
+        }
+
+        navBoardBtn.setOnClickListener{
+            val intent = Intent(applicationContext, BoardPageActivity::class.java)
+            startActivity(intent)
         }
 
         testBtn.setOnClickListener{

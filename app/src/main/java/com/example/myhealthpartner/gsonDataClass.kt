@@ -10,7 +10,7 @@ data class User(
     val pw : String,
     val userDataList : ArrayList<UserDataList>,
     val findUserDataList : ArrayList<FindUserDataList>,
-    val matchingReceiveList: MatchingReceiveList
+    val matchingReceiveList: ArrayList<MatchingReceiveList>
 
 )
 
