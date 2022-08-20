@@ -1,73 +1,50 @@
 {
-  "user": [
-    {
-      "id": "stageus",
-      "pw": "123",
-      "userDataList": [
-        {
-          "name": "song",
-          "tel": "0102123123",
-          "email": "dudgus907@naver.com"
-        }
-      ],
-      "findUserDataList": [
-        {
-          "nickname": "agu",
-          "career" : "1년",
-          "ability" : "3대400",
-          "address": "인천광역시 남동구",
-          "exerciseType": "TTFF",
-          "rpm" : 170,
-          "age": 23,
-          "exerciseTime": "TTFF"
-        }
-      ]
-    },
-    {
-      "id": "test",
-      "pw": "123",
-      "userDataList": [
-        {
-          "name": "song",
-          "tel": "0102123123",
-          "email": "dudgus907@naver.com"
-        }
-      ],
-      "findUserDataList": [
-        {
-          "nickname": "",
-          "career" : "1년",
-          "ability" : "3대400",
-          "address": "",
-          "exerciseType": "",
-          "rpm" : 170,
-          "age": null,
-          "exerciseTime": ""
-        }
-      ]
-    },
-    {
-      "id": "test1",
-      "pw": "123",
-      "userDataList": [
-        {
-          "name": "song",
-          "tel": "0102123123",
-          "email": "dudgus907@naver.com"
-        }
-      ],
-      "findUserDataList": [
-        {
-          "nickname": "하이하이",
-          "career" : "1년",
-          "ability" : "3대400",
-          "address": "인천광역시 남동구",
-          "exerciseType": "FFTT",
-          "rpm" : 170,
-          "age": 23,
-          "exerciseTime": "FFTT"
-        }
-      ]
-    }
-  ]
+  "myPlaceBoard": {
+    "postList": [
+      {
+        "postTitle": "송도2동 다닐만한 헬스장 추천해주세요!",
+        "postContent": "지인들과 다니려는데, 어디로 다니는게 좋을까요?",
+        "postRecommend": "3",
+        "postTime": "이곳에 작성시간이 들어갑니다.",
+        "postcomment": [
+          {
+            "nickname": "갓효석",
+            "comment": "거기에 헬스장이 어딨음ㅋㅋ"
+          },
+          {
+            "nickname": "zi존헬창",
+            "comment": "거기 인프라 안좋음 ㅋㅋ"
+          }
+        ]
+      },
+      {
+        "postTitle": "ㅋㅋㅋ대가리크면 운동 접어라",
+        "postContent": "그래서 내가 접음ㅇㅇ..?",
+        "postRecommend": "0",
+        "postTime": "이곳에 작성시간이 들어갑니다.",
+        "postcomment": [
+          {
+            "nickname": "대갈장군",
+            "comment": "ㄹㅇㅋㅋ"
+          }
+        ]
+      }
+    ]
+  },
+  "exerciseTipBoard": {
+    "postList": [
+      {
+        "postTitle": "3대 400치는법.jpg",
+        "postContent": "그런거없다ㅋㅋ",
+        "postRecommend": "1",
+        "postTime": "이곳에 작성시간이 들어갑니다.",
+        "postComment": [
+          {
+            "nickname": "3대100",
+            "comment": "있음 내가해봄 ㅋㅋ"
+          }
+        ]
+      }
+    ]
+  }
 }

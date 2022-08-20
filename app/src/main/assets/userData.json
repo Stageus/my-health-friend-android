@@ -21,6 +21,15 @@
           "age": 23,
           "exerciseTime": "TTFF"
         }
+      ],
+      "matchingReceiveList" : [
+        {
+          "id" : "test1",
+          "nickname" : "하이하이",
+          "distance" : "30km",
+          "msg" : "같이 헬스장 가요",
+          "place" : "인하대 후문"
+        }
       ]
     },
     {
@@ -44,6 +53,9 @@
           "age": null,
           "exerciseTime": ""
         }
+      ],
+      "matchingReceiveList" : [
+
       ]
     },
     {
@@ -66,6 +78,15 @@
           "rpm" : 170,
           "age": 23,
           "exerciseTime": "FFTT"
+        }
+      ],
+      "matchingReceiveList" : [
+        {
+          "id" : "stageus",
+          "nickname" : "agu",
+          "distance" : "3km",
+          "msg" : "같이 헬스장 가요",
+          "place" : "인하대 후문"
         }
       ]
     }

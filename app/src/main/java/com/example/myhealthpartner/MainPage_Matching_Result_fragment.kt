@@ -84,7 +84,6 @@ class MainPage_Matching_Result_fragment : Fragment() {
         for(index in 0 until completeIndex.size){
             val content = layoutInflater.inflate(R.layout.matching_data_customview, fragmentBox, false)
             content.findViewById<TextView>(R.id.text1).setText(userData.user[completeIndex[index]].findUserDataList[0].nickname)
-            Log.d("msg", "t")
             fragmentBox.addView(content)
         }
 

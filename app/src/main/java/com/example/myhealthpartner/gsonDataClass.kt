@@ -9,7 +9,8 @@ data class User(
     val id : String,
     val pw : String,
     val userDataList : ArrayList<UserDataList>,
-    val findUserDataList : ArrayList<FindUserDataList>
+    val findUserDataList : ArrayList<FindUserDataList>,
+    val matchingReceiveList: MatchingReceiveList
 
 )
 
@@ -28,5 +29,14 @@ data class FindUserDataList(
     val rpm : Int,
     val age : Int,
     val exerciseTime : String
+)
+
+data class MatchingReceiveList(
+    val id : String,
+    val nickname : String,
+    val distance : String,
+    val msg : String,
+    val place : String
+
 )
 
