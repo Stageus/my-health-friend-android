@@ -19,12 +19,18 @@ interface ChangeMainpageFragment{
 
 
 class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
+    var latTemp : Double? = null
+    var lngTemp : Double? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_page)
+        latTemp = intent.getSerializableExtra("Lat") as Double
+        lngTemp = intent.getSerializableExtra("Lng") as Double
         val mainpageMatchingFragment = MainPage_MatchingFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainpageMatchingFragment).commit()
-        Log.d("실행", "test")
+        Log.d("Lat : ", "${latTemp}")
+        Log.d("Lng : ", "${lngTemp}")
         initEvent()
     }
     var fragmentNum = 0

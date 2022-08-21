@@ -74,12 +74,16 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
                 val intent = Intent(applicationContext, ProfileCreate1Activity::class.java)
                 intent.putExtra("Lat",latTemp)
                 intent.putExtra("Lng",lngTemp)
+                Log.d("Lat1 : ", "${latTemp}")
+                Log.d("Lng1 : ", "${lngTemp}")
                 startActivity(intent)
             }
             5 -> { // 메칭페이지로
                 val intent = Intent(applicationContext, MainActivity::class.java)
                 intent.putExtra("Lat",latTemp)
                 intent.putExtra("Lng",lngTemp)
+                Log.d("Lat2 : ", "${latTemp}")
+                Log.d("Lng2 : ", "${lngTemp}")
                 startActivity(intent)
             }
             6 -> { //pw찾기 페이지로
@@ -105,8 +109,6 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
         val accountPageSigninFragment = AccountPage_SignInFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, accountPageSigninFragment).commit()
     }
-
-
 
 
     private fun startLocationUpdates() {

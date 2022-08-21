@@ -55,6 +55,10 @@ class ProfileCreate1Activity : AppCompatActivity() {
                 val addressText = findViewById<TextView>(R.id.addressText)
                 val addressString = result.data?.getStringExtra("address")
                 addressText.text = addressString
+                latTemp = result.data?.getSerializableExtra("Lat") as Double?
+                lngTemp = result.data?.getSerializableExtra("Lng") as Double?
+                Log.d("ttt1", "  ${latTemp}")
+                Log.d("ttt2", "  ${lngTemp}")
             }
         }
         //실행할 때 현재 위치 전페이지서 전달받아오기
@@ -272,7 +276,10 @@ class ProfileCreate1Activity : AppCompatActivity() {
         startBtn.setOnClickListener{
             if(nickNameUseAble == true) {
                 val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                //바뀌면 바뀐 위치 기반으로
+                intent.putExtra("Lat",latTemp)
+                intent.putExtra("Lng",lngTemp)
+                startActivity(intent)//현재 맵 수정에 따른 좌표
                 finish()
             }
             else{

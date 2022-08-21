@@ -14,6 +14,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import java.io.IOException
@@ -113,6 +114,8 @@ class ProfileCreate2Activity : AppCompatActivity(),
             else{
                 var addressOutput = findViewById<TextView>(R.id.address)
                 addressOutput.text = temp
+                latTemp = mMap.cameraPosition.target.latitude
+                lngTemp = mMap.cameraPosition.target.longitude
             }
     }
 
@@ -129,6 +132,10 @@ class ProfileCreate2Activity : AppCompatActivity(),
 
             val intent = Intent(this, ProfileCreate1Activity::class.java).apply {
                 putExtra("address", addressOutput.text.toString())
+                putExtra("Lat", latTemp)
+                putExtra("Lng", lngTemp)
+                Log.d("ttt1 : ","${latTemp}")
+                Log.d("ttt1 : ","${lngTemp}")
             }
             setResult(RESULT_OK, intent)
             finish()
