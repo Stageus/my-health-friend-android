@@ -38,9 +38,5 @@ class BoardPageExerciseFragment : Fragment() {
 
         }
 
-
-
-
-
     }
 }

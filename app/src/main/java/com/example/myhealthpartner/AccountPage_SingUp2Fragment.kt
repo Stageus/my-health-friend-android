@@ -56,6 +56,9 @@ class AccountPage_SingUp2Fragment : Fragment() {
     fun initEvent(myView : View){
         val changeFragment = context as ChangeFragment
         val nextBtn = myView.findViewById<Button>(R.id.nextBtn)
+        val cuf = CommonUsedFunctionClass()
+        cuf.changeBtnColor(myView,nextBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
+
         nextBtn.setOnClickListener {
             val nameChecked  = nameCheck(myView)
             val emailChecked = emailCheck(myView)

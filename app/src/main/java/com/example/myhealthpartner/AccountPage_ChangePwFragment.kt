@@ -42,6 +42,10 @@ class AccountPage_ChangePwFragment : Fragment() {
         val changePwBtn = view.findViewById<Button>(R.id.changePwBtn)
         val pwEditText = view.findViewById<EditText>(R.id.pwEditText)
         val pwCheckEditText = view.findViewById<EditText>(R.id.pwCheckEditText)
+
+        val cuf = CommonUsedFunctionClass()
+        cuf.changeBtnColor(view,changePwBtn,R.drawable.rounded_signature_purple2,R.drawable.rounded_signature_purple)
+
         changePwBtn.setOnClickListener {
             if(pwEditText.text.length < 6){
                 alertDialog("비밀번호가 너무 짧습니다.")

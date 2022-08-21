@@ -75,6 +75,10 @@ class MainPage_MatchingFragment : Fragment() {
         val timeCheckbox = myView.findViewById<LinearLayout>(R.id.timeCheckbox)
         val timeCheckBtn = myView.findViewById<ImageButton>(R.id.timeCheckBtn)
         val fitnessListBtn = myView.findViewById<ImageButton>(R.id.fitnessListBtn)
+
+        val cuf = CommonUsedFunctionClass()
+        cuf.changeBtnColor(myView,matchingStartBtn,R.drawable.rounded_signature_purple2,R.drawable.rounded_signature_purple)
+
 //        val baseAddressBtn = myView.findViewById<Button>(R.id.baseAddressBtn)
 //
 //        baseAddressBtn.setOnClickListener {
@@ -85,14 +89,23 @@ class MainPage_MatchingFragment : Fragment() {
         fitnessListBtn.setOnClickListener {
             if(checkboxLinear.visibility == View.GONE){
                 checkboxLinear.visibility = View.VISIBLE
+                fitnessListBtn.setImageResource(R.drawable.triangle)
             }
             else{
                 checkboxLinear.visibility = View.GONE
+                fitnessListBtn.setImageResource(R.drawable.reverse_triangle)
+
             }
         }
         timeCheckBtn.setOnClickListener {
-            if(timeCheckbox.visibility == View.GONE) timeCheckbox.visibility = View.VISIBLE
-            else timeCheckbox.visibility = View.GONE
+            if(timeCheckbox.visibility == View.GONE) {
+                timeCheckbox.visibility = View.VISIBLE
+                timeCheckBtn.setImageResource(R.drawable.triangle)
+            }
+            else {
+                timeCheckbox.visibility = View.GONE
+                timeCheckBtn.setImageResource(R.drawable.reverse_triangle)
+            }
         }
 
         matchingStartBtn.setOnClickListener {
@@ -101,6 +114,7 @@ class MainPage_MatchingFragment : Fragment() {
             val bundle = Bundle()
             bundle.putString("timeChecked", userExerciseChecked)
             bundle.putString("exerciseChecked", userTimeChecked)
+
             val matchingResult = MainPage_Matching_Result_fragment()
             matchingResult.arguments = bundle
             parentFragmentManager.beginTransaction().replace(R.id.fragmentBox, matchingResult).addToBackStack(null).commitAllowingStateLoss()

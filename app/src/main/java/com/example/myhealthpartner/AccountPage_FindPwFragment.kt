@@ -89,6 +89,15 @@ class AccountPage_FindPwFragment : Fragment() {
     fun initEvent(view: View){
         var authentication = false //다음 페이지 가기 위한 변수
         val certificationBtn = view.findViewById<Button>(R.id.certificationBtn)
+        val confirmBtn = view.findViewById<Button>(R.id.confirmBtn)
+        val changePwBtn = view.findViewById<Button>(R.id.changePwBtn)
+
+        val cuf = CommonUsedFunctionClass()
+        cuf.changeBtnColor(view,certificationBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
+        cuf.changeBtnColor(view,confirmBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
+        cuf.changeBtnColor(view,changePwBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
+
+
         certificationBtn.setOnClickListener{
             if(certification(view) == true){
                 activateInvisibleLayout(view)
@@ -97,13 +106,10 @@ class AccountPage_FindPwFragment : Fragment() {
                 alertDialog("개인정보가 \n 일치하지 않습니다")
             }
         }
-
-        val confirmBtn = view.findViewById<Button>(R.id.confirmBtn)
         confirmBtn.setOnClickListener{
             authentication = true
         }
 
-        val changePwBtn = view.findViewById<Button>(R.id.changePwBtn)
         changePwBtn.setOnClickListener{
             if(authentication == true){
 
@@ -113,6 +119,7 @@ class AccountPage_FindPwFragment : Fragment() {
                 val changeFragment = context as ChangeFragment
                 changeFragment.change(7)
                 //이부분입니다.
+                alertDialog("본인인증 완료")
 
 
 

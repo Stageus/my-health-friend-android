@@ -78,6 +78,8 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
             }
             5 -> { // 메칭페이지로
                 val intent = Intent(applicationContext, MainActivity::class.java)
+                intent.putExtra("Lat",latTemp)
+                intent.putExtra("Lng",lngTemp)
                 startActivity(intent)
             }
             6 -> { //pw찾기 페이지로

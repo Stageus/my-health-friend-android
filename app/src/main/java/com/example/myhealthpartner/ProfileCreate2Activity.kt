@@ -1,23 +1,15 @@
 package com.example.myhealthpartner
 
-import android.Manifest
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
-import android.location.Location
-import android.os.Build
 import android.os.Bundle
-import android.os.Looper
 import android.os.NetworkOnMainThreadException
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -63,6 +55,9 @@ class ProfileCreate2Activity : AppCompatActivity(),
         Log.d("ttt", "${mMap.cameraPosition.target}")
         addressOutput.text = getAddressFromCode(mMap.cameraPosition.target)
 
+        val cuf = CommonUsedFunctionClass()
+        val view = findViewById<View>(R.id.layout)
+        cuf.changeBtnColor(view,findBtn,R.drawable.rounded_signature_purple2,R.drawable.rounded_signature_purple)
 
         findBtn.setOnClickListener{
             try{
@@ -122,8 +117,12 @@ class ProfileCreate2Activity : AppCompatActivity(),
     }
 
     fun initEvent(){
-        val createBtn = findViewById<Button>(R.id.button)
-        createBtn.setOnClickListener{
+        val view = findViewById<View>(R.id.layout)
+        val confirmBtn = findViewById<Button>(R.id.button)
+        val cuf = CommonUsedFunctionClass()
+        cuf.changeBtnColor(view,confirmBtn,R.drawable.rounded_signature_purple2,R.drawable.rounded_signature_purple)
+
+        confirmBtn.setOnClickListener{
 //            val intent = Intent(this,MainActivity::class.java)
 //            startActivity(intent)
             var addressOutput = findViewById<TextView>(R.id.address)

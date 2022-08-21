@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AccountActivity"
+    android:id="@+id/layout"
     android:background="@drawable/main_theme_color">
 
     <ScrollView

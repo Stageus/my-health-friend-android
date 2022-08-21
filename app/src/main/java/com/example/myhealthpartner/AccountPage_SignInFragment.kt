@@ -1,21 +1,21 @@
 package com.example.myhealthpartner
 
 import android.app.AlertDialog
-import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
-import org.w3c.dom.Text
-import java.net.Inet4Address
-import kotlin.math.log
 
 class AccountPage_SignInFragment : Fragment() {
     override fun onCreateView(
@@ -58,6 +58,12 @@ class AccountPage_SignInFragment : Fragment() {
         val signinBtn = myView.findViewById<Button>(R.id.signInBtn)
         val signupBtn = myView.findViewById<Button>(R.id.signUpBtn)
         val findPwText = myView.findViewById<TextView>(R.id.findPwText)
+
+        val cuf = CommonUsedFunctionClass()
+        cuf.changeBtnColor(myView,signinBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
+        cuf.changeBtnColor(myView,signupBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
+
+
 
         signinBtn.setOnClickListener {
             val enterId = myView.findViewById<EditText>(R.id.idEditText).text
@@ -108,5 +114,7 @@ class AccountPage_SignInFragment : Fragment() {
         loginData?.edit()?.putString("exerciseTime", userData.user[index].findUserDataList[0].exerciseTime)?.apply()
     }
     //gson을 위한 data class
+
+
 
 }

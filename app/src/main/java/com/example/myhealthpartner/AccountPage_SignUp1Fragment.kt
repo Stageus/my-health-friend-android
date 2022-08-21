@@ -85,6 +85,11 @@ class AccountPage_SignUp1Fragment : Fragment() {
         val nextBtn = myView.findViewById<Button>(R.id.nextBtn)
         val idEditText = myView.findViewById<EditText>(R.id.idEditText)
 
+        val cuf = CommonUsedFunctionClass()
+        cuf.changeBtnColor(myView,nextBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
+        cuf.changeBtnColor(myView,dupCheckBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
+
+
         dupCheckBtn.setOnClickListener {
             if(idEditText.text.toString().length >= 4) {//크기체크
                 //중복체크

@@ -45,7 +45,7 @@ class AccountPage_SignUp3Fragment : Fragment() {
 
         else{
             tel.isEnabled = false
-            tel.setBackgroundColor(ContextCompat.getColor(requireActivity().applicationContext,R.color.bright_silver))
+            tel.setBackgroundResource(R.drawable.rounded_bright_silver)
             return true
         }
     }
@@ -60,6 +60,11 @@ class AccountPage_SignUp3Fragment : Fragment() {
         val certificationLayout = myView.findViewById<LinearLayout>(R.id.certificationLayout)
         val getCertificationBtn = myView.findViewById<Button>(R.id.getCertificationBtn)
         certificationLayout.visibility = View.GONE
+
+        val cuf = CommonUsedFunctionClass()
+        cuf.changeBtnColor(myView,signupBtn,R.drawable.rounded_signature_purple2,R.drawable.rounded_signature_purple)
+        cuf.changeBtnColor(myView,getCertificationBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
+
 
         getCertificationBtn.setOnClickListener {
             telChecked = checkTel(myView)

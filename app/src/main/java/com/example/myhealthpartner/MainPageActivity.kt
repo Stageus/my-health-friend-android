@@ -9,8 +9,12 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 
 class MainPageActivity : AppCompatActivity() {
+    var latTemp : Double = 0.0
+    var lngTemp : Double = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        latTemp = intent.getSerializableExtra("Lat") as Double
+        lngTemp = intent.getSerializableExtra("Lng") as Double
         setContentView(R.layout.main_page)
         initEvent()
     }

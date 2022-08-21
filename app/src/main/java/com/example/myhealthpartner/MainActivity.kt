@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         val navmatchingBtn = findViewById<TextView>(R.id.navMatchingBtn)
         val navBoardBtn = findViewById<TextView>(R.id.navBoardBtn)
 
+
         //네비게이션의 로그아웃 버튼
         logoutTextView.setOnClickListener{
             logoutEvent()

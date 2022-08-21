@@ -218,9 +218,12 @@ class ProfileCreate1Activity : AppCompatActivity() {
         fitnessListBtn.setOnClickListener {
             if(checkboxLinear.visibility == View.GONE){
                 checkboxLinear.visibility = View.VISIBLE
+                fitnessListBtn.setImageResource(R.drawable.triangle)
             }
             else{
                 checkboxLinear.visibility = View.GONE
+                fitnessListBtn.setImageResource(R.drawable.reverse_triangle)
+
             }
         }
 
@@ -233,6 +236,11 @@ class ProfileCreate1Activity : AppCompatActivity() {
         val nickNameEditText = findViewById<EditText>(R.id.nickNameEditText)
         var dupCheckValue = false
         var nickNameUseAble = false
+
+        val view = findViewById<View>(R.id.layout)
+        val cuf = CommonUsedFunctionClass()
+        cuf.changeBtnColor(view,dupCheckBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
+
 
         //닉네임 중복체크
         dupCheckBtn.setOnClickListener {
@@ -259,6 +267,7 @@ class ProfileCreate1Activity : AppCompatActivity() {
 
         //다음 페이지 넘어가는 이벤트
         val startBtn = findViewById<Button>(R.id.startBtn)
+        cuf.changeBtnColor(view,startBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
 
         startBtn.setOnClickListener{
             if(nickNameUseAble == true) {
