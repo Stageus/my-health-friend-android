@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -57,8 +58,8 @@ class MyProfilePageActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.genre).text = "관심장르 - $exerciseType"
         findViewById<TextView>(R.id.ability).text = "수행능력 - ${loginData.getString("ability", "")}"
         findViewById<TextView>(R.id.time).text = "운동시간 - $exerciseTime"
-        findViewById<TextView>(R.id.address).text = "주소 - ${loginData.getString("address", "")}"
         findViewById<TextView>(R.id.RPM).text = "${loginData.getInt("rpm", 0)}RPM"
+        setAddress()
 
         //실제론 DB가 들어가는 부분
         if(findViewById<TextView>(R.id.nickname).text == "갓효석"){
@@ -67,6 +68,24 @@ class MyProfilePageActivity : AppCompatActivity() {
         setRPM(loginData)
         setBadge(loginData)
 
+    }
+
+    //보안을 위한 주소입력
+    fun setAddress(){
+        val loginData = this.getSharedPreferences("loginData", 0)
+        val oldAddress = loginData.getString("address","")
+        var newAddress = ""
+        var cuttingIndex = -1
+        for (index in oldAddress!!.length-1 downTo 0) {
+            if(oldAddress[index] == ' '){
+                cuttingIndex = index
+                break
+            }
+        }
+        val indexRange = IntRange(0,cuttingIndex)
+        newAddress = oldAddress.slice(indexRange)
+        Log.d("dddddd ","${cuttingIndex}")
+        findViewById<TextView>(R.id.address).text = "거주지역 - " + newAddress + "..."
     }
 
     fun imageSetTestCode(){
@@ -151,10 +170,10 @@ class MyProfilePageActivity : AppCompatActivity() {
         val originExercise = loginData.getString("exerciseType", "")
         for(index in 0 until 4){
             when(index) {
-                1 -> if(originExercise!![index] == 'T') exercise += "파워리프팅"
-                2 -> if(originExercise!![index] == 'T') exercise += " 보디빌딩"
-                3 -> if(originExercise!![index] == 'T') exercise += " 크로스핏"
-                4 -> if(originExercise!![index] == 'T') exercise += " 기타"
+                0 -> if(originExercise!![index] == 'T') exercise += "파워리프팅"
+                1 -> if(originExercise!![index] == 'T') exercise += " 보디빌딩"
+                2 -> if(originExercise!![index] == 'T') exercise += " 크로스핏"
+                3 -> if(originExercise!![index] == 'T') exercise += " 기타"
             }
         }
         return exercise
@@ -166,10 +185,10 @@ class MyProfilePageActivity : AppCompatActivity() {
         val originExercise = loginData.getString("exerciseTime", "")
         for(index in 0 until 4){
             when(index) {
-                1 -> if(originExercise!![index] == 'T') time += "오전"
-                2 -> if(originExercise!![index] == 'T') time += " 오후"
-                3 -> if(originExercise!![index] == 'T') time += " 밤"
-                4 -> if(originExercise!![index] == 'T') time += " 새벽"
+                0 -> if(originExercise!![index] == 'T') time += "오전"
+                1 -> if(originExercise!![index] == 'T') time += " 오후"
+                2 -> if(originExercise!![index] == 'T') time += " 밤"
+                3 -> if(originExercise!![index] == 'T') time += " 새벽"
             }
         }
         return time
@@ -180,6 +199,8 @@ class MyProfilePageActivity : AppCompatActivity() {
         initData()
         findViewById<ImageButton>(R.id.editBtn).setOnClickListener{
             val intent = Intent(this, MyProfileEditPage::class.java)
+            val loginData = this.getSharedPreferences("id", 0).toString()
+            intent.putExtra("id",loginData)
             startActivity(intent)
             finish()
         }
