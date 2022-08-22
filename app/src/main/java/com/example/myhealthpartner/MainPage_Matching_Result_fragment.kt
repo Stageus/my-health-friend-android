@@ -26,8 +26,6 @@ class MainPage_Matching_Result_fragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.main_page_matching_result_fragment, container, false)
         val scale = resources.displayMetrics.density
-
-
         val padding_5p = (20 * scale + 0.5f).toInt()
         view.setPadding(padding_5p,0,padding_5p,0)
         val exerciseChecked = arguments?.getString("exerciseChecked")
@@ -78,7 +76,6 @@ class MainPage_Matching_Result_fragment : Fragment() {
 
     fun checkCondition(myView: View,userData : UserData) : ArrayList<View>{
         val loginData = context?.getSharedPreferences("loginData", 0)
-
         val viewArrayList = arrayListOf<View>()
         val exerciseChecked = arguments?.getString("exerciseChecked")
         val timeChecked = arguments?.getString("timeChecked")

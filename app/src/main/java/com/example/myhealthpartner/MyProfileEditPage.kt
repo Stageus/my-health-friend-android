@@ -1,15 +1,11 @@
 package com.example.myhealthpartner
 
 import android.app.AlertDialog
-import android.app.Dialog
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.location.Address
 import android.location.Geocoder
-import android.media.Image
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -24,7 +20,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.widget.ContentLoadingProgressBar
 import com.bumptech.glide.Glide
 import com.google.android.gms.maps.model.LatLng
 import com.google.gson.Gson
@@ -32,16 +27,15 @@ import java.io.File
 import java.io.IOException
 import java.lang.Exception
 import java.util.*
-import java.util.jar.Manifest
 
 
 class MyProfileEditPage : AppCompatActivity() {
     private lateinit var progressDialog : AppCompatDialog
     private lateinit var getResultAddress : ActivityResultLauncher<Intent>
 
-
     var latTemp : Double? = null
     var lngTemp : Double? = null
+
     //이미지를 결과값을 받는 변수
     lateinit var imageResult : ActivityResultLauncher<Intent>
 
@@ -49,6 +43,8 @@ class MyProfileEditPage : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //실행할 때 현재 위치 전페이지서 전달받아오기
+        setContentView(R.layout.myprofile_edit_page)
         getResultAddress = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
                 result ->
             if(result.resultCode == RESULT_OK){
@@ -61,11 +57,12 @@ class MyProfileEditPage : AppCompatActivity() {
                 Log.d("ttt2", "  ${lngTemp}")
             }
         }
-        //실행할 때 현재 위치 전페이지서 전달받아오기
-        setContentView(R.layout.myprofile_edit_page)
 
-        val checkboxLinear = findViewById<LinearLayout>(R.id.checkboxLinear)
-        checkboxLinear.visibility = View.GONE
+        val checkboxLinear1 = findViewById<LinearLayout>(R.id.checkboxLinear1)
+        checkboxLinear1.visibility = View.GONE
+        val checkboxLinear2 = findViewById<LinearLayout>(R.id.checkboxLinear2)
+        checkboxLinear2.visibility = View.GONE
+
         val profileImage = findViewById<ImageView>(R.id.profileImage)
         profileImage.visibility = View.GONE
         var imageFile : File //이미지를 파일형태로 저장 -> 추후 서버에 보낼때 보낼 변수
@@ -94,16 +91,15 @@ class MyProfileEditPage : AppCompatActivity() {
 
     companion object{
         const val REQ_GALLERY = 1
-
     }
     //로딩바 시작
+
     fun progressOn(){
         progressDialog = AppCompatDialog(this)
         progressDialog.setCancelable(false)
         progressDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         progressDialog.setContentView(R.layout.loading_progress)
         progressDialog.show()
-
     }
     //로딩바 종료
     fun progressOff(){
@@ -190,13 +186,101 @@ class MyProfileEditPage : AppCompatActivity() {
         }
     }
 
+    fun initData(): UserData? { //json파일 읽어오기 작업
+        val jsonObject : String
+        jsonObject = assets.open("userData.json").bufferedReader().use { it.readText() }
+        val gson = Gson()
+        val userData = gson.fromJson(jsonObject, UserData::class.java)
+        return userData
+    }
+
 
 
     fun initEvent(){
-        val checkboxLinear = findViewById<LinearLayout>(R.id.checkboxLinear)
+        val userDataFromJson = initData()
+        val userPrefrence = this.getSharedPreferences("loginData", 0)
+        val userIndex = userPrefrence.getInt("userIndex",0)
+        val userData_ = userDataFromJson!!.user[userIndex]
+
+
+        val checkboxLinear1 = findViewById<LinearLayout>(R.id.checkboxLinear1)
+        val checkboxLinear2 = findViewById<LinearLayout>(R.id.checkboxLinear2)
         val fitnessListBtn = findViewById<ImageButton>(R.id.fitnessListBtn)
+        val timeListBtn = findViewById<ImageButton>(R.id.timeListBtn)
         val setprofileBtn = findViewById<Button>(R.id.setProfileBtn)
         val profileImage = findViewById<ImageView>(R.id.profileImage)
+
+
+        //초기값 세팅
+
+        val exerciseType = userData_.findUserDataList[0].exerciseType
+        val exerciseTime = userData_.findUserDataList[0].exerciseTime
+        if(exerciseType[0] == 'T'){
+            findViewById<CheckBox>(R.id.exerCheck1).isChecked = true
+        }
+        if(exerciseType[1] == 'T'){
+            findViewById<CheckBox>(R.id.exerCheck2).isChecked = true
+        }
+        if(exerciseType[2] == 'T'){
+            findViewById<CheckBox>(R.id.exerCheck3).isChecked = true
+        }
+        if(exerciseType[3] == 'T'){
+            findViewById<CheckBox>(R.id.exerCheck4).isChecked = true
+        }
+
+        if(exerciseTime[0] == 'T'){
+            findViewById<CheckBox>(R.id.timeCheck1).isChecked = true
+        }
+        if(exerciseTime[1] == 'T'){
+            findViewById<CheckBox>(R.id.timeCheck2).isChecked = true
+        }
+        if(exerciseTime[2] == 'T'){
+            findViewById<CheckBox>(R.id.timeCheck3).isChecked = true
+        }
+        if(exerciseTime[3] == 'T'){
+            findViewById<CheckBox>(R.id.timeCheck4).isChecked = true
+        }
+
+        //userData_.findUserDataList[0].badgedatalist[]
+
+        // 시작할 때 자기 주소 기반으로 기본 주소 설정
+        val addressText = findViewById<TextView>(R.id.addressText)
+        val latlngTemp = LatLng(userData_.findUserDataList[0].lat,userData_.findUserDataList[0].lng)
+        addressText.text = getAddressFromCode(latlngTemp)
+
+        val introduceEditText = findViewById<TextView>(R.id.introduceEditText)
+        introduceEditText.text = userData_.findUserDataList[0].introduce
+
+        val careerEditText = findViewById<TextView>(R.id.careerEditText)
+        careerEditText.text = userData_.findUserDataList[0].career
+
+        val abilityEditText = findViewById<TextView>(R.id.abilityEditText)
+        abilityEditText.text = userData_.findUserDataList[0].ability
+
+        val badgeArrayList = arrayListOf<ImageView>()
+
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge1))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge2))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge3))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge4))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge5))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge6))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge7))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge8))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge9))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge10))
+
+        for (index in 0 until badgeArrayList.size) {
+            val badgeData = userData_.findUserDataList[0].badgedatalist[index].badge
+            val scale = resources.displayMetrics.density
+            val padding_5p = (5 * scale + 0.5f).toInt()
+            badgeArrayList[index].setPadding(padding_5p,padding_5p,padding_5p,padding_5p)
+            if(badgeData == "koala"){
+                badgeArrayList[index].setImageResource(R.mipmap.koalabadge)
+            }
+        }
+
+        //ui 기능 세팅
 
         //ui 시각, 비시각화
         setprofileBtn.setOnClickListener {
@@ -216,86 +300,86 @@ class MyProfileEditPage : AppCompatActivity() {
 
         }
 
+
         //장르 목록
         fitnessListBtn.setOnClickListener {
-            if(checkboxLinear.visibility == View.GONE){
-                checkboxLinear.visibility = View.VISIBLE
+            if(checkboxLinear1.visibility == View.GONE){
+                checkboxLinear1.visibility = View.VISIBLE
                 fitnessListBtn.setImageResource(R.drawable.triangle)
             }
             else{
-                checkboxLinear.visibility = View.GONE
+                checkboxLinear1.visibility = View.GONE
                 fitnessListBtn.setImageResource(R.drawable.reverse_triangle)
 
             }
         }
 
-        //중복체크에 필요한 변수들
-        val dupCheckBtn = findViewById<Button>(R.id.dupCheckBtn)
-        val jsonObject : String
-        jsonObject = assets.open("userData.json").bufferedReader().use { it.readText() }
-        val gson = Gson()
-        val userData = gson.fromJson(jsonObject,UserData::class.java)
-        val nickNameEditText = findViewById<EditText>(R.id.nickNameEditText)
-        var dupCheckValue = false
-        var nickNameUseAble = false
-
-        val view = findViewById<View>(R.id.layout)
-        val cuf = CommonUsedFunctionClass()
-        cuf.changeBtnColor(view,dupCheckBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
-
-
-        //닉네임 중복체크
-        dupCheckBtn.setOnClickListener {
-            for(index in 0 until userData.user.size){
-                if(userData.user[index].findUserDataList[0].nickname.toString() == nickNameEditText.text.toString()) {
-                    //하나라도 중복된게 있다면
-                    dupCheckValue = true
-                }
-                Log.d("ddd: ","${userData.user[index].findUserDataList[0].nickname }")
-            }
-            if ((dupCheckValue == false) && (nickNameEditText.text.length > 1))
-            {
-                alertDialog("사용가능합니다!")
-                nickNameEditText.isEnabled = false
-                nickNameEditText.setBackgroundResource(R.drawable.rounded_bright_silver)
-                nickNameUseAble = true
-            }
-            else {
-                alertDialog("이미 있거나 사용불가한 \n닉네임입니다.")
-                dupCheckValue = false
-            }
-        }
-
-
-        //다음 페이지 넘어가는 이벤트
-        val startBtn = findViewById<Button>(R.id.startBtn)
-        cuf.changeBtnColor(view,startBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
-
-        startBtn.setOnClickListener{
-            if(nickNameUseAble == true) {
-                val intent = Intent(this, MainActivity::class.java)
-                //바뀌면 바뀐 위치 기반으로
-                intent.putExtra("Lat",latTemp)
-                intent.putExtra("Lng",lngTemp)
-                startActivity(intent)//현재 맵 수정에 따른 좌표
-                finish()
+        timeListBtn.setOnClickListener {
+            if(checkboxLinear2.visibility == View.GONE){
+                checkboxLinear2.visibility = View.VISIBLE
+                fitnessListBtn.setImageResource(R.drawable.triangle)
             }
             else{
-                alertDialog("닉네임 중복체크를 \n먼저 해주세요.")
+                checkboxLinear2.visibility = View.GONE
+                fitnessListBtn.setImageResource(R.drawable.reverse_triangle)
             }
         }
 
-        // 시작할 때 자기 위치 기반으로 기본 주소 설정
-        val addressText = findViewById<TextView>(R.id.addressText)
-//        val latlngTemp = LatLng(latTemp!!, lngTemp!!)
-//        addressText.text = getAddressFromCode(latlngTemp)
+        // 뱃지 수정하는 이벤트 (나중에 db 수정 필요)
+        for (index in 0 until badgeArrayList.size) {
+            badgeArrayList[index].setOnClickListener{
+                val dialogTemp = AlertDialog.Builder(this)
+                val dialog = dialogTemp.create()
+                val dialogViewTemp = layoutInflater.inflate(R.layout.choice_badge_dialog,null)
+                dialog.setView(dialogViewTemp)
+                dialog.show()
+                dialogViewTemp.findViewById<ImageButton>(R.id.badgeOption1).setOnClickListener{
+                    badgeArrayList[index].setImageResource(R.mipmap.liftbreak)
+                    dialog.dismiss()
+                }
+                dialogViewTemp.findViewById<ImageButton>(R.id.badgeOption2).setOnClickListener {
+                    badgeArrayList[index].setImageResource(R.mipmap.redheart)
+                    dialog.dismiss()
+                }
+                dialogViewTemp.findViewById<ImageButton>(R.id.badgeOption3).setOnClickListener{
+                    badgeArrayList[index].setImageResource(R.mipmap.koalabadge)
+                    dialog.dismiss()
+                }
+            }
+        }
+
+        //다음 페이지 넘어가는 이벤트
+        val view = findViewById<View>(R.id.layout)
+        val cuf = CommonUsedFunctionClass()
+        val saveBtn = findViewById<Button>(R.id.saveBtn)
+        cuf.changeBtnColor(view,saveBtn,R.drawable.rounded_gray,R.drawable.rounded_silver)
+
+        saveBtn.setOnClickListener{
+            val dialogTemp2 = AlertDialog.Builder(this)
+            val dialog2 = dialogTemp2.create()
+            val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog_yes_no,null)
+            val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
+            alertMessage.text = "저장하시겠습니까?"
+            dialog2.setView(dialogViewTemp)
+            dialog2.show()
+            dialogViewTemp.findViewById<Button>(R.id.yesBtn).setOnClickListener{
+                finish()
+                val intent = Intent(this, MyProfilePageActivity::class.java)
+                startActivity(intent)
+            }
+            dialogViewTemp.findViewById<Button>(R.id.noBtn).setOnClickListener {
+                dialog2.dismiss()
+            }
+
+        }
 
         // 주소지 변경
         val addressChangeBtn = findViewById<Button>(R.id.addressChangeBtn)
         addressChangeBtn.setOnClickListener {
-            finish()
-            val intent = Intent(this, MyProfilePageActivity::class.java)
-            startActivity(intent)
+            val intent = Intent(this, ProfileCreate2Activity::class.java)
+            intent.putExtra("Lat",userData_.findUserDataList[0].lat)
+            intent.putExtra("Lng",userData_.findUserDataList[0].lng)
+            getResultAddress.launch(intent)
         }
     }
 }

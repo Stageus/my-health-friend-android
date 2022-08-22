@@ -51,7 +51,7 @@ class ProfileCreate2Activity : AppCompatActivity(),
         //시작하자마자 자기 위치 중심으로 맵 생성
         val emul = LatLng(latTemp as Double, lngTemp as Double)
         mMap.clear()
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(emul, 20F))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(emul, 18F))
         getAddressFromCode(mMap.cameraPosition.target)
         Log.d("ttt", "${mMap.cameraPosition.target}")
         addressOutput.text = getAddressFromCode(mMap.cameraPosition.target)
@@ -126,11 +126,8 @@ class ProfileCreate2Activity : AppCompatActivity(),
         cuf.changeBtnColor(view,confirmBtn,R.drawable.rounded_signature_purple2,R.drawable.rounded_signature_purple)
 
         confirmBtn.setOnClickListener{
-//            val intent = Intent(this,MainActivity::class.java)
-//            startActivity(intent)
-            var addressOutput = findViewById<TextView>(R.id.address)
-
-            val intent = Intent(this, ProfileCreate1Activity::class.java).apply {
+            var addressOutput = findViewById<TextView>(R.id.address)//intent로 키는 activity는 중요치 않은 듯?
+            val intent = Intent().apply {
                 putExtra("address", addressOutput.text.toString())
                 putExtra("Lat", latTemp)
                 putExtra("Lng", lngTemp)
