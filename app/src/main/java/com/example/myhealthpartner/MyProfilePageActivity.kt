@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -52,17 +53,49 @@ class MyProfilePageActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     fun initData() {
         val loginData = this.getSharedPreferences("loginData", 0)
+        val exerciseType = checkExercise()
+        val exerciseTime = checkTime()
 
         findViewById<TextView>(R.id.nickname).text = loginData.getString("nickname","")
         findViewById<TextView>(R.id.career).text = "운동구력 - ${loginData.getString("career","")}"
-        findViewById<TextView>(R.id.genre).text = "관심장르 - ${loginData.getString("exerciseType","")}"
+        findViewById<TextView>(R.id.genre).text = "관심장르 - $exerciseType"
         findViewById<TextView>(R.id.ability).text = "수행능력 - ${loginData.getString("ability", "")}"
-        findViewById<TextView>(R.id.time).text = "운동시간 - ${loginData.getString("exerciseTime", "")}"
+        findViewById<TextView>(R.id.time).text = "운동시간 - $exerciseTime"
         findViewById<TextView>(R.id.address).text = "주소 - ${loginData.getString("address", "")}"
         findViewById<TextView>(R.id.RPM).text = "${loginData.getInt("rpm", 0)}RPM"
 
 
 
+    }
+
+    fun checkExercise() : String{
+        val loginData = this.getSharedPreferences("loginData", 0)
+        var exercise = ""
+        val originExercise = loginData.getString("exerciseType", "")
+        for(index in 0 until 4){
+            when(index) {
+                1 -> if(originExercise!![index] == 'T') exercise += "파워리프팅"
+                2 -> if(originExercise!![index] == 'T') exercise += " 보디빌딩"
+                3 -> if(originExercise!![index] == 'T') exercise += " 크로스핏"
+                4 -> if(originExercise!![index] == 'T') exercise += " 기타"
+            }
+        }
+        return exercise
+    }
+
+    fun checkTime() : String{
+        val loginData = this.getSharedPreferences("loginData", 0)
+        var time = ""
+        val originExercise = loginData.getString("exerciseTime", "")
+        for(index in 0 until 4){
+            when(index) {
+                1 -> if(originExercise!![index] == 'T') time += "오전"
+                2 -> if(originExercise!![index] == 'T') time += " 오후"
+                3 -> if(originExercise!![index] == 'T') time += " 밤"
+                4 -> if(originExercise!![index] == 'T') time += " 새벽"
+            }
+        }
+        return time
     }
 
     fun initEvent(){
@@ -74,6 +107,7 @@ class MyProfilePageActivity : AppCompatActivity() {
 //            startActivity(intent)
 //
 //        }
+        checkExercise()
 
         initData()
     }

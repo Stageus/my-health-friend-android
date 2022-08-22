@@ -45,5 +45,29 @@ data class message(
     val messageDetailed :String
 )
 
+data class BoardData(
+    val myTownBoard : MyTownBoard,
+    val exerciseTipBoard : ExerciseTipBoard
+)
 
+data class ExerciseTipBoard(
+    val postList: ArrayList<PostList>
+)
+
+data class MyTownBoard(
+    val postList : ArrayList<PostList>
+)
+
+data class PostList(
+    val postTitle : String,
+    val postContent : String,
+    val postRecommend : Int,
+    val postTime : String,
+    val postComment : ArrayList<PostComment>
+)
+
+data class PostComment(
+    val nickname :String,
+    val comment : String
+)
 

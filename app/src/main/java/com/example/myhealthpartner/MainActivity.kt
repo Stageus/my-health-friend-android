@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_page)
-        latTemp = intent.getSerializableExtra("Lat") as Double
-        lngTemp = intent.getSerializableExtra("Lng") as Double
+        latTemp = intent.getSerializableExtra("Lat") as? Double
+        lngTemp = intent.getSerializableExtra("Lng") as? Double
         val mainpageMatchingFragment = MainPage_MatchingFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainpageMatchingFragment).commit()
         Log.d("Lat : ", "${latTemp}")
