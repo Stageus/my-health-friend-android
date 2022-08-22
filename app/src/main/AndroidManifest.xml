@@ -36,6 +36,7 @@
         <activity android:name=".InboardPageActivity"/>
         <activity android:name=".MatchingRecieveActivity"/>
         <activity android:name=".MyProfileEditPage"/>
+        <activity android:name=".MatchingHistoryActivity"/>
 
 
         
