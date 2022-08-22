@@ -1,5 +1,6 @@
 package com.example.myhealthpartner
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -39,6 +40,13 @@ class BoardPageExerciseFragment : Fragment() {
             content.findViewById<TextView>(R.id.postRecommend).text = boardData.exerciseTipBoard.postList[index].postRecommend.toString()
             content.findViewById<TextView>(R.id.postCommentNumber).text = boardData.exerciseTipBoard.postList[index].postComment.size.toString()
             content.findViewById<TextView>(R.id.postTime).text = boardData.exerciseTipBoard.postList[index].postTime
+            content.setOnClickListener{
+                val intent = Intent(context, InboardPageActivity::class.java)
+                intent.putExtra("boardNo", index)
+                intent.putExtra("boardType", 1)
+                startActivity(intent)
+
+            }
             contentBox.addView(content)
 
         }
