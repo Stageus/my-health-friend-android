@@ -1,7 +1,10 @@
 package com.example.myhealthpartner
 
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -40,6 +43,12 @@ class BoardPageActivity : AppCompatActivity() {
     }
 
     fun initEvent(){
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
+        val navBtn = findViewById<ImageButton>(R.id.navBtn)
+        navBtn.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+
+        }
 
     }
 

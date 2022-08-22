@@ -3,10 +3,10 @@ package com.example.myhealthpartner
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.google.gson.Gson
 import org.w3c.dom.Text
 
@@ -19,17 +19,30 @@ class InboardPageActivity : AppCompatActivity() {
 
     fun setBoardContent(boardData: BoardData, boardNo : Int){
         val boardType = intent.getIntExtra("boardType", 0)
+        val likeImageView = findViewById<ImageView>(R.id.likeImageView)
+
+
         if(boardType == 0){
             findViewById<TextView>(R.id.postTitle).text = boardData.myTownBoard.postList[boardNo].postTitle
             findViewById<TextView>(R.id.postContent).text = boardData.myTownBoard.postList[boardNo].postContent
             findViewById<TextView>(R.id.postRecommend).text = "${boardData.myTownBoard.postList[boardNo].postRecommend}추천"
             findViewById<TextView>(R.id.postCommentNumber).text = "댓글 ${boardData.myTownBoard.postList[boardNo].postComment.size}"
+            likeImageView.setOnClickListener {
+                likeImageView.setImageResource(R.mipmap.blacklike)
+                findViewById<TextView>(R.id.postRecommend).text = "${boardData.myTownBoard.postList[boardNo].postRecommend+1}추천"
+
+            }
         }
         else{
             findViewById<TextView>(R.id.postTitle).text = boardData.exerciseTipBoard.postList[boardNo].postTitle
             findViewById<TextView>(R.id.postContent).text = boardData.exerciseTipBoard.postList[boardNo].postContent
             findViewById<TextView>(R.id.postRecommend).text = "${boardData.exerciseTipBoard.postList[boardNo].postRecommend}추천"
             findViewById<TextView>(R.id.postCommentNumber).text = "댓글 ${boardData.exerciseTipBoard.postList[boardNo].postComment.size}"
+            likeImageView.setOnClickListener {
+                likeImageView.setImageResource(R.mipmap.blacklike)
+                findViewById<TextView>(R.id.postRecommend).text = "${boardData.exerciseTipBoard.postList[boardNo].postRecommend+1}추천"
+
+            }
         }
     }
 
@@ -72,6 +85,11 @@ class InboardPageActivity : AppCompatActivity() {
         val boardNo = intent.getIntExtra("boardNo", 0)
         setBoardContent(boardData, boardNo)
         setCommentView(boardData, boardNo)
+
+
+
+
+
 
 
     }
