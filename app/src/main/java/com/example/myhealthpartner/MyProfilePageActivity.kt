@@ -1,9 +1,10 @@
 package com.example.myhealthpartner
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -42,6 +43,7 @@ class MyProfilePageActivity : AppCompatActivity() {
         val tabTitles = listOf<String>("상세소개", "나의 운동 영상")
         TabLayoutMediator(tabLayout, viewPager2, {tab, position -> tab.text = tabTitles[position]}).attach()
         initEvent()
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -62,15 +64,15 @@ class MyProfilePageActivity : AppCompatActivity() {
         if(findViewById<TextView>(R.id.nickname).text == "갓효석"){
             imageSetTestCode()
         }
-        changeRPM(loginData)
+        setRPM(loginData)
+        setBadge(loginData)
 
     }
 
     fun imageSetTestCode(){
         val profileImage = findViewById<ImageView>(R.id.profileImage)
-        val scale = resources.displayMetrics.density
+
         profileImage.background
-        val padding_5p = (20 * scale + 0.5f).toInt()
         profileImage.setPadding(0,0,0,0)
         Glide.with(this) //이미지 적용
             .load(R.mipmap.ronnie)
@@ -78,7 +80,33 @@ class MyProfilePageActivity : AppCompatActivity() {
             .into(profileImage)
     }
 
-    fun changeRPM(loginData: SharedPreferences) {
+    fun setBadge(loginData: SharedPreferences){
+        val badgeArrayList = arrayListOf<ImageView>()
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge1))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge2))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge3))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge4))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge5))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge6))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge7))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge8))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge9))
+        badgeArrayList.add(findViewById<ImageView>(R.id.badge10))
+
+        //잘못 짠 코드, 근데 해결책을 모르겠다
+        for (index in 0 until badgeArrayList.size) {
+            val stringTemp = "badge" + (index+1).toString()
+            val badgeData = loginData.getString(stringTemp, "")
+            if(badgeData == "koala"){
+                badgeArrayList[index].setImageResource(R.mipmap.koalabadge)
+                badgeArrayList[index].setPadding(0,0,0,0)
+            }
+        }
+
+
+    }
+
+    fun setRPM(loginData: SharedPreferences) {
         val tempRPM = loginData.getInt("rpm",0)
         if(tempRPM < 50) {
             findViewById<TextView>(R.id.RPM).setTextColor(resources.getColor(R.color.black, null))
@@ -113,9 +141,9 @@ class MyProfilePageActivity : AppCompatActivity() {
             findViewById<ImageView>(R.id.rpmImage).setImageResource(R.mipmap.blackheart)
         }
         findViewById<TextView>(R.id.RPM).text = "${loginData.getInt("rpm", 0)}RPM"
-
-
     }
+
+
 
     fun checkExercise() : String{
         val loginData = this.getSharedPreferences("loginData", 0)
@@ -150,5 +178,11 @@ class MyProfilePageActivity : AppCompatActivity() {
     fun initEvent(){
         checkExercise()
         initData()
+        findViewById<ImageButton>(R.id.editBtn).setOnClickListener{
+            val intent = Intent(this, MyProfileEditPage::class.java)
+            startActivity(intent)
+            finish()
+        }
+
     }
 }

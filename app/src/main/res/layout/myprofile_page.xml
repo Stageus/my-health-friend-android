@@ -338,6 +338,7 @@
 
 
         <ImageButton
+            android:id="@+id/editBtn"
             android:background="@color/white"
             android:layout_width="0dp"
             android:layout_height="match_parent"

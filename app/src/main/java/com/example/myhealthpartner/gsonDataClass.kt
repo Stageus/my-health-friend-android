@@ -31,8 +31,15 @@ data class FindUserDataList(
     val rpm : Int,
     val age : Int,
     val exerciseTime : String,
-    val introduce : String
+    val introduce : String,
+    val badgedatalist : ArrayList<badgedata>
+
 )
+
+data class badgedata(
+    val badge : String
+    )
+
 
 data class MatchingReceiveList(
     val id : String,

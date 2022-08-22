@@ -11,8 +11,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:padding="20dp"
-        android:text="test"
+        android:text="모든운동 가리지 않습니다!\n같이 운동하실 분 메시지 주세요!\n즐겁게 같이 뛰어봅시다!"
         android:textSize="20dp"
-        android:textColor="@color/black"/>
+        android:lineSpacingExtra ="10dp"
+        android:fontFamily="@font/hallym_medium"
+        android:textColor="@color/gray"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
