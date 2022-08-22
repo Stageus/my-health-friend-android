@@ -21,6 +21,8 @@
           "age": "-1",
           "exerciseTime": "FFFF"
         }
+      ],
+      "matchingReceiveList" : [
       ]
     },
 
@@ -54,18 +56,23 @@
         {
           "id": "test1",
           "date": 202208221307 ,
-          "message": [
-            {
-              "promisedate": 202208242200},{"location": "인하대 대운동장"},{"messageDetailed": "맨몸운동 같이하실래요"}
-          ]
+          "message": {
+            "promisedate": 202208242200,
+            "location": "인하대 대운동장",
+            "messageDetailed": "맨몸운동 같이하실래요"
+          }
+
         },
         {
           "id": "test2",
           "date": 202208221312 ,
-          "message": [
+          "message":
             {
-              "promisedate": 202208250000},{"location": "스테이지어스"},{"messageDetailed": "뭔 운동이여 코딩이나 하자"}
-          ]
+              "promisedate": 202208250000,
+              "location": "스테이지어스",
+              "messageDetailed": "뭔 운동이여 코딩이나 하자"
+            }
+
         }
       ]
     },
@@ -97,6 +104,26 @@
         }
       ],
       "matchingReceiveList" : [
+        {
+          "id": "내가먼저보냈지롱",
+          "date": 202208221307 ,
+          "message": {
+            "promisedate": 202208242200,
+            "location": "인하대 대운동장",
+            "messageDetailed": "맨몸운동 같이하실래요"
+          }
+
+        },
+        {
+          "id": "내가 나중에보냈지롱",
+          "date": 202208221312 ,
+          "message": {
+            "promisedate": 202208250000,
+            "location": "스테이지어스",
+            "messageDetailed": "뭔 운동이여 코딩이나 하자"
+          }
+
+        }
       ]
     },
 
@@ -130,10 +157,12 @@
         {
           "id": "test",
           "date": 202208230000 ,
-          "message": [
-            {
-              "promisedate": 202208250000},{"location": "스테이지어스"},{"messageDetailed": "ㄹㅇ ㅋㅋ 뭔 운동임"}
-          ]
+          "message": {
+            "promisedate": 202208250000,
+            "location": "스테이지어스",
+            "messageDetailed": "ㄹㅇ ㅋㅋ 뭔 운동임"
+          }
+
         }
       ]
     },
@@ -167,17 +196,12 @@
         {
           "id": "hyo",
           "date": 202208221307,
-          "message": [
-            {
-              "promisedate": 202208242200
-            },
-            {
-              "location": "인하대 대운동장"
-            },
-            {
-              "messageDetailed": "맨몸운동 가르쳐주세요"
-            }
-          ]
+          "message": {
+            "promisedate": 202208242200,
+            "location": "인하대 대운동장",
+            "messageDetailed": "맨몸운동 가르쳐주세요"
+          }
+
         }
       ]
     },
@@ -212,10 +236,12 @@
         {
           "id": "hyo",
           "date": 202208221307 ,
-          "message": [
-            {
-              "promisedate": 202208242200},{"location": "인하대 대운동장"},{"messageDetailed": "맨몸운동 가르쳐주세요"}
-          ]
+          "message": {
+            "promisedate": 202208242200,
+            "location": "인하대 대운동장",
+            "messageDetailed": "맨몸운동 가르쳐주세요"
+          }
+
         }
       ]
     },

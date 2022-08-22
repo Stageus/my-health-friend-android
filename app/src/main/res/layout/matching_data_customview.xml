@@ -17,7 +17,7 @@
         android:layout_marginHorizontal="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <Button
+        <ImageView
             android:id="@+id/symbol"
             android:layout_width="100dp"
             android:layout_height="100dp"

@@ -37,9 +37,9 @@ data class FindUserDataList(
 data class MatchingReceiveList(
     val id : String,
     val date : Long,
-    val msg : ArrayList<message>,
+    val message : Message,
 )
-data class message(
+data class Message(
     val promisedate : Long,
     val location : String,
     val messageDetailed :String

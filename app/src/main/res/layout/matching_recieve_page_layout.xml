@@ -27,6 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/deleteImageView"
             android:layout_marginRight="10dp"
             android:layout_width="50dp"
             android:layout_height="0dp"
@@ -42,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/sortNewTextview"
             android:fontFamily="@font/hallym_bold"
             android:background="@drawable/right_line_rect"
             android:layout_width="0dp"
@@ -52,6 +54,7 @@
             android:textSize="20dp"
             android:textAlignment="center"/>
         <TextView
+            android:id="@+id/sortOldTextview"
             android:fontFamily="@font/hallym_medium"
             android:background="@drawable/right_line_rect"
             android:layout_width="0dp"
@@ -75,14 +78,19 @@
     </LinearLayout>
 
     <ScrollView
-        android:id="@+id/fragmentBox"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/daySort"
         app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="16dp" >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragmentBox"/>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
