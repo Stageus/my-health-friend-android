@@ -83,25 +83,26 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         }
     }
 
-    fun initEvent(){
-        val loginData = this.getSharedPreferences("loginData", 0)
-        val logoutTextView = findViewById<TextView>(R.id.logoutTextView)
+    fun navEvent(){
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
-        val testBtn = findViewById<ImageButton>(R.id.navBtn)
-        val matchRecieveBtn = findViewById<ImageButton>(R.id.notiBtn)
+        val navBtn = findViewById<ImageButton>(R.id.navBtn)
         val navProfileBtn = findViewById<TextView>(R.id.navProfileBtn)
         val navmatchingBtn = findViewById<TextView>(R.id.navMatchingBtn)
         val navBoardBtn = findViewById<TextView>(R.id.navBoardBtn)
-
-
-        //네비게이션의 로그아웃 버튼
-        logoutTextView.setOnClickListener{
-            logoutEvent()
+        val navHistoryBtn = findViewById<TextView>(R.id.navHistoryBtn)
+        navBtn.setOnClickListener{
+            drawerLayout.openDrawer(GravityCompat.START)
         }
-
         navProfileBtn.setOnClickListener{
             val intent = Intent(applicationContext, MyProfilePageActivity::class.java)
             startActivity(intent)
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+
+        navHistoryBtn.setOnClickListener{
+            val intent = Intent(applicationContext, MatchingHistoryActivity::class.java)
+            startActivity(intent)
+            drawerLayout.closeDrawer(GravityCompat.START)
         }
 
         navmatchingBtn.setOnClickListener{
@@ -120,11 +121,26 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         navBoardBtn.setOnClickListener{
             val intent = Intent(applicationContext, BoardPageActivity::class.java)
             startActivity(intent)
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+    }
+
+    fun initEvent(){
+        val loginData = this.getSharedPreferences("loginData", 0)
+        val logoutTextView = findViewById<TextView>(R.id.logoutTextView)
+        val matchRecieveBtn = findViewById<ImageButton>(R.id.notiBtn)
+        navEvent()
+
+        //네비게이션의 로그아웃 버튼
+        logoutTextView.setOnClickListener{
+            logoutEvent()
         }
 
-        testBtn.setOnClickListener{
-            drawerLayout.openDrawer(GravityCompat.START)
-        }
+
+
+
+
+
 
 
         matchRecieveBtn.setOnClickListener{
