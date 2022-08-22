@@ -25,18 +25,25 @@ data class FindUserDataList(
     val career : String,
     val ability : String,
     val address : String,
+    val lat : Double,
+    val lng : Double,
     val exerciseType : String,
     val rpm : Int,
     val age : Int,
-    val exerciseTime : String
+    val exerciseTime : String,
+    val introduce : String
 )
 
 data class MatchingReceiveList(
     val id : String,
-    val nickname : String,
-    val distance : String,
-    val msg : String,
-    val place : String
-
+    val date : Long,
+    val msg : ArrayList<message>,
 )
+data class message(
+    val promisedate : Long,
+    val location : String,
+    val messageDetailed :String
+)
+
+
 

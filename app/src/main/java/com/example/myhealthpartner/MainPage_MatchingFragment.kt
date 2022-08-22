@@ -111,14 +111,8 @@ class MainPage_MatchingFragment : Fragment() {
         matchingStartBtn.setOnClickListener {
             val userExerciseChecked = exerciseChecked(myView)
             val userTimeChecked = timeChecked(myView)
-            val bundle = Bundle()
-            bundle.putString("timeChecked", userExerciseChecked)
-            bundle.putString("exerciseChecked", userTimeChecked)
-
-            val matchingResult = MainPage_Matching_Result_fragment()
-            matchingResult.arguments = bundle
-            parentFragmentManager.beginTransaction().replace(R.id.fragmentBox, matchingResult).addToBackStack(null).commitAllowingStateLoss()
-
+            val changeFragment = context as ChangeMainpageFragment
+            changeFragment.change(1,userExerciseChecked,userTimeChecked)
         }
     }
 

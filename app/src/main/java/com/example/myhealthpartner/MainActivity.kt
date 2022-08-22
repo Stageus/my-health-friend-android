@@ -15,6 +15,7 @@ import org.w3c.dom.Text
 
 interface ChangeMainpageFragment{
     fun change(requestData : Int)
+    fun change(requestData : Int,userExerciseChecked : String,userTimeChecked : String)
 }
 
 
@@ -40,21 +41,43 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         //버튼 보이게, 혹은 안보이게 조작하기
         fragmentNum = requestData
         when(requestData){
-            0 -> {
+            0 -> { //기본 매칭프래그먼트
                 val mainFragment = MainPage_MatchingFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainFragment).commit()
                 supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
             }
-            1 -> {
+            1 -> { //매칭결과 프래그먼트 -  안 쓰임
                 val matchResultFragment = MainPage_Matching_Result_fragment()
+                val bundle = Bundle()
+                bundle.putDouble("Lat", latTemp!!)
+                bundle.putDouble("Lng", lngTemp!!)
+                matchResultFragment.arguments = bundle
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.fragmentBox, matchResultFragment)
                 transaction.addToBackStack(null).commitAllowingStateLoss()
             }
-            2 -> {
+            2 -> { // 받은 매칭 프래그먼트
                 val recieveFragment = MainPage_Match_Recieve_Fragment()
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.fragmentBox, recieveFragment)
+                transaction.addToBackStack(null).commitAllowingStateLoss()
+            }
+        }
+    }
+    override fun change(requestData: Int,userExerciseChecked : String,userTimeChecked : String) {
+        //버튼 보이게, 혹은 안보이게 조작하기
+        fragmentNum = requestData
+        when(requestData){
+            1 -> { //매칭결과 프래그먼트 - 쓰임
+                val matchResultFragment = MainPage_Matching_Result_fragment()
+                val bundle = Bundle()
+                bundle.putDouble("Lat", latTemp!!)
+                bundle.putDouble("Lng", lngTemp!!)
+                bundle.putString("timeChecked", userExerciseChecked)
+                bundle.putString("exerciseChecked", userTimeChecked)
+                matchResultFragment.arguments = bundle
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.fragmentBox, matchResultFragment)
                 transaction.addToBackStack(null).commitAllowingStateLoss()
             }
         }

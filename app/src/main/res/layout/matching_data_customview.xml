@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="test1"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@id/symbol"
             app:layout_constraintEnd_toStartOf="@id/text2"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="test2"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@color/white"
             android:background="@color/signature_bright_color"
             app:layout_constraintStart_toEndOf="@id/text1"
@@ -62,7 +62,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
-        android:id="@+id/timeText"
+        android:id="@+id/distanceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
@@ -81,7 +81,7 @@
         android:gravity="center"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeText">
+        app:layout_constraintTop_toBottomOf="@+id/distanceText">
         <Button
             android:id="@+id/goProfile"
             android:layout_marginLeft="20dp"
