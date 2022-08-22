@@ -112,6 +112,7 @@ class AccountPage_SignInFragment : Fragment() {
         loginData?.edit()?.putInt("rpm", userData.user[index].findUserDataList[0].rpm)?.apply()
         loginData?.edit()?.putInt("age", userData.user[index].findUserDataList[0].age)
         loginData?.edit()?.putString("exerciseTime", userData.user[index].findUserDataList[0].exerciseTime)?.apply()
+        loginData?.edit()?.putString("introduce", userData.user[index].findUserDataList[0].introduce)?.apply()
     }
     //gson을 위한 data class
 

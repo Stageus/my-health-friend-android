@@ -2,6 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         app:layout_constraintTop_toTopOf="parent"
@@ -14,6 +16,7 @@
         android:backgroundTint="@color/semi_gray"
         >
         <TextView
+            android:id="@+id/commentNickname"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
@@ -23,6 +26,7 @@
             android:fontFamily="@font/hallym_medium"
             android:text="갓효석"/>
         <TextView
+            android:id="@+id/commentContent"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="30dp"

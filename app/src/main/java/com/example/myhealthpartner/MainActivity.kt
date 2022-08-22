@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
             else{
                 val mainpageMatchingFragment = MainPage_MatchingFragment()
                 supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                supportFragmentManager.beginTransaction().replace(R.id.frameComment, mainpageMatchingFragment)
+                supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainpageMatchingFragment)
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
         }
@@ -128,8 +128,8 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
 
 
         matchRecieveBtn.setOnClickListener{
-            val changeFragment = this as ChangeMainpageFragment
-            changeFragment.change(2)
+            val intent = Intent(applicationContext, MatchingRecieveActivity::class.java)
+            startActivity(intent)
         }
 
     }

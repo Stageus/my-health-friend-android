@@ -3,16 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/signature_bright_color">
-    <TextView
-        android:id="@+id/introduceTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    android:background="@color/white">
+    <LinearLayout
+        android:id="@+id/contentBox"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:padding="20dp"
-        android:text="test"
-        android:textSize="20dp"
-        android:textColor="@color/black"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

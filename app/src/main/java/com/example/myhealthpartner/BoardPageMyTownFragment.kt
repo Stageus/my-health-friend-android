@@ -1,5 +1,7 @@
 package com.example.myhealthpartner
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +39,14 @@ class BoardPageMyTownFragment : Fragment() {
             content.findViewById<TextView>(R.id.postRecommend).text = boardData.myTownBoard.postList[index].postRecommend.toString()
 //            content.findViewById<TextView>(R.id.postCommentNumber).text = boardData.myTownBoard.postList[index].postComment.size.toString()
             content.findViewById<TextView>(R.id.postTime).text = boardData.myTownBoard.postList[index].postTime
+            content.setOnClickListener{
+                val intent = Intent(context, InboardPageActivity::class.java)
+                intent.putExtra("boardNo", index)
+                intent.putExtra("boardType", 0)
+                startActivity(intent)
+
+            }
+
             contentBox.addView(content)
 
         }
