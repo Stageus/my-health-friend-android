@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import kotlin.math.roundToInt
 
@@ -88,6 +89,11 @@ class MainPage_Matching_Result_fragment : Fragment() {
                 val content = layoutInflater.inflate(R.layout.matching_data_customview, fragmentBox, false)
                 content.findViewById<TextView>(R.id.text1).setText(userData.user[index].findUserDataList[0].nickname)
                 content.findViewById<TextView>(R.id.text2).setText(userData.user[index].findUserDataList[0].ability)
+
+                Glide.with(this) //이미지 적용
+                    .load(R.mipmap.temp)
+                    .circleCrop()
+                    .into(content.findViewById(R.id.symbol))
 
                 //  순서대로 정렬하기
                 val locationOrigin = Location("myLocation")

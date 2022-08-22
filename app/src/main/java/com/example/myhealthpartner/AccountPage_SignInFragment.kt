@@ -113,6 +113,7 @@ class AccountPage_SignInFragment : Fragment() {
         loginData?.edit()?.putInt("age", userData.user[index].findUserDataList[0].age)
         loginData?.edit()?.putString("exerciseTime", userData.user[index].findUserDataList[0].exerciseTime)?.apply()
         loginData?.edit()?.putString("introduce", userData.user[index].findUserDataList[0].introduce)?.apply()
+        loginData?.edit()?.putInt("userIndex", index)?.apply()
 
         //간단하게
         loginData?.edit()?.putString("badge1", userData.user[index].findUserDataList[0].badgedatalist[0].badge)?.apply()
@@ -125,6 +126,7 @@ class AccountPage_SignInFragment : Fragment() {
         loginData?.edit()?.putString("badge8", userData.user[index].findUserDataList[0].badgedatalist[7].badge)?.apply()
         loginData?.edit()?.putString("badge9", userData.user[index].findUserDataList[0].badgedatalist[8].badge)?.apply()
         loginData?.edit()?.putString("badge10", userData.user[index].findUserDataList[0].badgedatalist[9].badge)?.apply()
+
 
     }
     //gson을 위한 data class
