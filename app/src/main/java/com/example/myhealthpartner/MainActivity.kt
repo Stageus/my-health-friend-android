@@ -128,8 +128,8 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
 
 
         matchRecieveBtn.setOnClickListener{
-            val changeFragment = this as ChangeMainpageFragment
-            changeFragment.change(2)
+            val intent = Intent(applicationContext, MatchingRecieveActivity::class.java)
+            startActivity(intent)
         }
 
     }
