@@ -114,6 +114,20 @@ class AccountPage_SignInFragment : Fragment() {
         loginData?.edit()?.putString("exerciseTime", userData.user[index].findUserDataList[0].exerciseTime)?.apply()
         loginData?.edit()?.putString("introduce", userData.user[index].findUserDataList[0].introduce)?.apply()
         loginData?.edit()?.putInt("userIndex", index)?.apply()
+
+        //간단하게
+        loginData?.edit()?.putString("badge1", userData.user[index].findUserDataList[0].badgedatalist[0].badge)?.apply()
+        loginData?.edit()?.putString("badge2", userData.user[index].findUserDataList[0].badgedatalist[1].badge)?.apply()
+        loginData?.edit()?.putString("badge3", userData.user[index].findUserDataList[0].badgedatalist[2].badge)?.apply()
+        loginData?.edit()?.putString("badge4", userData.user[index].findUserDataList[0].badgedatalist[3].badge)?.apply()
+        loginData?.edit()?.putString("badge5", userData.user[index].findUserDataList[0].badgedatalist[4].badge)?.apply()
+        loginData?.edit()?.putString("badge6", userData.user[index].findUserDataList[0].badgedatalist[5].badge)?.apply()
+        loginData?.edit()?.putString("badge7", userData.user[index].findUserDataList[0].badgedatalist[6].badge)?.apply()
+        loginData?.edit()?.putString("badge8", userData.user[index].findUserDataList[0].badgedatalist[7].badge)?.apply()
+        loginData?.edit()?.putString("badge9", userData.user[index].findUserDataList[0].badgedatalist[8].badge)?.apply()
+        loginData?.edit()?.putString("badge10", userData.user[index].findUserDataList[0].badgedatalist[9].badge)?.apply()
+
+
     }
     //gson을 위한 data class
 

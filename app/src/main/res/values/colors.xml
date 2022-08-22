@@ -11,6 +11,9 @@
     <color name="line_color">#E1E1E1</color>
     <color name="semi_gray">#EEEEEE</color>
     <color name="red">#FF0000</color>
-
+    <color name="bronze">#401400</color>
+    <color name="gold">#ffd700</color>
+    <color name="platinum">#58f8bf</color>
+    <color name="diamond">#00a2e8</color>
 
 </resources>

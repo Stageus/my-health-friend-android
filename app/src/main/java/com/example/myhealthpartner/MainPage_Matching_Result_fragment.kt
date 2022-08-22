@@ -28,7 +28,7 @@ class MainPage_Matching_Result_fragment : Fragment() {
         val scale = resources.displayMetrics.density
 
 
-        val padding_5p = (10 * scale + 0.5f).toInt()
+        val padding_5p = (20 * scale + 0.5f).toInt()
         view.setPadding(padding_5p,0,padding_5p,0)
         val exerciseChecked = arguments?.getString("exerciseChecked")
         val timeChecked = arguments?.getString("timeChecked")

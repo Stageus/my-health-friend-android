@@ -19,7 +19,9 @@
           "exerciseType": "FFFF",
           "rpm" : "-1",
           "age": "-1",
-          "exerciseTime": "FFFF"
+          "exerciseTime": "FFFF",
+          "badgedatalist": [
+            {"badge": "koala"},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""}          ]
         }
       ],
       "matchingReceiveList" : [
@@ -49,7 +51,9 @@
           "rpm" : 50,
           "age": 25,
           "exerciseTime": "FFTT",
-          "introduce": "맨몸운동 위주로 합니다. \n 밖에서 같이 운동하실 친구분들은 언제나 환영입니다!"
+          "introduce": "맨몸운동 위주로 합니다. \n 밖에서 같이 운동하실 친구분들은 언제나 환영입니다!",
+          "badgedatalist": [
+            {"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""}          ]
         }
       ],
       "matchingReceiveList" : [
@@ -100,7 +104,9 @@
           "rpm" : 70,
           "age": 24,
           "exerciseTime": "TTTT",
-          "introduce": "모든운동 합니다. \n 헬스장, 야외 어떤 운동이던 \n절대 가리지 않습니다!!!!"
+          "introduce": "모든운동 합니다. \n 헬스장, 야외 어떤 운동이던 \n절대 가리지 않습니다!!!!",
+          "badgedatalist": [
+            {"badge": "koala"},{"badge": ""},{"badge": "koala"},{"badge": ""},{"badge": "koala"},{"badge": ""},{"badge": "koala"},{"badge": ""},{"badge": "koala"},{"badge": ""}          ]
         }
       ],
       "matchingReceiveList" : [
@@ -150,7 +156,9 @@
           "rpm" : 90,
           "age": 28,
           "exerciseTime": "TTTT",
-          "introduce": "평생을 운동만 했습니다. \n 남자는 메시지 보내지 말아주세요"
+          "introduce": "평생을 운동만 했습니다. \n 남자는 메시지 보내지 말아주세요",
+          "badgedatalist": [
+            {"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""}          ]
         }
       ],
       "matchingReceiveList" : [
@@ -189,7 +197,9 @@
           "rpm" : 110,
           "age": 24,
           "exerciseTime": "FFTT",
-          "introduce": "운동 같이할 송도 거주민들 구해용 \n 재밌게 운동해요!"
+          "introduce": "운동 같이할 송도 거주민들 구해용 \n 재밌게 운동해요!",
+          "badgedatalist": [
+            {"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""}          ]
         }
       ],
       "matchingReceiveList" : [
@@ -229,7 +239,9 @@
           "rpm" : 130,
           "age": 41,
           "exerciseTime": "TTTT",
-          "introduce": "크로스핏 보디빌딩 위주로 합니다. \n 같이 운동하실 친구분들은 언제나 환영입니다!"
+          "introduce": "크로스핏 보디빌딩 위주로 합니다. \n같이 운동하실 친구분들은 언제나 환영입니다!",
+          "badgedatalist": [
+            {"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""}          ]
         }
       ],
       "matchingReceiveList" : [
@@ -268,7 +280,9 @@
           "rpm" : 150,
           "age": 34,
           "exerciseTime": "TTTT",
-          "introduce": "격투기 위주로 합니다. \n 맞짱 뜨실분들 언제나 환영입니다!"
+          "introduce": "격투기 위주로 합니다. \n 맞짱 뜨실분들 언제나 환영입니다!",
+          "badgedatalist": [
+            {"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""}          ]
         }
       ]
     }
