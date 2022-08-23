@@ -1,7 +1,9 @@
 package com.example.myhealthpartner
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -26,6 +28,7 @@ class MatchingHistoryActivity : AppCompatActivity() {
         val navmatchingBtn = findViewById<TextView>(R.id.navMatchingBtn)
         val navBoardBtn = findViewById<TextView>(R.id.navBoardBtn)
         val navHistoryBtn = findViewById<TextView>(R.id.navHistoryBtn)
+        val logoutTextView = findViewById<TextView>(R.id.logoutTextView)
         navBtn.setOnClickListener{
             drawerLayout.openDrawer(GravityCompat.START)
         }
@@ -52,9 +55,35 @@ class MatchingHistoryActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        logoutTextView.setOnClickListener{
+            logoutEvent()
+        }
     }
     fun initEvent(){
         navEvent()
 
+    }
+
+    fun logoutEvent()
+    {
+        val loginData = this.getSharedPreferences("loginData", 0)
+        val dialogTemp2 = AlertDialog.Builder(this)
+        val dialog2 = dialogTemp2.create()
+        val dialogViewTemp = layoutInflater.inflate(R.layout.common_alert_dialog_yes_no,null)
+        val alertMessage = dialogViewTemp.findViewById<TextView>(R.id.alertMessage)
+        alertMessage.text = "로그아웃 하시겠습니까?"
+        dialog2.setView(dialogViewTemp)
+        dialog2.show()
+        dialogViewTemp.findViewById<Button>(R.id.yesBtn).setOnClickListener{
+            val i = Intent(this, AccountActivity::class.java)
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(i)
+            loginData.edit().clear().apply()
+            dialog2.dismiss()
+        }
+        dialogViewTemp.findViewById<Button>(R.id.noBtn).setOnClickListener {
+            dialog2.dismiss()
+        }
     }
 }
