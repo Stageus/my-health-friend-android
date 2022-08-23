@@ -4,12 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountActivity"
-    android:background="@drawable/main_theme_color">
+    tools:context=".AccountActivity">
+
+    <ImageView
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="1.1"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/mainlogo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <LinearLayout
         android:id="@+id/editTextLayout"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.8"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,34 +30,30 @@
         <EditText
             android:id="@+id/idEditText"
             android:layout_width="match_parent"
-            app:layout_constraintWidth_percent="0.8"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
+            android:paddingVertical="15dp"
             android:background="@drawable/rounded_white"
             android:textColorHint="@color/silver"
-            android:hint="ID"
+            android:hint="아이디"
             android:textSize="20dp"/>
         <EditText
+            android:inputType="textPassword"
             android:layout_marginTop="10dp"
             android:id="@+id/pwEditText"
             android:layout_width="match_parent"
-            app:layout_constraintWidth_percent="0.8"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
+            android:paddingVertical="15dp"
             android:background="@drawable/rounded_white"
             android:textColorHint="@color/silver"
-            android:hint="PW"
+            android:hint="비밀번호"
             android:textSize="20dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/btnLayout"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.8"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         app:layout_constraintTop_toBottomOf="@id/editTextLayout"
@@ -63,7 +70,7 @@
             android:layout_marginBottom="10dp"
             android:textSize="20dp"
             android:paddingTop="20dp"
-            android:paddingBottom="15dp"
+            android:paddingBottom="20dp"
             android:text="로그인"/>
         <Button
             android:id="@+id/signUpBtn"
@@ -72,17 +79,17 @@
             android:layout_marginBottom="15dp"
             android:gravity="center"
             android:paddingTop="15dp"
-            android:paddingBottom="10dp"            android:text="회원가입"
+            android:paddingBottom="15dp"
+            android:text="회원가입"
             android:textSize="20dp"/>
         <TextView
+            android:id="@+id/findPwText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="15dp"
             android:text="혹시 비밀번호를 잊으셨나요?"
             />
-
-        
     </LinearLayout>
 
 

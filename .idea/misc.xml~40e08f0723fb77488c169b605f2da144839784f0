@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/drawable/circle_gray.xml" value="0.1275" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1115" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/drawable/reverse_triangle.xml" value="0.1115" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/drawable/right_line_rect.xml" value="0.1115" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/account_page.xml" value="0.12335359675785208" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/account_page_find_pw_fragment.xml" value="0.12335359675785208" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/account_page_sign_in_fragment.xml" value="0.2" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/account_page_sign_up1_fragment.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/account_page_sign_up2_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/account_page_sign_up3_fragment.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/address_dialog1.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/address_dialog2.xml" value="0.1" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/board_page_inboard_fragment.xml" value="0.12335359675785208" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/board_page_inboard_view.xml" value="0.12335359675785208" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/board_page_layout.xml" value="0.2" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/board_page_list_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/board_page_list_view.xml" value="0.1" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/chatting_list_layout.xml" value="0.1" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/chatting_list_layout_nonuse.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/chatting_list_view.xml" value="0.1" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/chatting_list_view_nonuse.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/compare_layout.xml" value="0.264" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/create_profile_page.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/main_page.xml" value="0.2" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/main_page_match_receive_fragment.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/main_page_matching_fragment.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/main_page_matching_result_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/matching_data_customview.xml" value="0.1" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/matching_message_dialog1.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/matching_message_dialog2.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/matching_recieve_page_layout.xml" value="0.2" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/matching_recieve_page_view.xml" value="0.1" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/matcing_history_page.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/myprofile_page.xml" value="0.1" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/navi_header.xml" value="0.13229166666666667" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/navi_test.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/repair_layout.xml" value="0.2" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/test_navi.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/test_navigation.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/layout/tst_navi.xml" value="0.2" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/menu/nav_menu.xml" value="0.16822916666666668" />
+        <entry key="..\:/Users/anfeo/Desktop/MyHealthPartner-pre/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1275" />
+        <entry key="app/src/main/res/drawable-v24/circle_white.xml" value="0.1875" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable/circle_gray.xml" value="0.1875" />
+        <entry key="app/src/main/res/drawable/circle_rounded_shite.xml" value="0.1875" />
+        <entry key="app/src/main/res/drawable/circle_white.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable/gradiant.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable/gray_round.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3635" />
+        <entry key="app/src/main/res/drawable/main_theme_color.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable/reverse_triangle.xml" value="0.18612213134765626" />
+        <entry key="app/src/main/res/drawable/rounded_bright_silver.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/rounded_gray.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/rounded_signature_bright_purple.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/rounded_signature_purple.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/rounded_signature_purple2.xml" value="0.3635" />
+        <entry key="app/src/main/res/drawable/rounded_silver.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable/rounded_sinature_purple2.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/rounded_white.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/white_round.xml" value="0.1885" />
+        <entry key="app/src/main/res/layout/account_page_find_pw_fragment.xml" value="0.1846954345703125" />
+        <entry key="app/src/main/res/layout/account_page_sign_in_fragment.xml" value="0.24900105794270827" />
+        <entry key="app/src/main/res/layout/account_page_sign_up1_fragment.xml" value="0.20732269287109378" />
+        <entry key="app/src/main/res/layout/account_page_sign_up2_fragment.xml" value="0.1563140869140625" />
+        <entry key="app/src/main/res/layout/account_page_sign_up3_fragment.xml" value="0.2345626831054688" />
+        <entry key="app/src/main/res/layout/account_page_sign_up_1_fragment.xml" value="0.3765625" />
+        <entry key="app/src/main/res/layout/account_page_sign_up_2_fragment.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/account_page_sign_up_3_fragment.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/account_page_sign_up_fragment.xml" value="0.2828125" />
+        <entry key="app/src/main/res/layout/acoount_page.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/address_dialog.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/layout/address_dialog1.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/layout/address_dialog2.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/layout/board_page_inboard_fragment.xml" value="0.3765625" />
+        <entry key="app/src/main/res/layout/board_page_inboard_view.xml" value="0.3765625" />
+        <entry key="app/src/main/res/layout/board_page_layout.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/board_page_list_fragment.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/board_page_list_view.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/chatting_list_layout.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/chatting_list_layout_nonuse.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/layout/chatting_list_view.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/chatting_list_view_nonuse.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/layout/create_profile_page.xml" value="0.2828125" />
+        <entry key="app/src/main/res/layout/main_page.xml" value="0.19261169433593753" />
+        <entry key="app/src/main/res/layout/main_page_match_receive_fragment.xml" value="0.2828125" />
+        <entry key="app/src/main/res/layout/main_page_matching_fragment.xml" value="0.15874023437500007" />
+        <entry key="app/src/main/res/layout/main_page_matching_result_fragment.xml" value="0.2828125" />
+        <entry key="app/src/main/res/layout/matching_data_customview.xml" value="0.2828125" />
+        <entry key="app/src/main/res/layout/matching_message_dialog1.xml" value="0.14990942028985507" />
+        <entry key="app/src/main/res/layout/matching_message_dialog2.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/layout/matcing_history_page.xml" value="0.2828125" />
+        <entry key="app/src/main/res/layout/message_dialog.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/layout/myprofile_page.xml" value="0.21108093261718752" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

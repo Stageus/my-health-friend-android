@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@mipmap/nav_profile_icon"
+        android:enabled="true"
+        android:title="내 프로필"/>
+    <item android:icon="@mipmap/nav_matching_icon"
+        android:enabled="true"
+        android:title="매칭시작"/>
+    <item android:icon="@mipmap/nav_history_icon"
+        android:title="매칭기록"/>
+    <item android:icon="@mipmap/nav_board_icon"
+        android:title="게시판"/>
+
+
+
+
+
+</menu>
