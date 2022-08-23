@@ -92,18 +92,15 @@ class MatchingRecieveFragment : Fragment() {
                     val content = layoutInflater.inflate(R.layout.matching_recieve_page_view, contentBox, false)
                     content.findViewById<Button>(R.id.btn1).text = "프로필 이동"
                     content.findViewById<Button>(R.id.btn2).text = "메세지 보기"
-<<<<<<< HEAD
 
-=======
                     content.findViewById<Button>(R.id.btn1).setOnClickListener {
                         val intent = Intent(context, OtherProfilePageActivity::class.java)
                         intent.putExtra("userIndex",index)
                         startActivity(intent)
                     }
                     content.findViewById<Button>(R.id.btn2).setOnClickListener {
-                        setMsg(index2, userIndex, userData)
+                        setMsg(index2, userIndex, userData, contentBox, content)
                     }
->>>>>>> 70e454f8cac3e8bfca269666e14620e3bfdfb582
                     content.findViewById<TextView>(R.id.nickname).text = userData.user[userIndex].matchingReceiveList[index2].id
                     contentList.add(content)
                     Glide.with(this) //이미지 적용
@@ -152,6 +149,7 @@ class MatchingRecieveFragment : Fragment() {
             dialog.dismiss()
         }
         dialogViewTemp.findViewById<Button>(R.id.declineBtn).setOnClickListener {
+            contentBox.removeView(content)
             dialog.dismiss()
         }
         dialogViewTemp.findViewById<Button>(R.id.replyBtn).setOnClickListener {
