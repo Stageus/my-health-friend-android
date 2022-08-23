@@ -107,7 +107,7 @@
             android:layout_width="0dp"
             app:layout_constraintHorizontal_weight="1"
             android:gravity="center"
-            android:text="매칭 신청"
+            android:text="쪽지 보내기"
             android:textSize="20dp"
             android:textColor="@color/white"
             android:layout_height="wrap_content"

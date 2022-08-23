@@ -1,6 +1,7 @@
 package com.example.myhealthpartner
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -50,6 +51,11 @@ class MatchingRecieveFragment : Fragment() {
                 if(dateList[index] == userData.user[userIndex].matchingReceiveList[index2].date){
                     val content = layoutInflater.inflate(R.layout.matching_recieve_page_view, contentBox, false)
                     content.findViewById<Button>(R.id.btn1).text = "프로필 이동"
+                    content.findViewById<Button>(R.id.btn1).setOnClickListener {
+                        val intent = Intent(context, OtherProfilePageActivity::class.java)
+                        intent.putExtra("userIndex",index)
+                        startActivity(intent)
+                    }
                     content.findViewById<Button>(R.id.btn2).text = "메세지 보기"
                     content.findViewById<Button>(R.id.btn2).setOnClickListener {
                         setMsg(index2, userIndex, userData)
@@ -85,6 +91,11 @@ class MatchingRecieveFragment : Fragment() {
                     val content = layoutInflater.inflate(R.layout.matching_recieve_page_view, contentBox, false)
                     content.findViewById<Button>(R.id.btn1).text = "프로필 이동"
                     content.findViewById<Button>(R.id.btn2).text = "메세지 보기"
+                    content.findViewById<Button>(R.id.btn1).setOnClickListener {
+                        val intent = Intent(context, OtherProfilePageActivity::class.java)
+                        intent.putExtra("userIndex",index)
+                        startActivity(intent)
+                    }
                     content.findViewById<Button>(R.id.btn2).setOnClickListener {
                         setMsg(index2, userIndex, userData)
                     }
