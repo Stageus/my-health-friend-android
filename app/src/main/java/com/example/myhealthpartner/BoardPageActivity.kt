@@ -90,6 +90,7 @@ class BoardPageActivity : AppCompatActivity() {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val navBtn = findViewById<ImageButton>(R.id.navBtn)
         navEvent()
+
     }
 
     fun logoutEvent()
