@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -55,6 +56,10 @@ class BoardPageActivity : AppCompatActivity() {
         val navBoardBtn = findViewById<TextView>(R.id.navBoardBtn)
         val navHistoryBtn = findViewById<TextView>(R.id.navHistoryBtn)
         val logoutTextView = findViewById<TextView>(R.id.logoutTextView)
+        Glide.with(this) //이미지 적용
+            .load(R.mipmap.temp)
+            .circleCrop()
+            .into(findViewById(R.id.navProfileImage))
         navBtn.setOnClickListener{
             drawerLayout.openDrawer(GravityCompat.START)
         }
@@ -71,8 +76,7 @@ class BoardPageActivity : AppCompatActivity() {
         }
 
         navmatchingBtn.setOnClickListener{
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
+
             finish()
         }
 

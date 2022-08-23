@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentManager
+import com.bumptech.glide.Glide
 
 class MatchingHistoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +33,10 @@ class MatchingHistoryActivity : AppCompatActivity() {
         val navBoardBtn = findViewById<TextView>(R.id.navBoardBtn)
         val navHistoryBtn = findViewById<TextView>(R.id.navHistoryBtn)
         val logoutTextView = findViewById<TextView>(R.id.logoutTextView)
+        Glide.with(this) //이미지 적용
+            .load(R.mipmap.temp)
+            .circleCrop()
+            .into(findViewById(R.id.navProfileImage))
         navBtn.setOnClickListener{
             drawerLayout.openDrawer(GravityCompat.START)
         }
@@ -48,8 +53,7 @@ class MatchingHistoryActivity : AppCompatActivity() {
         }
 
         navmatchingBtn.setOnClickListener{
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
+            
             finish()
         }
 

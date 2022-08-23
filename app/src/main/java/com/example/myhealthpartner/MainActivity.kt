@@ -7,12 +7,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentManager
+import com.bumptech.glide.Glide
 import org.w3c.dom.Text
 
 interface ChangeMainpageFragment{
@@ -91,6 +93,11 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         val navmatchingBtn = findViewById<TextView>(R.id.navMatchingBtn)
         val navBoardBtn = findViewById<TextView>(R.id.navBoardBtn)
         val navHistoryBtn = findViewById<TextView>(R.id.navHistoryBtn)
+        Glide.with(this) //이미지 적용
+            .load(R.mipmap.temp)
+            .circleCrop()
+            .into(findViewById(R.id.navProfileImage))
+
         navBtn.setOnClickListener{
             drawerLayout.openDrawer(GravityCompat.START)
         }

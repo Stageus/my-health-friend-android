@@ -13,6 +13,7 @@
         android:background="@color/signature_bright_color"
         >
         <ImageView
+            android:id="@+id/navProfileImage"
             android:layout_marginBottom="20dp"
             android:layout_width="120dp"
             android:layout_height="120dp"
