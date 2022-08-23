@@ -137,15 +137,10 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
             logoutEvent()
         }
 
-
-
-
-
-
-
-
         matchRecieveBtn.setOnClickListener{
             val intent = Intent(applicationContext, MatchingRecieveActivity::class.java)
+            intent.putExtra("Lat",latTemp)
+            intent.putExtra("Lng",lngTemp)
             startActivity(intent)
         }
 

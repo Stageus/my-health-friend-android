@@ -30,7 +30,6 @@
         <activity android:name=".ProfileCreate1Activity" />
         <activity android:name=".ProfileCreate2Activity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".MainPageActivity" />
         <activity android:name=".MyProfilePageActivity" />
         <activity android:name=".BoardPageActivity"/>
         <activity android:name=".InboardPageActivity"/>

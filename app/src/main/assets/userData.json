@@ -12,12 +12,12 @@
       ],
       "findUserDataList": [
         {
-          "nickname": "",
+          "nickname": "테스트용계정",
           "career" : "",
-          "ability" : "",
+          "ability" : "밥빨리먹",
           "address": "",
-          "lat": 37.45191324265558,
-          "lng": 126.65450278669594,
+          "lat": 37.451,
+          "lng": 126.654,
           "exerciseType": "FFTT",
           "rpm" : 50,
           "age": 25,
@@ -113,7 +113,7 @@
       ],
       "matchingReceiveList" : [
         {
-          "id": "내가먼저보냈지롱",
+          "id": "stageus",
           "date": 202208221307 ,
           "message": {
             "promisedate": 202208242200,
@@ -123,7 +123,7 @@
 
         },
         {
-          "id": "내가 나중에보냈지롱",
+          "id": "test",
           "date": 202208221312 ,
           "message": {
             "promisedate": 202208250000,
@@ -206,7 +206,7 @@
       ],
       "matchingReceiveList" : [
         {
-          "id": "hyo",
+          "id": "test1",
           "date": 202208221307,
           "message": {
             "promisedate": 202208242200,
@@ -248,7 +248,7 @@
       ],
       "matchingReceiveList" : [
         {
-          "id": "hyo",
+          "id": "test1",
           "date": 202208221307 ,
           "message": {
             "promisedate": 202208242200,
