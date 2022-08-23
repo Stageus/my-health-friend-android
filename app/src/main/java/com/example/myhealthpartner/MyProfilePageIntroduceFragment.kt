@@ -25,9 +25,6 @@ class MyProfilePageIntroduceFragment : Fragment() {
         val introduce = loginData?.getString("introduce", "")!!
         val introduceTextView = myView.findViewById<TextView>(R.id.introduceTextView)
         introduceTextView.text = introduce
-
         Log.d("msg", loginData?.getString("introduce", "")!! )
-
-
     }
 }

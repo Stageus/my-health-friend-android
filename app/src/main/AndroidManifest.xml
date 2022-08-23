@@ -37,9 +37,11 @@
         <activity android:name=".MatchingRecieveActivity"/>
         <activity android:name=".MyProfileEditPage"/>
         <activity android:name=".MatchingHistoryActivity"/>
+        <activity android:name=".OtherProfilePageActivity"/>
 
 
-        
+
+
     </application>
 
 </manifest>

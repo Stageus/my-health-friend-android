@@ -14,8 +14,6 @@ class MatchingRecieveActivity : AppCompatActivity() {
         bundle.putInt("sort", 0)
         matchingReceiveFragment.arguments = bundle
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, matchingReceiveFragment).commit()
-
-
         initEvent()
     }
 

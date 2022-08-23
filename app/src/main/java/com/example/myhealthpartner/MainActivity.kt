@@ -8,6 +8,8 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentManager
@@ -22,6 +24,7 @@ interface ChangeMainpageFragment{
 class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
     var latTemp : Double? = null
     var lngTemp : Double? = null
+    private lateinit var getResultAddress : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +38,6 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
         initEvent()
     }
     var fragmentNum = 0
-
-
     override fun change(requestData: Int) {
         //버튼 보이게, 혹은 안보이게 조작하기
         fragmentNum = requestData

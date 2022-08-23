@@ -16,10 +16,12 @@
           "career" : "",
           "ability" : "",
           "address": "",
-          "exerciseType": "FFFF",
-          "rpm" : "-1",
-          "age": "-1",
-          "exerciseTime": "FFFF",
+          "lat": 37.45191324265558,
+          "lng": 126.65450278669594,
+          "exerciseType": "FFTT",
+          "rpm" : 50,
+          "age": 25,
+          "exerciseTime": "FFTT",
           "badgedatalist": [
             {"badge": "koala"},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""},{"badge": ""}          ]
         }
