@@ -85,7 +85,7 @@
         <Button
             android:id="@+id/goProfile"
             android:layout_marginLeft="20dp"
-            android:paddingVertical="10dp"
+            android:paddingVertical="5dp"
             android:layout_width="0dp"
             app:layout_constraintHorizontal_weight="1"
             android:gravity="center"
@@ -103,7 +103,7 @@
         <Button
             android:layout_marginRight="20dp"
             android:id="@+id/seeMessage"
-            android:paddingVertical="10dp"
+            android:paddingVertical="5dp"
             android:layout_width="0dp"
             app:layout_constraintHorizontal_weight="1"
             android:gravity="center"
