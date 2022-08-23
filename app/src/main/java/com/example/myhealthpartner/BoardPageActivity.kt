@@ -71,8 +71,7 @@ class BoardPageActivity : AppCompatActivity() {
         }
 
         navmatchingBtn.setOnClickListener{
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
+
             finish()
         }
 
