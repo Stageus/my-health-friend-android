@@ -17,6 +17,9 @@ class MatchingHistoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.matcing_history_page)
         val matchingHistoryFragment = MatchingHistoryFragment()
+        val bundle = Bundle()
+        bundle.putInt("sort", 0)
+        matchingHistoryFragment.arguments = bundle
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, matchingHistoryFragment).commit()
         initEvent()
     }
@@ -62,6 +65,27 @@ class MatchingHistoryActivity : AppCompatActivity() {
     }
     fun initEvent(){
         navEvent()
+        val sortWeekBtn = findViewById<TextView>(R.id.weekBtn)
+        val sortMonthBtn = findViewById<TextView>(R.id.monthBtn)
+        val sortAllBtn = findViewById<TextView>(R.id.allBtn)
+
+        sortWeekBtn.setOnClickListener {
+            sortWeekBtn.typeface = resources.getFont(R.font.nanum_square_extrabold)
+            sortMonthBtn.typeface = resources.getFont(R.font.nanum_square_regular)
+            sortAllBtn.typeface = resources.getFont(R.font.nanum_square_regular)
+        }
+
+        sortMonthBtn.setOnClickListener {
+            sortWeekBtn.typeface = resources.getFont(R.font.nanum_square_regular)
+            sortMonthBtn.typeface = resources.getFont(R.font.nanum_square_extrabold)
+            sortAllBtn.typeface = resources.getFont(R.font.nanum_square_regular)
+        }
+
+        sortAllBtn.setOnClickListener {
+            sortWeekBtn.typeface = resources.getFont(R.font.nanum_square_regular)
+            sortMonthBtn.typeface = resources.getFont(R.font.nanum_square_regular)
+            sortAllBtn.typeface = resources.getFont(R.font.nanum_square_extrabold)
+        }
 
     }
 
