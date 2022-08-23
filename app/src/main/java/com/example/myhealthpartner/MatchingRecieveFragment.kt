@@ -51,9 +51,7 @@ class MatchingRecieveFragment : Fragment() {
                     val content = layoutInflater.inflate(R.layout.matching_recieve_page_view, contentBox, false)
                     content.findViewById<Button>(R.id.btn1).text = "프로필 이동"
                     content.findViewById<Button>(R.id.btn2).text = "메세지 보기"
-                    content.findViewById<Button>(R.id.btn2).setOnClickListener {
-                        setMsg(index2, userIndex, userData)
-                    }
+
                     Glide.with(this) //이미지 적용
                         .load(R.mipmap.temp)
                         .circleCrop()
@@ -61,6 +59,9 @@ class MatchingRecieveFragment : Fragment() {
                     content.findViewById<TextView>(R.id.nickname).text = userData.user[userIndex].matchingReceiveList[index2].id
                     contentList.add(content)
                     contentBox.addView(content)
+                    content.findViewById<Button>(R.id.btn2).setOnClickListener {
+                        setMsg(index2, userIndex, userData, contentBox, content)
+                    }
                     Log.d("msg", "addview")
                 }
             }
@@ -85,9 +86,7 @@ class MatchingRecieveFragment : Fragment() {
                     val content = layoutInflater.inflate(R.layout.matching_recieve_page_view, contentBox, false)
                     content.findViewById<Button>(R.id.btn1).text = "프로필 이동"
                     content.findViewById<Button>(R.id.btn2).text = "메세지 보기"
-                    content.findViewById<Button>(R.id.btn2).setOnClickListener {
-                        setMsg(index2, userIndex, userData)
-                    }
+
                     content.findViewById<TextView>(R.id.nickname).text = userData.user[userIndex].matchingReceiveList[index2].id
                     contentList.add(content)
                     Glide.with(this) //이미지 적용
@@ -96,7 +95,9 @@ class MatchingRecieveFragment : Fragment() {
                         .into(content.findViewById(R.id.symbol))
 
                     contentBox.addView(content)
-                    Log.d("msg", "addview")
+                    content.findViewById<Button>(R.id.btn2).setOnClickListener {
+                        setMsg(index2, userIndex, userData,contentBox, content)
+                    }
                 }
             }
         }
@@ -111,7 +112,7 @@ class MatchingRecieveFragment : Fragment() {
         else if(sort == 1) sortOld(userData!!, myView)
     }
 
-    fun setMsg(index : Int, userIndex : Int, userData: UserData)
+    fun setMsg(index : Int, userIndex : Int, userData: UserData, contentBox : LinearLayout, content : View)
     {
         val dialogTemp = AlertDialog.Builder(context)
         val dialog = dialogTemp.create()
@@ -148,6 +149,7 @@ class MatchingRecieveFragment : Fragment() {
             dialogViewTemp2.findViewById<Button>(R.id.sendMessageBtn).setOnClickListener{
                 dialog2.dismiss()
             }
+
         }
     }
 
