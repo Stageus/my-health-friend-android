@@ -16,26 +16,17 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-
-class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity){
-    val tab1Fragment = MyProfilePageIntroduceFragment()
-    val tab2Fragment = MyProfilePageVideoFragment()
-    override fun getItemCount(): Int {
-        return 2
-    }
-
-    override fun createFragment(position: Int): Fragment {
-        if (position == 0) return tab1Fragment
-        else return tab2Fragment
-    }
-}
+import com.google.gson.Gson
 
 
-class MyProfilePageActivity : AppCompatActivity() {
+class OtherProfilePageActivity : AppCompatActivity() {
+    var userIndex = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        userIndex = intent.getIntExtra("userIndex",0)
         setContentView(R.layout.myprofile_page)
+
         val viewPager2 = findViewById<ViewPager2>(R.id.fragmentBox)
         val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
 
@@ -50,24 +41,30 @@ class MyProfilePageActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     fun initData() {
-        val loginData = this.getSharedPreferences("loginData", 0)
-        val exerciseType = checkExercise()
-        val exerciseTime = checkTime()
+        val jsonObject : String
+        jsonObject = assets.open("userData.json").bufferedReader().use { it.readText() }
+        val gson = Gson()
+        val userData = gson.fromJson(jsonObject, UserData::class.java)
+        val userData_ = userData.user[userIndex].findUserDataList[0]
 
-        findViewById<TextView>(R.id.nickname).text = loginData.getString("nickname","")
-        findViewById<TextView>(R.id.career).text = "운동구력 - ${loginData.getString("career","")}"
+        val exerciseType = checkExercise(userData_.exerciseType)
+        val exerciseTime = checkTime(userData_.exerciseTime)
+
+        findViewById<TextView>(R.id.nickname).text = userData_.nickname
+        findViewById<TextView>(R.id.career).text = "운동구력 - " +userData_.career
         findViewById<TextView>(R.id.genre).text = "관심장르 - $exerciseType"
-        findViewById<TextView>(R.id.ability).text = "수행능력 - ${loginData.getString("ability", "")}"
+        findViewById<TextView>(R.id.ability).text = "수행능력 - " +userData_.ability
         findViewById<TextView>(R.id.time).text = "운동시간 - $exerciseTime"
-        findViewById<TextView>(R.id.RPM).text = "${loginData.getInt("rpm", 0)}RPM"
+        findViewById<TextView>(R.id.RPM).text = userData_.rpm.toString() + "RPM"
         setAddress()
 
-        //실제론 DB가 들어가는 부분
+        //실제론 DB가 들어가는 부분 - 예시
         if(findViewById<TextView>(R.id.nickname).text == "갓효석"){
             imageSetTestCode()
         }
-        setRPM(loginData)
-        setBadge(loginData)
+
+        setRPM(userData_.rpm)
+        setBadge(userData_.badgedatalist)
 
     }
 
@@ -100,7 +97,7 @@ class MyProfilePageActivity : AppCompatActivity() {
             .into(profileImage)
     }
 
-    fun setBadge(loginData: SharedPreferences){
+    fun setBadge(badgeDataList:ArrayList<badgedata>){
         val badgeArrayList = arrayListOf<ImageView>()
         badgeArrayList.add(findViewById<ImageView>(R.id.badge1))
         badgeArrayList.add(findViewById<ImageView>(R.id.badge2))
@@ -116,8 +113,7 @@ class MyProfilePageActivity : AppCompatActivity() {
         //잘못 짠 코드, 근데 해결책을 모르겠다
         for (index in 0 until badgeArrayList.size) {
             val stringTemp = "badge" + (index+1).toString()
-            val badgeData = loginData.getString(stringTemp, "")
-            if(badgeData == "koala"){
+            if(badgeDataList[index].badge == "koala"){
                 badgeArrayList[index].setImageResource(R.mipmap.koalabadge)
                 badgeArrayList[index].setPadding(0,0,0,0)
             }
@@ -126,8 +122,7 @@ class MyProfilePageActivity : AppCompatActivity() {
 
     }
 
-    fun setRPM(loginData: SharedPreferences) {
-        val tempRPM = loginData.getInt("rpm",0)
+    fun setRPM(tempRPM: Int) {
         if(tempRPM < 50) {
             findViewById<TextView>(R.id.RPM).setTextColor(resources.getColor(R.color.black, null))
             findViewById<ImageView>(R.id.rpmImage).setImageResource(R.mipmap.blackheart)
@@ -160,15 +155,14 @@ class MyProfilePageActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.RPM).setTextColor(resources.getColor(R.color.black,null))
             findViewById<ImageView>(R.id.rpmImage).setImageResource(R.mipmap.blackheart)
         }
-        findViewById<TextView>(R.id.RPM).text = "${loginData.getInt("rpm", 0)}RPM"
+        findViewById<TextView>(R.id.RPM).text = tempRPM.toString() + "RPM"
+
     }
 
 
 
-    fun checkExercise() : String{
-        val loginData = this.getSharedPreferences("loginData", 0)
+    fun checkExercise(originExercise:String) : String{
         var exercise = ""
-        val originExercise = loginData.getString("exerciseType", "")
         for(index in 0 until 4){
             when(index) {
                 0 -> if(originExercise!![index] == 'T') exercise += "파워리프팅"
@@ -180,10 +174,8 @@ class MyProfilePageActivity : AppCompatActivity() {
         return exercise
     }
 
-    fun checkTime() : String{
-        val loginData = this.getSharedPreferences("loginData", 0)
+    fun checkTime(originExercise:String) : String{
         var time = ""
-        val originExercise = loginData.getString("exerciseTime", "")
         for(index in 0 until 4){
             when(index) {
                 0 -> if(originExercise!![index] == 'T') time += "오전"
@@ -196,16 +188,7 @@ class MyProfilePageActivity : AppCompatActivity() {
     }
 
     fun initEvent(){
-        checkExercise()
         initData()
-
-        findViewById<ImageButton>(R.id.editBtn).setOnClickListener {
-            val intent = Intent(this, MyProfileEditPage::class.java)
-            val loginData = this.getSharedPreferences("id", 0).toString()
-            intent.putExtra("id", loginData)
-            startActivity(intent)
-            finish()
-        }
-
+        findViewById<ImageButton>(R.id.editBtn).visibility = View.GONE
     }
 }
