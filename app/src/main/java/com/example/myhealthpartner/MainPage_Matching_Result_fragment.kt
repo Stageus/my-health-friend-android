@@ -1,13 +1,20 @@
 package com.example.myhealthpartner
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
@@ -17,7 +24,7 @@ class MainPage_Matching_Result_fragment : Fragment() {
 
     var latTemp : Double? = null
     var lngTemp : Double? = null
-
+    private lateinit var getResultAddress : ActivityResultLauncher<Intent>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +32,8 @@ class MainPage_Matching_Result_fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.main_page_matching_result_fragment, container, false)
+
+
         val scale = resources.displayMetrics.density
         val padding_5p = (20 * scale + 0.5f).toInt()
         view.setPadding(padding_5p,0,padding_5p,0)
@@ -32,11 +41,27 @@ class MainPage_Matching_Result_fragment : Fragment() {
         val timeChecked = arguments?.getString("timeChecked")
         latTemp = arguments?.getDouble("Lat")
         lngTemp = arguments?.getDouble("Lng")
-        Log.d("Latlng on  result : ","${latTemp}")
+        Log.d("tttfirst", "  ${latTemp}")
+        Log.d("tttsecond", "  ${lngTemp}")
+
+
 
         Log.d(exerciseChecked, timeChecked!!)
         val userData = initData()
         initEvent(view, userData!!)
+
+        getResultAddress = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+                result ->
+            if(result.resultCode == AppCompatActivity.RESULT_OK){
+                latTemp = result.data?.getSerializableExtra("Lat") as Double?
+                lngTemp = result.data?.getSerializableExtra("Lng") as Double?
+                Log.d("ttt15", "  ${latTemp}")
+                Log.d("ttt20", "  ${lngTemp}")
+                view.findViewById<LinearLayout>(R.id.contentBox).removeAllViews()
+                val userData = initData()
+                initEvent(view, userData!!)
+            }
+        }
         Log.d("userData on  result : ","${userData.user[0].id}")
 
         return view
@@ -74,12 +99,14 @@ class MainPage_Matching_Result_fragment : Fragment() {
         return check
     }
 
+    //조건에 맞는 데이터들을 넣습니다.
     fun checkCondition(myView: View,userData : UserData) : ArrayList<View>{
         val loginData = context?.getSharedPreferences("loginData", 0)
         val viewArrayList = arrayListOf<View>()
         val exerciseChecked = arguments?.getString("exerciseChecked")
         val timeChecked = arguments?.getString("timeChecked")
         val fragmentBox = myView.findViewById<LinearLayout>(R.id.contentBox)
+
 
         for(index in 0 until userData.user.size){
             if(checkExercise(index, userData) == true && checkTime(index, userData) == true){
@@ -104,6 +131,29 @@ class MainPage_Matching_Result_fragment : Fragment() {
 
                 val distance = locationOrigin.distanceTo(locationObject).toInt().toString()
                 content.findViewById<TextView>(R.id.distanceText).setText(distance)
+
+                //생성과 동시에 이벤트 등록
+                val goProfileBtn = content.findViewById<Button>(R.id.goProfileBtn)
+                val matchBtn = content.findViewById<Button>(R.id.matchBtn)
+
+                goProfileBtn.setOnClickListener{
+                    val intent = Intent(context, OtherProfilePageActivity::class.java)
+                    intent.putExtra("userIndex",index)
+                    startActivity(intent)
+                }
+                matchBtn.setOnClickListener {
+                    val dialogTemp2 = AlertDialog.Builder(context)
+                    val dialog2 = dialogTemp2.create()
+                    val dialogViewTemp2 = layoutInflater.inflate(R.layout.matching_message_dialog2,null)
+                    dialog2.setView(dialogViewTemp2)
+                    dialog2.show()
+                    dialogViewTemp2.findViewById<TextView>(R.id.timeEditText).text = ""
+                    dialogViewTemp2.findViewById<TextView>(R.id.placeEditText).text = ""
+                    dialogViewTemp2.findViewById<Button>(R.id.sendMessageBtn).setOnClickListener{
+                        dialog2.dismiss()
+                    }
+                }
+
                 viewArrayList.add(content)
             }
         }
@@ -137,9 +187,11 @@ class MainPage_Matching_Result_fragment : Fragment() {
         for(index in 0 until newIndexList!!.size){
             val viewTemp = viewArrayList[newIndexList[index]]
             viewTemp.findViewById<TextView>(R.id.distanceText).text = distanceToString(viewTemp.findViewById<TextView>(R.id.distanceText).text.toString().toDouble())
-            fragmentBox.addView(viewTemp)
+            if(viewTemp.findViewById<TextView>(R.id.text1).text != "")
+            {
+                fragmentBox.addView(viewTemp)
+            }
         }
-
     }
 
     fun distanceToString(distance : Double):String{
@@ -172,7 +224,16 @@ class MainPage_Matching_Result_fragment : Fragment() {
 
     fun initEvent(myView: View, userData: UserData){
         val viewArrayList = checkCondition(myView,userData)
-        Log.d("msg", viewArrayList.toString())
         createReceiveView(myView, viewArrayList, userData)
+
+        val findNewFriendBtn = myView.findViewById<Button>(R.id.findNewFriendBtn)
+        findNewFriendBtn.setOnClickListener {
+            val intent = Intent(context, ProfileCreate2Activity::class.java)
+            intent.putExtra("Lat",latTemp)
+            intent.putExtra("Lng",lngTemp)
+            getResultAddress.launch(intent)
+        }
     }
+
+
 }

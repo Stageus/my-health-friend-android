@@ -51,7 +51,7 @@ class ProfileCreate2Activity : AppCompatActivity(),
         //시작하자마자 자기 위치 중심으로 맵 생성
         val emul = LatLng(latTemp as Double, lngTemp as Double)
         mMap.clear()
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(emul, 18F))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(emul, 17F))
         getAddressFromCode(mMap.cameraPosition.target)
         Log.d("ttt", "${mMap.cameraPosition.target}")
         addressOutput.text = getAddressFromCode(mMap.cameraPosition.target)

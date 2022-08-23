@@ -37,7 +37,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="7월 30일 09시 00분"
                     android:textSize="16dp"
                     android:maxLines="1"
                     android:inputType="text"
@@ -61,7 +60,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="인하대 대운동장"
                     android:textSize="16dp"
                     android:maxLines="1"
                     android:inputType="text"
@@ -82,7 +80,6 @@
                 android:id="@+id/messageEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="같이 머신헬스장 어때요?"
                 android:maxLines="3"
                 android:textColor="@color/black"/>
         </LinearLayout>
