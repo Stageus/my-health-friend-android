@@ -9,4 +9,7 @@
         <item name="backgroundColor">#FFFFFF</item>
         <item name="colorBackgroundFloating">#FFFFFF</item>
     </style>
+    <style name="CustomRatingBar" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar_selector</item>
+    </style>
 </resources>

@@ -22,6 +22,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:layout_marginHorizontal="20dp"
                 android:id="@+id/postTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,19 +35,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="30dp"
                 android:fontFamily="@font/hallym_medium"
                 android:text="송zero현"
                 android:textColor="@color/line_color"
                 android:textSize="15dp" />
 
             <TextView
-
                 android:id="@+id/postContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="100dp"
                 android:layout_marginRight="15dp"
                 android:fontFamily="@font/hallym_medium"
                 android:text="지인들이랑 다니려는데, 어디로 다니는게 좋을까요? 추천해주세요!"
@@ -56,7 +56,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="100dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -92,6 +92,7 @@
                 android:fontFamily="@font/hallym_medium"
                 android:text="1시간 전"/>
             <TextView
+                android:layout_marginTop="50dp"
                 android:id="@+id/postCommentNumber"
                 android:layout_marginLeft="15dp"
                 android:layout_width="match_parent"
