@@ -30,8 +30,9 @@ class ProfileCreate2Activity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_profile_map_page)
-        latTemp = intent.getSerializableExtra("Lat") as Double
-        lngTemp = intent.getSerializableExtra("Lng") as Double
+        val loginData = this.getSharedPreferences("loginData", 0)
+        latTemp = loginData!!.getString("Lat","")!!.toDouble()
+        lngTemp = loginData!!.getString("Lng","")!!.toDouble()
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         Thread {

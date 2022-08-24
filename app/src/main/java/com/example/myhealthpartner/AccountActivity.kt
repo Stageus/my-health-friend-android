@@ -40,16 +40,19 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
         if (checkPermissionForLocation(this)) {
             startLocationUpdates()
         }
-        initEvent()
     }
 
     override fun change(requestData: Int) { //페이지 이동을 위한 함수
         when(requestData){
             0 -> { //로그인페이지로
                 val signinFragment = AccountPage_SignInFragment()
+                val bundle = Bundle()
+                bundle.putDouble("Lat", latTemp!!)
+                bundle.putDouble("Lng", lngTemp!!)
+                Log.d("It work ","${latTemp}")
+                signinFragment.arguments = bundle
                 supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, signinFragment).commit()
                 supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-
             }
             1 -> { //1번째 회원가입페이지
                 val signupFragment1 = AccountPage_SignUp1Fragment()
@@ -74,16 +77,16 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
                 val intent = Intent(applicationContext, ProfileCreate1Activity::class.java)
                 intent.putExtra("Lat",latTemp)
                 intent.putExtra("Lng",lngTemp)
-                Log.d("Lat1 : ", "${latTemp}")
-                Log.d("Lng1 : ", "${lngTemp}")
+                Log.d("koko1 : ", "${latTemp}")
+                Log.d("koko2 : ", "${lngTemp}")
                 startActivity(intent)
             }
             5 -> { // 메칭페이지로
                 val intent = Intent(applicationContext, MainActivity::class.java)
                 intent.putExtra("Lat",latTemp)
                 intent.putExtra("Lng",lngTemp)
-                Log.d("Lat2 : ", "${latTemp}")
-                Log.d("Lng2 : ", "${lngTemp}")
+                Log.d("koko3 : ", "${latTemp}")
+                Log.d("koko4 : ", "${lngTemp}")
                 startActivity(intent)
             }
             6 -> { //pw찾기 페이지로
@@ -106,8 +109,7 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
     }
 
     fun initEvent(){
-        val accountPageSigninFragment = AccountPage_SignInFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, accountPageSigninFragment).commit()
+        change(0)
     }
 
 
@@ -136,6 +138,7 @@ class AccountActivity : AppCompatActivity(), ChangeFragment {
         mLastLocation = location
         latTemp = mLastLocation.latitude // 갱신 된 위도
         lngTemp = mLastLocation.longitude // 갱신 된 경도
+        initEvent()
     }
 
     private fun checkPermissionForLocation(context: Context): Boolean {

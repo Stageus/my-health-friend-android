@@ -24,6 +24,7 @@ interface ChangeMainpageFragment{
 
 
 class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
+
     var latTemp : Double? = null
     var lngTemp : Double? = null
     private lateinit var getResultAddress : ActivityResultLauncher<Intent>
@@ -31,14 +32,26 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_page)
-        latTemp = intent.getSerializableExtra("Lat") as? Double
-        lngTemp = intent.getSerializableExtra("Lng") as? Double
+
+        latTemp = intent.getDoubleExtra("Lat",0.0)
+        lngTemp = intent.getDoubleExtra("Lng",0.0)
+
+        Log.d("hello1 : ", "${latTemp}")
+        Log.d("hello2 : ", "${lngTemp}")
+
+        val loginData = getSharedPreferences("loginData", 0)
+        loginData?.edit()?.putString("Lat", latTemp!!.toString())?.apply()
+        loginData?.edit()?.putString("Lng", lngTemp!!.toString())?.apply()
+
+        Log.d("hello1 : ", "${loginData.getString("Lat","")!!.toDouble()}")
+        Log.d("hello2 : ", "${loginData.getString("Lng","")!!.toDouble()}")
+
+
         val mainpageMatchingFragment = MainPage_MatchingFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, mainpageMatchingFragment).commit()
-        Log.d("Lat : ", "${latTemp}")
-        Log.d("Lng : ", "${lngTemp}")
         initEvent()
     }
+
     var fragmentNum = 0
     override fun change(requestData: Int) {
         //버튼 보이게, 혹은 안보이게 조작하기
@@ -52,17 +65,9 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
             1 -> { //매칭결과 프래그먼트 -  안 쓰임
                 val matchResultFragment = MainPage_Matching_Result_fragment()
                 val bundle = Bundle()
-                bundle.putDouble("Lat", latTemp!!)
-                bundle.putDouble("Lng", lngTemp!!)
                 matchResultFragment.arguments = bundle
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.fragmentBox, matchResultFragment)
-                transaction.addToBackStack(null).commitAllowingStateLoss()
-            }
-            2 -> { // 받은 매칭 프래그먼트
-                val recieveFragment = MainPage_Match_Recieve_Fragment()
-                val transaction = supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.fragmentBox, recieveFragment)
                 transaction.addToBackStack(null).commitAllowingStateLoss()
             }
         }
@@ -74,8 +79,6 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
             1 -> { //매칭결과 프래그먼트 - 쓰임
                 val matchResultFragment = MainPage_Matching_Result_fragment()
                 val bundle = Bundle()
-                bundle.putDouble("Lat", latTemp!!)
-                bundle.putDouble("Lng", lngTemp!!)
                 bundle.putString("timeChecked", userExerciseChecked)
                 bundle.putString("exerciseChecked", userTimeChecked)
                 matchResultFragment.arguments = bundle
@@ -146,8 +149,6 @@ class MainActivity : AppCompatActivity(),ChangeMainpageFragment {
 
         matchRecieveBtn.setOnClickListener{
             val intent = Intent(applicationContext, MatchingRecieveActivity::class.java)
-            intent.putExtra("Lat",latTemp)
-            intent.putExtra("Lng",lngTemp)
             startActivity(intent)
         }
 
