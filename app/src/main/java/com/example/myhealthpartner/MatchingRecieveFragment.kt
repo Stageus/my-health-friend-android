@@ -26,8 +26,9 @@ class MatchingRecieveFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.matching_recieve_page_fragment, container, false)
-        latTemp = arguments?.getDouble("Lat")
-        lngTemp = arguments?.getDouble("Lng")
+        val loginData = context?.getSharedPreferences("loginData", 0)
+        latTemp = loginData!!.getString("Lat","")!!.toDouble()
+        lngTemp = loginData!!.getString("Lng","")!!.toDouble()
         initEvent(view)
         return view
     }

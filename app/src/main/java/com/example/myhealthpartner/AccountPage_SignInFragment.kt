@@ -18,12 +18,19 @@ import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 
 class AccountPage_SignInFragment : Fragment() {
+
+    var latTemp : Double? = null
+    var lngTemp : Double? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.account_page_sign_in_fragment, container, false)
+        latTemp = arguments?.getDouble("Lat")
+        lngTemp = arguments?.getDouble("Lng")
+
         val userData = initData()
         initEvent(view, userData!!)
         return view
@@ -114,6 +121,8 @@ class AccountPage_SignInFragment : Fragment() {
         loginData?.edit()?.putString("exerciseTime", userData.user[index].findUserDataList[0].exerciseTime)?.apply()
         loginData?.edit()?.putString("introduce", userData.user[index].findUserDataList[0].introduce)?.apply()
         loginData?.edit()?.putInt("userIndex", index)?.apply()
+
+
 
         //간단하게
         loginData?.edit()?.putString("badge1", userData.user[index].findUserDataList[0].badgedatalist[0].badge)?.apply()

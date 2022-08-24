@@ -428,7 +428,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/rounded_gray"
                     android:gravity="center"
-                    android:paddingHorizontal="10dp"
+                    android:paddingHorizontal="20dp"
                     android:text="변경하기"
                     android:textSize="20dp" />
             </LinearLayout>

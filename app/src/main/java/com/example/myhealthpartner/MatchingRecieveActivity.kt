@@ -12,8 +12,10 @@ class MatchingRecieveActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.matching_recieve_page_layout)
-        latTemp = intent.getDoubleExtra("Lat",0.0)
-        lngTemp = intent.getDoubleExtra("Lng",0.0)
+
+        val loginData = this.getSharedPreferences("loginData", 0)
+        latTemp = loginData!!.getString("Lat","")!!.toDouble()
+        lngTemp = loginData!!.getString("Lng","")!!.toDouble()
 
         val matchingReceiveFragment = MatchingRecieveFragment()
         val bundle = Bundle()

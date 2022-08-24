@@ -12,7 +12,7 @@
       ],
       "findUserDataList": [
         {
-          "nickname": "테스트용계정",
+          "nickname": "",
           "career" : "",
           "ability" : "밥빨리먹",
           "address": "",
@@ -113,7 +113,7 @@
       ],
       "matchingReceiveList" : [
         {
-          "id": "stageus",
+          "id": "test3",
           "date": 202208221307 ,
           "message": {
             "promisedate": 202208242200,

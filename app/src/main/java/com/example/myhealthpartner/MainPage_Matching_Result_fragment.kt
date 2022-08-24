@@ -39,12 +39,10 @@ class MainPage_Matching_Result_fragment : Fragment() {
         view.setPadding(padding_5p,0,padding_5p,0)
         val exerciseChecked = arguments?.getString("exerciseChecked")
         val timeChecked = arguments?.getString("timeChecked")
-        latTemp = arguments?.getDouble("Lat")
-        lngTemp = arguments?.getDouble("Lng")
-        Log.d("tttfirst", "  ${latTemp}")
-        Log.d("tttsecond", "  ${lngTemp}")
 
-
+        val loginData = context?.getSharedPreferences("loginData", 0)
+        latTemp = loginData!!.getString("Lat","")!!.toDouble()
+        lngTemp = loginData!!.getString("Lng","")!!.toDouble()
 
         Log.d(exerciseChecked, timeChecked!!)
         val userData = initData()

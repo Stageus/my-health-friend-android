@@ -51,8 +51,9 @@ class MyProfileEditPage : AppCompatActivity() {
                 val addressText = findViewById<TextView>(R.id.addressText)
                 val addressString = result.data?.getStringExtra("address")
                 addressText.text = addressString
-                latTemp = result.data?.getSerializableExtra("Lat") as Double?
-                lngTemp = result.data?.getSerializableExtra("Lng") as Double?
+                val loginData = this.getSharedPreferences("loginData", 0)
+                latTemp = loginData!!.getString("Lat","")!!.toDouble()
+                lngTemp = loginData!!.getString("Lng","")!!.toDouble()
                 Log.d("ttt1", "  ${latTemp}")
                 Log.d("ttt2", "  ${lngTemp}")
             }
@@ -377,8 +378,8 @@ class MyProfileEditPage : AppCompatActivity() {
         val addressChangeBtn = findViewById<Button>(R.id.addressChangeBtn)
         addressChangeBtn.setOnClickListener {
             val intent = Intent(this, ProfileCreate2Activity::class.java)
-            intent.putExtra("Lat",userData_.findUserDataList[0].lat)
-            intent.putExtra("Lng",userData_.findUserDataList[0].lng)
+            intent.putExtra("Lat",latTemp)
+            intent.putExtra("Lng",lngTemp)
             getResultAddress.launch(intent)
         }
     }
