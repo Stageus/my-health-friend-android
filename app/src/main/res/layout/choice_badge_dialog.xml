@@ -84,6 +84,41 @@
                             android:background="@color/white"
                             android:src="@mipmap/koalabadge"/>
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation='horizontal'>
+                        <ImageButton
+                            android:id="@+id/badgeOption4"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:src="@mipmap/liftbreak"/>
+                        <ImageButton
+                            android:id="@+id/badgeOption5"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:src="@mipmap/redheart"
+                            android:layout_marginHorizontal="30dp"
+                            />
+                        <ImageButton
+                            android:id="@+id/badgeOption6"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:src="@mipmap/koalabadge"/>
+                    </LinearLayout>
                 </LinearLayout>
 
             </ScrollView>
