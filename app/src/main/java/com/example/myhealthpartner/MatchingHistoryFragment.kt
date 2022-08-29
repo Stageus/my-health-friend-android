@@ -1,8 +1,13 @@
 package com.example.myhealthpartner
 
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.OnReceiveContentListener
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -44,6 +49,35 @@ class MatchingHistoryFragment : Fragment() {
                 .load(R.mipmap.temp)
                 .circleCrop()
                 .into(content.findViewById(R.id.symbol))
+
+            var friendIndex = -1
+            //  거리 적어넣기
+            for(index2 in 0 until userData.user.size) {
+                if(userData.user[index2].id == userData.user[userIndex!!].matchingReceiveList[index].id) {
+                    friendIndex = index2
+                    break
+                }
+
+            }
+
+            val goProfileBtn = content.findViewById<Button>(R.id.btn1)
+
+            goProfileBtn.setOnClickListener{
+                val intent = Intent(context, OtherProfilePageActivity::class.java)
+                intent.putExtra("userIndex",friendIndex)
+                startActivity(intent)
+            }
+
+            content.findViewById<Button>(R.id.btn2).setOnClickListener {
+                val dialogTemp2 = AlertDialog.Builder(context)
+                val dialog2 = dialogTemp2.create()
+                val dialogViewTemp2 = layoutInflater.inflate(R.layout.test_rating_page,null)
+                dialog2.setView(dialogViewTemp2)
+                dialog2.show()
+                dialogViewTemp2.findViewById<Button>(R.id.confirmButton).setOnClickListener{
+                    dialog2.dismiss()
+                }
+            }
             contentBox.addView(content)
         }
 
@@ -57,3 +91,4 @@ class MatchingHistoryFragment : Fragment() {
     }
 
 }
+

@@ -37,6 +37,7 @@ class MatchingRecieveActivity : AppCompatActivity() {
             val matchingReceiveFragment = MatchingRecieveFragment()
             sortNewTextView.typeface = resources.getFont(R.font.nanum_square_extrabold)
             sortOldTextView.typeface = resources.getFont(R.font.nanum_square_regular)
+            sortNearTextView.typeface = resources.getFont(R.font.nanum_square_regular)
             bundle.putInt("sort", 0)
             matchingReceiveFragment.arguments = bundle
             supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, matchingReceiveFragment).commit()
@@ -47,6 +48,8 @@ class MatchingRecieveActivity : AppCompatActivity() {
             val matchingReceiveFragment = MatchingRecieveFragment()
             sortNewTextView.typeface = resources.getFont(R.font.nanum_square_regular)
             sortOldTextView.typeface = resources.getFont(R.font.nanum_square_extrabold)
+            sortNearTextView.typeface = resources.getFont(R.font.nanum_square_regular)
+
             bundle.putInt("sort", 1)
             matchingReceiveFragment.arguments = bundle
             supportFragmentManager.beginTransaction().replace(R.id.fragmentBox, matchingReceiveFragment).commit()
@@ -56,7 +59,9 @@ class MatchingRecieveActivity : AppCompatActivity() {
             val bundle = Bundle()
             val matchingReceiveFragment = MatchingRecieveFragment()
             sortNewTextView.typeface = resources.getFont(R.font.nanum_square_regular)
-            sortOldTextView.typeface = resources.getFont(R.font.nanum_square_extrabold)
+            sortOldTextView.typeface = resources.getFont(R.font.nanum_square_regular)
+            sortNearTextView.typeface = resources.getFont(R.font.nanum_square_extrabold)
+
             bundle.putInt("sort", 2)
             bundle.putDouble("Lat", latTemp!!)
             bundle.putDouble("Lng", lngTemp!!)

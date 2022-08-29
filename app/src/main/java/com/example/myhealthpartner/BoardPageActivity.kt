@@ -81,8 +81,7 @@ class BoardPageActivity : AppCompatActivity() {
         }
 
         navBoardBtn.setOnClickListener{
-            val intent = Intent(applicationContext, BoardPageActivity::class.java)
-            startActivity(intent)
+            drawerLayout.closeDrawer(GravityCompat.START)
         }
 
         logoutTextView.setOnClickListener {
