@@ -364,6 +364,7 @@ class MyProfileEditPage : AppCompatActivity() {
             dialog2.setView(dialogViewTemp)
             dialog2.show()
             dialogViewTemp.findViewById<Button>(R.id.yesBtn).setOnClickListener{
+                dialog2.dismiss()
                 finish()
                 val intent = Intent(this, MyProfilePageActivity::class.java)
                 startActivity(intent)
