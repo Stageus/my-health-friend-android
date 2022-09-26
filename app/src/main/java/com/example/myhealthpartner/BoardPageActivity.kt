@@ -3,6 +3,7 @@ package com.example.myhealthpartner
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
@@ -15,6 +16,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -90,6 +92,10 @@ class BoardPageActivity : AppCompatActivity() {
     }
 
     fun initEvent(){
+        findViewById<FloatingActionButton>(R.id.postFab).setOnClickListener{
+            val intent = Intent(applicationContext, BoardPostPageActivity::class.java)
+            startActivity(intent)
+        }
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val navBtn = findViewById<ImageButton>(R.id.navBtn)
         navEvent()

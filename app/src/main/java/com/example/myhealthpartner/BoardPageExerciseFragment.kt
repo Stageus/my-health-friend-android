@@ -50,12 +50,12 @@ class BoardPageExerciseFragment : Fragment() {
             contentBox.addView(content)
 
         }
+
     }
 
     fun initEvent(myView : View){
         val boardData = initData()
         val contentBox = myView.findViewById<LinearLayout>(R.id.contentBox)
-
         createBoardList(boardData, myView)
 
 

@@ -32,8 +32,8 @@ data class FindUserDataList(
     val age : Int,
     val exerciseTime : String,
     val introduce : String,
-    val badgedatalist : ArrayList<badgedata>
-
+    val badgedatalist : ArrayList<badgedata>,
+    val youtubeUrl : String
 )
 
 data class badgedata(

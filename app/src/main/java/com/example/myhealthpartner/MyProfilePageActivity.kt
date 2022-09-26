@@ -60,6 +60,7 @@ class MyProfilePageActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.ability).text = "수행능력 - ${loginData.getString("ability", "")}"
         findViewById<TextView>(R.id.time).text = "운동시간 - $exerciseTime"
         findViewById<TextView>(R.id.RPM).text = "${loginData.getInt("rpm", 0)}RPM"
+        loginData.getString("nickname","")
         setAddress()
 
         //실제론 DB가 들어가는 부분

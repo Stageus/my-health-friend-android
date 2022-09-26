@@ -199,6 +199,7 @@ class MyProfileEditPage : AppCompatActivity() {
 
     fun initEvent(){
         val userDataFromJson = initData()
+        //서버 호출
         val userPrefrence = this.getSharedPreferences("loginData", 0)
         val userIndex = userPrefrence.getInt("userIndex",0)
         val userData_ = userDataFromJson!!.user[userIndex]
@@ -246,8 +247,11 @@ class MyProfileEditPage : AppCompatActivity() {
 
         // 시작할 때 자기 주소 기반으로 기본 주소 설정
         val addressText = findViewById<TextView>(R.id.addressText)
+        val urlText = findViewById<TextView>(R.id.youtubeURL)
         val latlngTemp = LatLng(userData_.findUserDataList[0].lat,userData_.findUserDataList[0].lng)
         addressText.text = getAddressFromCode(latlngTemp)
+        urlText.text = userData_.findUserDataList[0].youtubeUrl
+
 
         val introduceEditText = findViewById<TextView>(R.id.introduceEditText)
         introduceEditText.text = userData_.findUserDataList[0].introduce
@@ -382,5 +386,15 @@ class MyProfileEditPage : AppCompatActivity() {
             intent.putExtra("Lng",lngTemp)
             getResultAddress.launch(intent)
         }
+
+        val urlChangeBtn = findViewById<Button>(R.id.urlChangeBtn)
+        urlChangeBtn.setOnClickListener {
+            alertDialog("변경 완료!")
+            //editText 내용을 DB로 백업
+        }
+
+
+        // 코드 전부 수행하고 나서 preference를 갱신해줘야 합니다.
+
     }
 }

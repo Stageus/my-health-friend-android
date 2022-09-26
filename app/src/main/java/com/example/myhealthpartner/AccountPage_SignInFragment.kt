@@ -121,6 +121,7 @@ class AccountPage_SignInFragment : Fragment() {
         loginData?.edit()?.putString("exerciseTime", userData.user[index].findUserDataList[0].exerciseTime)?.apply()
         loginData?.edit()?.putString("introduce", userData.user[index].findUserDataList[0].introduce)?.apply()
         loginData?.edit()?.putInt("userIndex", index)?.apply()
+        loginData?.edit()?.putString("url", userData.user[index].findUserDataList[0].youtubeUrl)?.apply()
 
 
 

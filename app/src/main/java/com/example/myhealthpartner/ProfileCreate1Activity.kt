@@ -38,12 +38,11 @@ import java.util.jar.Manifest
 class ProfileCreate1Activity : AppCompatActivity() {
     private lateinit var progressDialog : AppCompatDialog
     private lateinit var getResultAddress : ActivityResultLauncher<Intent>
-
+    lateinit var imageResult : ActivityResultLauncher<Intent>
 
     var latTemp : Double? = null
     var lngTemp : Double? = null
     //이미지를 결과값을 받는 변수
-    lateinit var imageResult : ActivityResultLauncher<Intent>
 
 
 
